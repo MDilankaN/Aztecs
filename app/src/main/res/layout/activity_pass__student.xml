@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Pass_Student"
+    android:orientation="vertical"
+    android:background="@color/solitude">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Pass List"
+        android:gravity="center"
+        android:textColor="@color/picton_blue"
+        android:paddingVertical="7dp"
+        android:fontFamily="@font/raleway_semibold"/>
+    <ScrollView
+        android:layout_width="390dp"
+        android:layout_height="498dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="498dp"
+            android:layout_marginHorizontal="3dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/S1txt"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S1result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/S2txt"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S2result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/Stxt3"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S3result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="@string/S5txt"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S5result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 06"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S1result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 07"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S2result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 08"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S3result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 10"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S5result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 11"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S1result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 12"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S2result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 13"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S3result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/picton_blue"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/raleway_medium"
+                    android:paddingVertical="6dp"
+                    android:paddingStart="20dp"
+                    android:text="Student 15"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/monda"
+                    android:gravity="center"
+                    android:paddingVertical="6dp"
+                    android:text="@string/S5result"
+                    android:textColor="@color/solitude"
+                    android:textSize="30sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/layout">
+
+        <TextView
+            android:id="@+id/percentageTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Pass percentage"
+            android:textSize="24dp"
+            android:textColor="@color/picton_blue"
+            android:fontFamily="@font/raleway_medium"/>
+
+        <TextView
+            android:id="@+id/PassResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="80%"
+            android:padding="20dp"
+            android:textSize="24dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:fontFamily="@font/raleway_semibold"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
