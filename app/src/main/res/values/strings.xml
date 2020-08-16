@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MAD</string>
+    <string name="usernameT">Hi user name</string>
+    <string name="subject1">Subject 1</string>
+    <string name="subject2">Subject2</string>
+    <string name="subject3">Subject3</string>
+    <string name="code1"></string>
+    <string name="newlyaddedclassrooms">Newly Added Classrooms</string>
+    <string name="sub1">Subject1</string>
+    <string name="code_1">code 1</string>
+    <string name="c1">code 1</string>
+    <string name="current_classrooms">Current Classrooms</string>
+    <string name="most_popular_classrooms">Most Popular Classrooms</string>
+    <string name="classroom_id">Classroom ID</string>
+    <string name="add_forum">Add Forum</string>
+    <string name="reply_to_forum">Reply to Forum</string>
+    <string name="imgstudent_id">Student ID</string>
+    <string name="btnreply">Reply</string>
+    <string name="txtdate">Date</string>
+
+</resources>
