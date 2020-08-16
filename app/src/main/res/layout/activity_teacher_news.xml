@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/txtNewsK"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="@string/news"
+        android:textAlignment="center"
+        android:textColor="@color/darkblue"
+        android:textSize="30dp" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="255dp"
+        android:orientation="vertical"
+        android:scrollbarSize="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@color/darklightBlue"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="false"
+                android:text="@string/science_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginBottom="10dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUpdate1"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btnupdate_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btnDelete1"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btndelete_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtnews2T"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="#122E40"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="false"
+                android:text="@string/math_class_added_a_new_mcq"
+                android:textColor="#E4EBF2"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginBottom="10dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUpdate2"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btnupdate_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btnDelete2"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btndelete_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtNews3T"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@color/darklightBlue"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="false"
+                android:text="@string/Art_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginBottom="10dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUpdate3"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btnupdate_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btnDelete3"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btndelete_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtNews4T"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="@color/darklightBlue"
+                android:fontFamily="@font/raleway_medium"
+                android:includeFontPadding="false"
+                android:text="@string/Music_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp">
+
+            </TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100px"
+                android:layout_marginBottom="10dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnUpdate4"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btnupdate_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+                <Button
+                    android:id="@+id/btnDelete4"
+                    android:layout_width="110dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/lightbutton"
+                    android:fontFamily="@font/raleway_medium"
+                    android:text="@string/btndelete_1"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="18dp">
+
+                </Button>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="?android:attr/listDivider"
+        android:contextClickable="true"
+        android:foreground="@color/darklightBlue" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtPostK"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/new_post"
+            android:textAlignment="center"
+            android:textColor="@color/darkblue"
+            android:textSize="30dp" />
+
+        <EditText
+            android:id="@+id/MultitxtK"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:textAlignment="textStart"
+            android:background="@drawable/custom_edittxt1"
+            android:fontFamily="@font/raleway_medium"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:textColor="@color/lightBlue" />
+
+        <Button
+            android:id="@+id/btnAddK"
+            android:layout_width="145dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/darklightbutton"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/darkblue"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_navi1"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/classroom">
+
+            </Button>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            </Space>
+
+            <Button
+                android:id="@+id/btn_navi2"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/selectnews">
+
+            </Button>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+            </Space>
+
+            <Button
+                android:id="@+id/btn_navi3"
+                android:layout_width="137dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/profile"></Button>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

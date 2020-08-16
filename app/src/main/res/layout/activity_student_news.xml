@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    tools:context=".MainActivity3">
+
+    <TextView
+        android:id="@+id/txtNewsS"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="@string/newsS"
+        android:textAlignment="center"
+        android:textColor="@color/darkblue"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="404dp"
+        android:layout_height="187dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/imagenews"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.831"
+        android:contentDescription="TODO" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="403dp"
+        android:layout_height="397dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:scrollbarSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.833">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNews1S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/lightBlue"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/science_class_added_a_new_mcq"
+                android:textColor="@color/white"
+                android:textColorHighlight="#9C27B0"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews2S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/math_class_added_a_new_mcq"
+                android:textColor="@color/darkblue"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews3S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/lightBlue"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/Art_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews4S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/Music_class_added_a_new_MCQ"
+                android:textColor="@color/darkblue"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews5S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/lightBlue"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/math_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews6S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/Music_class_added_a_new_MCQ"
+                android:textColor="@color/darkblue"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews7S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/lightBlue"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/Music_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews8S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/math_class_added_a_new_MCQ"
+                android:textColor="@color/darkblue"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/txtNews9S"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/custom_edittxt1"
+                android:backgroundTint="@color/lightBlue"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="@string/Music_class_added_a_new_MCQ"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="398dp"
+                android:layout_height="13dp"
+                android:layout_weight="1">
+
+            </Space>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/darkblue"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+
+        <Button
+            android:id="@+id/btn_navi1"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/classroom">
+
+        </Button>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </Space>
+
+        <Button
+            android:id="@+id/btn_navi2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selectnews">
+
+        </Button>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </Space>
+
+        <Button
+            android:id="@+id/btn_navi3"
+            android:layout_width="137dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/profile"></Button>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

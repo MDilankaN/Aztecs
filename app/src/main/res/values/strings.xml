@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Mad</string>
+    <string name="News">News</string>
+    <string name="new_post">New Post</string>
+    <string name="add">Add</string>
+    <string name="teacher_profile">Teacher Profile</string>
+    <string name="news">News</string>
+    <string name="newsS">News</string>
+    <string name="Img1K">BookK</string>
+    <string name="nameT">Name</string>
+    <string name="AddNameT">Name</string>
+    <string name="emailT">Email</string>
+    <string name="descriptionT">Description</string>
+    <string name="number_of_class_roomsT">Number of class Rooms</string>
+    <string name="statusT">Status</string>
+    <string name="number_of_total_studentsT">Number Of Total Students</string>
+    <string name="number_of_total_mcqsT">Number Of Total MCQs</string>
+    <string name="profileS">My Profile</string>
+    <string name="NotificationS">NotificationS</string>
+    <string name="nameS">Name</string>
+    <string name="emailS">Email</string>
+    <string name="descriptionS">Description</string>
+    <string name="statusS">Status</string>
+    <string name="NotificationT">NotificationT</string>
+    <string name="number_of_class_roomS">Number Of Class Room</string>
+    <string name="number_of_total_papers_not_yet_doneS">Number Of Total papers Not Yet Done</string>
+    <string name="number_of_total_answer_papersS">Number Of Total Answer papers</string>
+    <string name="NotificationNoT">12</string>
+    <string name="StudentProfileN1">SNotification1</string>
+    <string name="NotificationNoS">10</string>
+    <string name="Notification_Home">Notification</string>
+    <string name="Notification_Bell_T">NotificationBell</string>
+    <string name="btndelete_1">Delete</string>
+    <string name="btnupdate_1">Update</string>
+    <string name="btnlogout">Log Out</string>
+    <string name="NameSProfile">Anne Jefny</string>
+    <string name="EmailSProfile">anne@gmail.com</string>
+    <string name="NameTProfile">Dr.Shenal Perera</string>
+    <string name="EmailTProfile">shenal@gmail.com</string>
+    <string name="Teacher_Answer_1">Dr.Shenal Silva Added A Reply For The Math class Forum</string>
+    <string name="Teacher_Answer_2">Dr.Chamali Shanika Added A Reply For The Art class Forum</string>
+    <string name="Teacher_Answer_3">Mrs.Shanilka Perera Added A Reply For The Music class Forum</string>
+    <string name="Teacher_Answer_4">Dr.Shenal Silva Added A Reply For The Science class Forum</string>
+    <string name="science_class_added_a_new_mcq">Science class added a new MCQ</string>
+    <string name="math_class_added_a_new_mcq">Math class added a new MCQ</string>
+    <string name="Art_class_added_a_new_MCQ">Art class added a new MCQ</string>
+    <string name="Music_class_added_a_new_MCQ">Music class added a new MCQ</string>
+    <string name="Student_Quection_1">Nethuli Amaya added A New Quection to the Math class Forum</string>
+    <string name="Student_Quection_2">Heshan Yasmitha Added A New Quection to the Maths Class Forum</string>
+    <string name="Studnt_Quection_3">Anne Jefny Added A New Quection To The Science Class</string>
+    <string name="Student_Quection_4">Navidu Perera Added A New Quection To The Sceince Class</string>
+    <string name="science_class_added_a_new_MCQ">Science class added a new MCQ</string>
+    <string name="math_class_added_a_new_MCQ">Math class added a new MCQ</string>
+
+
+</resources>

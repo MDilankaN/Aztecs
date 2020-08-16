@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    tools:context=".Notification"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtNotificationT1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="@string/Notification_Home"
+        android:textAlignment="center"
+        android:textColor="@color/darkblue"
+        android:textSize="36sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+
+    <ImageView
+        android:id="@+id/imgNotificationIconT"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:contentDescription="@string/Notification_Bell_T"
+        app:srcCompat="@drawable/bellimage"/>
+
+    <ScrollView
+        android:id="@+id/NotificationScroll"
+        android:layout_width="match_parent"
+        android:layout_height="303dp"
+        android:orientation="vertical"
+        android:scrollbarSize="15dp"
+        android:scrollbarStyle="insideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+
+            <TextView
+                android:id="@+id/txtNotificationMsg1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Teacher_Answer_1"
+                android:textSize="18dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/light" />
+
+            <TextView
+                android:id="@+id/txtNotificationMsg2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Teacher_Answer_2"
+                android:textSize="18dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/darklightBlue"
+                android:background="@color/lightBlue"/>
+
+            <TextView
+                android:id="@+id/txtNotificationMsg3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Teacher_Answer_3"
+                android:textSize="18dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/light"/>
+
+            <TextView
+                android:id="@+id/txtNotificationMsg4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Teacher_Answer_4"
+                android:textSize="18dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/darklightBlue"
+                android:background="@color/lightBlue"/>
+            <TextView
+                android:id="@+id/txtNotificationMsg5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Teacher_Answer_1"
+                android:textSize="18dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:textColor="@color/light" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
