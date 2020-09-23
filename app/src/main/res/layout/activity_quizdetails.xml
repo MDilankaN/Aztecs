@@ -51,7 +51,7 @@
                 android:textSize="24dp" />
 
             <EditText
-                android:id="@+id/editTextDate"
+                android:id="@+id/ETQuizName"
                 android:layout_width="182dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity=""
@@ -110,7 +110,7 @@
                 android:textSize="24dp" />
 
             <EditText
-                android:id="@+id/editTextTime"
+                android:id="@+id/ETQuizTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/edit_text"
@@ -132,7 +132,7 @@
             android:textSize="24dp" />
 
         <EditText
-            android:id="@+id/editTextTextMultiLine"
+            android:id="@+id/ETQuizDescription"
             android:layout_width="350dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
@@ -146,7 +146,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/QdsubmitBtn"
+        android:id="@+id/QuizNextBt"
         android:layout_width="269dp"
         android:layout_height="99dp"
         android:background="@drawable/button5"

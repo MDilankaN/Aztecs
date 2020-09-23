@@ -10,6 +10,7 @@ import android.widget.Button;
 public class QuizDetails extends AppCompatActivity {
     Button button;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class QuizDetails extends AppCompatActivity {
     }
 
     public void OnclickButtonListener() {
-        button = findViewById(R.id.QdsubmitBtn);
+        button = findViewById(R.id.QuizNextBt);
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
