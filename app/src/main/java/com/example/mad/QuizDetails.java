@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class QuizDetails extends AppCompatActivity {
     Button button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
