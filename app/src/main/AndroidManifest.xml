@@ -12,14 +12,16 @@
         <activity android:name=".Pass_Student" />
         <activity android:name=".Student_results" />
         <activity android:name=".QuizDetails" />
-        <activity android:name=".Quizzes" />
-        <activity android:name=".EmailVerification" />
-        <activity android:name=".SignUp">
+        <activity android:name=".Quizzes" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".EmailVerification" />
+        <activity android:name=".SignUp">
+
         </activity>
 
         <meta-data

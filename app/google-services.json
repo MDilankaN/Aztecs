@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "848739497605",
+    "firebase_url": "https://mad-55ede.firebaseio.com",
+    "project_id": "mad-55ede",
+    "storage_bucket": "mad-55ede.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848739497605:android:e9e8ae3f6f9024faca1bec",
+        "android_client_info": {
+          "package_name": "com.example.mad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848739497605-jr52kjtc8866temtbkjmprci0dq9kl1q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIr8ywMM-D3GWEKrV6R8l0bSReBGK-Bh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848739497605-jr52kjtc8866temtbkjmprci0dq9kl1q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
