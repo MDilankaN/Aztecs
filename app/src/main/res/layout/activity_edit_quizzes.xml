@@ -53,7 +53,7 @@
                     android:gravity="center"
                     android:inputType="textPersonName"
                     android:paddingVertical="8dp"
-                    android:text="@string/Q1text" />
+                    android:text="quiz 1" />
 
             </LinearLayout>
 

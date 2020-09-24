@@ -9,20 +9,4 @@
     <string name="usernameHint">Username</string>
     <string name="VerifyBtn">Verify</string>
     <string name="codeHint">Verification code</string>
-    <string name="Q1text">Quiz 01</string>
-    <string name="Q2text">Quiz 02</string>
-    <string name="Q3text">Quiz 03</string>
-    <string name="Rtext">Result</string>
-    <string name="QuizeTxt">Quizzes</string>
-    <string name="Stxt3">Student 03</string>
-    <string name="S2result">50</string>
-    <string name="S2txt">Student 02</string>
-    <string name="S1result">65</string>
-    <string name="S1txt">Student 01</string>
-    <string name="QRtxt">Quiz 01 result</string>
-    <string name="S3result">55</string>
-    <string name="S4txt">Student 04</string>
-    <string name="S4result">20</string>
-    <string name="S5txt">Student 05</string>
-    <string name="S5result">89</string>
 </resources>
