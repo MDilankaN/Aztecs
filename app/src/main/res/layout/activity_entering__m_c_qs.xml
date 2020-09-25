@@ -44,7 +44,7 @@
             android:textSize="28dp" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/mcqSubmitBT"
             android:layout_width="209dp"
             android:layout_height="108dp"
             android:background="@drawable/button5"
