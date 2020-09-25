@@ -11,7 +11,9 @@
         <activity android:name=".Entering_MCQs" />
         <activity android:name=".Pass_Student" />
         <activity android:name=".Student_results" />
-        <activity android:name=".QuizDetails" />
+        <activity android:name=".QuizDetails" >
+
+        </activity>
         <activity android:name=".Quizzes" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

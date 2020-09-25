@@ -36,6 +36,8 @@ public class Quizzes extends AppCompatActivity {
         recyclerView = findViewById(R.id.quizzesRecyclerview);
         /*LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
+
+
         recyclerView.setHasFixedSize(true);*/
 
         ref = FirebaseDatabase.getInstance().getReference().child("ClassQuize").child("maths");

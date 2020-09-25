@@ -65,12 +65,12 @@ public class SignUp extends AppCompatActivity {
                             password.setTextColor(Color.BLACK);
                             email.setTextColor(Color.BLACK);
                             username.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter your at least four characters",toast.LENGTH_SHORT).show();
+                            toast.makeText(getApplicationContext(),"Please enter at least four characters for the username ",toast.LENGTH_SHORT).show();
                         }else  if(password.getText().toString().length()<6){
                             email.setTextColor(Color.BLACK);
                             username.setTextColor(Color.BLACK);
                             password.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter your at least six characters",toast.LENGTH_SHORT).show();
+                            toast.makeText(getApplicationContext(),"Please enter at least six characters for the password",toast.LENGTH_SHORT).show();
                         }else {
                             user.setEmail(email.getText().toString().trim());
                             user.setUsername(username.getText().toString().trim());
