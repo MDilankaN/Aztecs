@@ -2,10 +2,12 @@ package com.example.mad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +29,7 @@ public class Quizzes extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<QuizList> quizLists;
     RecyclerAdapter_QuizList recyclerAdapter;
+    DividerItemDecoration dividerItemDecoration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +37,8 @@ public class Quizzes extends AppCompatActivity {
         setContentView(R.layout.activity_quizzes);
 
         recyclerView = findViewById(R.id.quizzesRecyclerview);
-        /*LinearLayoutManager manager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(manager);
-
-
-        recyclerView.setHasFixedSize(true);*/
+        dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
         ref = FirebaseDatabase.getInstance().getReference().child("ClassQuize").child("maths");
 
@@ -55,10 +55,10 @@ public class Quizzes extends AppCompatActivity {
                              quizLists.add(ql);
                              ql.setQuizName(ds.child("name").getValue().toString());
                         }
-                        recyclerAdapter = new RecyclerAdapter_QuizList(quizLists);
+                        recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists);
                         recyclerView.setAdapter(recyclerAdapter);
 
-                        Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(Quizzes.this,"can't find maths class",Toast.LENGTH_SHORT).show();
                     }
@@ -73,10 +73,13 @@ public class Quizzes extends AppCompatActivity {
 
     }
 
-    public void openNewActivity(View v){
+    public void on(){
         Intent intent = new Intent(this, QuizDetails.class);
         startActivity(intent);
     }
 
-
+    public void openNewActivity(View v){
+        Intent intent = new Intent(this, QuizDetails.class);
+        startActivity(intent);
+    }
 }

@@ -51,13 +51,11 @@ public class QuizDetails extends AppCompatActivity {
                          quizName.setTextColor(Color.RED);
 
                      } else {
-                         QName = quizName.getText().toString().trim();
                          qd = new Quiz_Details();
-                         ref.child(QName);
                          qd.setQuizName(quizName.getText().toString());
                          qd.setQuizTime(Integer.parseInt(time.getText().toString().trim()));
                          qd.setQuizDescription(description.getText().toString());
-                         ref.child(QName).setValue(qd);
+                         ref.child(qd.getQuizName()).setValue(qd);
                          Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
                          Intent intent = new Intent(QuizDetails.this, Entering_MCQs.class);
                          startActivity(intent);
