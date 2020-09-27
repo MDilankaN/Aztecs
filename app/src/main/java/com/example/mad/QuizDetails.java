@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -44,10 +45,10 @@ public class QuizDetails extends AppCompatActivity {
                     public void onClick(View view) {
                  try {
                      if (quizName.getText().toString().isEmpty() | time.getText().toString().trim().isEmpty() | description.getText().toString().isEmpty()) {
-                         Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
                          quizName.setTextColor(Color.BLACK);
                      } else if (quizName.getText().toString().length() < 4) {
-                         Toast.makeText(getApplicationContext(), "Please enter at least four characters for the username", Toast.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Please enter at least four characters for the username",Snackbar.LENGTH_SHORT).show();
                          quizName.setTextColor(Color.RED);
 
                      } else {
@@ -56,13 +57,14 @@ public class QuizDetails extends AppCompatActivity {
                          qd.setQuizTime(Integer.parseInt(time.getText().toString().trim()));
                          qd.setQuizDescription(description.getText().toString());
                          ref.child(qd.getQuizName()).setValue(qd);
-                         Toast.makeText(getApplicationContext(),"Successful",Toast.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Successful",Snackbar.LENGTH_SHORT).show();
                          Intent intent = new Intent(QuizDetails.this, Entering_MCQs.class);
                          startActivity(intent);
                          finish();
                      }
                       }catch (NumberFormatException e){
-                        Toast.makeText(getApplicationContext(),"Invalid Time Duration",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Invalid Time Duration",Snackbar.LENGTH_SHORT).show();
                       }
                     }
                 }

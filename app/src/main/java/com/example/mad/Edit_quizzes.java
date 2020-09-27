@@ -45,8 +45,7 @@ public class Edit_quizzes extends AppCompatActivity {
             public void onClick(final View view) {
                 try {
                     if (QName.getText().toString().isEmpty() | QTime.getText().toString().trim().isEmpty() | QDescription.getText().toString().isEmpty()) {
-                        Toast.makeText(getApplicationContext(), "Please fill all fields", Toast.LENGTH_SHORT).show();
-                        QName.setTextColor(Color.BLACK);
+                        Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
                     } else {
                                     QD = new Quiz_Details();
                                     QD.setQuizName(QName.getText().toString());
