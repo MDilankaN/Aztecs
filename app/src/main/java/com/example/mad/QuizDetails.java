@@ -62,7 +62,7 @@ public class QuizDetails extends AppCompatActivity {
                          finish();
                      }
                       }catch (NumberFormatException e){
-                        Toast.makeText(getApplicationContext(),"Invalid Time deuration",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"Invalid Time Duration",Toast.LENGTH_SHORT).show();
                       }
                     }
                 }

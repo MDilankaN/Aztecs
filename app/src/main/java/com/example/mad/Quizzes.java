@@ -24,12 +24,12 @@ import java.util.ArrayList;
 public class Quizzes extends AppCompatActivity {
 
     public FloatingActionButton addQuiz;
-    TextView result,Q1edit;
     RecyclerView recyclerView;
     DatabaseReference ref;
     ArrayList<QuizList> quizLists;
     RecyclerAdapter_QuizList recyclerAdapter;
     DividerItemDecoration dividerItemDecoration;
+    ArrayList<String> QNAME;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,22 +40,22 @@ public class Quizzes extends AppCompatActivity {
         dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("ClassQuize").child("maths");
-
-
+        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child("Quiz 01");
 
             ref.addValueEventListener(new ValueEventListener(){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.hasChildren()){
                         quizLists = new ArrayList<>();
+                        QNAME = new ArrayList<>();
                         for(DataSnapshot ds : snapshot.getChildren()){
 
                              QuizList ql = new QuizList();
                              quizLists.add(ql);
-                             ql.setQuizName(ds.child("name").getValue().toString());
+                             ql.setQuizName(ds.child("quizName").getValue().toString());
+                             QNAME.add(ql.getQuizName());
                         }
-                        recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists);
+                        recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists,QNAME);
                         recyclerView.setAdapter(recyclerAdapter);
 
                        // Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();

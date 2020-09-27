@@ -27,10 +27,11 @@ import java.util.ArrayList;
 public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapter_QuizList.ViewHolder> {
     ArrayList<QuizList> quizLists;
     Context quizzes;
-    DatabaseReference ref1,ref2;
-    public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists){
+    ArrayList<String> QNAME;
+    public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME){
         this.quizLists = quizLists;
         this.quizzes = quizzes;
+        this.QNAME = QNAME;
     }
     @NonNull
     @Override
@@ -42,6 +43,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.QuizName.setText(quizLists.get(position).getQuizName());
+
     }
 
     @Override
@@ -54,7 +56,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
         TextView QuizName;
         ImageView Edit,Delete;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             QuizName = itemView.findViewById(R.id.quizName);
             Edit = itemView.findViewById(R.id.QuizEdit);
@@ -65,14 +67,16 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                 public void onClick(View view) {
                     Intent intent = new Intent(quizzes,Student_results.class);
                     quizzes.startActivity(intent);
+
                 }
             });
 
-            Edit.setOnClickListener(new View.OnClickListener() {
+           Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(quizzes,Edit_quizzes.class);
                     quizzes.startActivity(intent);
+
                 }
             });
 

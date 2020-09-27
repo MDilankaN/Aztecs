@@ -8,8 +8,25 @@
     android:background="@color/solitude">
 
 
+    <Button
+        android:id="@+id/Update_BT"
+        android:layout_width="212dp"
+        android:layout_height="117dp"
+        android:layout_marginTop="264dp"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/button5"
+        android:fontFamily="@font/raleway_medium"
+        android:padding="15dp"
+        android:text="update"
+        android:textColor="@color/White"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
-        <LinearLayout
+    <LinearLayout
             android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,8 +69,7 @@
                     android:background="@drawable/edit_text"
                     android:gravity="center"
                     android:inputType="textPersonName"
-                    android:paddingVertical="8dp"
-                    android:text="quiz 1" />
+                    android:paddingVertical="8dp" />
 
             </LinearLayout>
 
@@ -81,8 +97,7 @@
                     android:background="@drawable/edit_text"
                     android:gravity="center"
                     android:inputType="textPersonName"
-                    android:paddingVertical="8dp"
-                    android:text="120" />
+                    android:paddingVertical="8dp" />
 
             </LinearLayout>
 
@@ -97,53 +112,18 @@
                 android:textColor="@color/picton_blue"
                 android:textSize="24dp" />
 
-            <EditText
-                android:id="@+id/UpdateQdescription"
-                android:layout_width="350dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/edit_text"
-                android:ems="10"
-                android:inputType="textMultiLine"
-                android:padding="10dp"
-                android:paddingVertical="8dp"
-                android:text="Pleace do this quiz before next week" />
+        <EditText
+            android:id="@+id/UpdateQdescription"
+            android:layout_width="350dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:paddingVertical="8dp" />
         </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="399dp"
-        android:layout_height="79dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/layout">
-
-        <Button
-            android:layout_width="178dp"
-            android:layout_height="79dp"
-            android:layout_marginLeft="3dp"
-            android:background="@drawable/button5"
-            android:fontFamily="@font/raleway_medium"
-            android:padding="15dp"
-            android:text="update"
-            android:textSize="28dp"
-            android:textColor="@color/White"/>
-
-        <Button
-            android:layout_width="163dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:background="@drawable/button5"
-            android:fontFamily="@font/raleway_medium"
-            android:padding="15dp"
-            android:textColor="@color/White"
-            android:text="Delete"
-            android:textSize="28dp" />
-
-
-    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

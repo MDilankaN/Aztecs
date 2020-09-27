@@ -2,9 +2,12 @@ package com.example.mad;
 
 public class session {
 
-    private   String CLASS = null;
-    private  String USERNAME = null;
-    private  String QUIZ = null;
+    private  String CLASS ;
+    private  String USERNAME ;
+    private  String QUIZ ;
+
+    public session() {
+    }
 
     public String getCLASS() {
         return CLASS;

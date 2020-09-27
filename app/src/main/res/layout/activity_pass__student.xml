@@ -18,46 +18,64 @@
         android:textColor="@color/picton_blue"
         android:paddingVertical="7dp"
         android:fontFamily="@font/raleway_semibold"/>
-    <ScrollView
-        android:layout_width="390dp"
-        android:layout_height="498dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.0"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@drawable/layout">
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/percentageTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_medium"
             android:padding="20dp"
             android:text="Pass percentage"
-            android:textSize="24dp"
             android:textColor="@color/picton_blue"
-            android:fontFamily="@font/raleway_medium"/>
+            android:textSize="24dp" />
 
         <TextView
             android:id="@+id/PassResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="80%"
-            android:padding="20dp"
-            android:textSize="24dp"
-            android:textColor="@color/black"
+            android:fontFamily="@font/raleway_semibold"
             android:gravity="center"
-            android:fontFamily="@font/raleway_semibold"/>
+            android:padding="20dp"
+            android:text="80%"
+            android:textColor="@color/black"
+            android:textSize="24dp" />
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/picton_blue">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="30dp"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marks"
+            android:textSize="30dp"
+            android:layout_marginLeft="175dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/passRecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
 </LinearLayout>
