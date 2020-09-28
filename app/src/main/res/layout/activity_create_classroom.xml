@@ -10,7 +10,7 @@
     android:gravity="bottom"
     tools:context=".MainActivity">
 
-<!--    Layout1-->
+    <!--    Layout1-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -18,14 +18,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Forum"
+            android:text="Create Classroom"
             android:textAlignment="center"
             android:textColor="@color/darkcolor"
             android:textSize="30dp"></TextView>
     </LinearLayout>
-
-    <!--    Layout2-->
-
 
     <ImageView
         android:layout_width="200dp"
@@ -36,18 +33,17 @@
         android:background="@drawable/forum1">
 
     </ImageView>
-
-
     <!--    Layout3-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/scrollview"
         android:orientation="vertical"
         android:paddingTop="10dp">
 
+        <!--    Layout for classroom name-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
@@ -81,6 +77,7 @@
             </Space>
 
             <EditText
+                android:id="@+id/EtName"
                 android:layout_width="138dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/inputid">
@@ -96,6 +93,59 @@
 
 
         </LinearLayout>
+
+        <!--    Layout for classroom code-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Code"
+                android:textColor="@color/lightcolor"
+                android:textSize="25dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="22">
+
+            </Space>
+
+            <EditText
+                android:id="@+id/EtCode"
+                android:layout_width="138dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/inputid">
+
+            </EditText>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+
+            </Space>
+
+
+        </LinearLayout>
+
+        <!--    Layout for classroom description -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,9 +163,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="18dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="No Of Students"
+                android:text="Description"
                 android:textColor="@color/lightcolor"
                 android:textSize="25dp"
                 android:textStyle="bold">
@@ -125,60 +175,12 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="22">
 
             </Space>
 
             <EditText
-                android:layout_width="135dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/inputid">
-
-            </EditText>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-            </Space>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-            </Space>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="Highest Mark"
-                android:textColor="@color/lightcolor"
-                android:textSize="25dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
-
-            </Space>
-
-            <EditText
+                android:id="@+id/EtDes"
                 android:layout_width="138dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/inputid">
@@ -188,172 +190,56 @@
             <Space
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="3">
 
             </Space>
 
 
         </LinearLayout>
+
+
     </LinearLayout>
 
-    <TextView
+    <!--    Layout for buttons -->
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recieved Forums"
-        android:textStyle="bold"
-        android:fontFamily="@font/raleway_semibold"
-        android:textSize="28dp"
-        android:layout_marginLeft="10dp">
+        android:background="@drawable/linearlayout"
+        android:paddingEnd="10dp"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    </TextView>
-    <!--    Layout4-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="111dp"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/scrollview"
-            android:padding="10dp"
-            android:orientation="vertical">
+            android:layout_height="30dp"
+            android:background="@drawable/cancel">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/linearlayout"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+        </Button>
 
-                <TextView
-                    android:layout_width="240dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/inputid"
-                    android:textAlignment="center">
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2">
 
-                </TextView>
 
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
+        </Space>
 
-                </Space>
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="111dp"
 
-                <Button
-                    android:layout_width="107dp"
-                    android:layout_height="31dp"
+            android:layout_height="30dp"
+            android:background="@drawable/create">
 
-                    android:background="@drawable/replybtn">
+        </Button>
+    </LinearLayout>
 
-                </Button>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/linearlayout"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="240dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/inputid"
-                    android:textAlignment="center">
-
-                </TextView>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                </Space>
-
-                <Button
-                    android:layout_width="111dp"
-                    android:layout_height="30dp"
-
-                    android:background="@drawable/replybtn">
-
-                </Button>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/linearlayout"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="240dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/inputid"
-                    android:textAlignment="center">
-
-                </TextView>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                </Space>
-
-                <Button
-                    android:layout_width="107dp"
-                    android:layout_height="31dp"
-
-                    android:background="@drawable/replybtn">
-
-                </Button>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@drawable/linearlayout"
-                android:paddingEnd="10dp"
-                android:paddingLeft="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="240dp"
-                    android:layout_height="33dp"
-                    android:background="@drawable/inputid"
-                    android:textAlignment="center">
-
-                </TextView>
-
-                <Space
-                    android:layout_width="10dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                </Space>
-
-                <Button
-                    android:layout_width="107dp"
-                    android:layout_height="31dp"
-
-                    android:background="@drawable/replybtn">
-
-                </Button>
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
+    <!--bottom -->
 
     <!--    Layout5-->
     <LinearLayout
@@ -369,7 +255,7 @@
             android:id="@+id/btn_navi1"
             android:layout_width="171dp"
             android:layout_height="match_parent"
-            android:background="@drawable/classroom">
+            android:background="@drawable/selected">
 
         </Button>
         <Space
@@ -405,6 +291,8 @@
 
 
     </LinearLayout>
+
+
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

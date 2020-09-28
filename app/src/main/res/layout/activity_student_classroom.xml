@@ -91,7 +91,7 @@
             </Space>
 
             <TextView
-                android:id="@+id/txt_code1"
+                android:id="@+id/txt_code10"
                 android:layout_width="54dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
@@ -117,7 +117,7 @@
                 android:paddingStart="30dp">
 
                 <TextView
-                    android:id="@+id/txt_clsin2"
+                    android:id="@+id/txt_clsin20"
                     android:layout_width="238dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif"
@@ -136,7 +136,7 @@
                 </Space>
 
                 <TextView
-                    android:id="@+id/txt_code2"
+                    android:id="@+id/txt_code23"
                     android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"
@@ -162,7 +162,7 @@
                 android:paddingStart="30dp">
 
                 <TextView
-                    android:id="@+id/txt_clsin3"
+                    android:id="@+id/txt_clsin30"
                     android:layout_width="238dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/raleway_semibold"
@@ -181,7 +181,7 @@
                 </Space>
 
                 <TextView
-                    android:id="@+id/txt_code3"
+                    android:id="@+id/txt_code33"
                     android:layout_width="55dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
@@ -199,7 +199,7 @@
     </ScrollView>
 
             <TextView
-                android:id="@+id/txt_clsS2"
+                android:id="@+id/txt_clsS22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -232,7 +232,7 @@
                         android:paddingStart="30dp">
 
                         <TextView
-                            android:id="@+id/txt_clsSin1"
+                            android:id="@+id/txt_clsSin10"
                             android:layout_width="241dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/raleway_semibold"
@@ -251,7 +251,7 @@
                         </Space>
 
                         <TextView
-                            android:id="@+id/txt_code1"
+                            android:id="@+id/txt_code16"
                             android:layout_width="54dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
@@ -276,7 +276,7 @@
                         android:paddingStart="30dp">
 
                         <TextView
-                            android:id="@+id/txt_clsin2"
+                            android:id="@+id/txt_clsin21"
                             android:layout_width="238dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif"
@@ -295,7 +295,7 @@
                         </Space>
 
                         <TextView
-                            android:id="@+id/txt_code2"
+                            android:id="@+id/txt_code21"
                             android:layout_width="57dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="20dp"
@@ -320,7 +320,7 @@
                         android:paddingStart="30dp">
 
                         <TextView
-                            android:id="@+id/txt_clsin3"
+                            android:id="@+id/txt_clsin31"
                             android:layout_width="238dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/raleway_semibold"
@@ -339,7 +339,7 @@
                         </Space>
 
                         <TextView
-                            android:id="@+id/txt_code3"
+                            android:id="@+id/txt_code31"
                             android:layout_width="55dp"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="20dp"

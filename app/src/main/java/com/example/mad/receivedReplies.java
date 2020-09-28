@@ -1,14 +1,13 @@
 package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class receivedReplies extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_classroom);
+        setContentView(R.layout.activity_received_replies);
     }
 }
