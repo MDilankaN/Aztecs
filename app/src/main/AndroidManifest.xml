@@ -13,7 +13,6 @@
         </activity>
         <activity android:name=".joinViewClassrooms" />
         <activity android:name=".teacherHome" />
-        <activity android:name=".studentHome" />
         <activity android:name=".createClassroom" />
         <activity android:name=".newforum" />
         <activity android:name=".ReplyForum" />
