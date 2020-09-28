@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mad</string>
+    <string name="app_name">MobileApp</string>
     <string name="News">News</string>
     <string name="new_post">New Post</string>
     <string name="add">Add</string>
@@ -51,6 +51,4 @@
     <string name="Student_Quection_4">Navidu Perera Added A New Quection To The Sceince Class</string>
     <string name="science_class_added_a_new_MCQ">Science class added a new MCQ</string>
     <string name="math_class_added_a_new_MCQ">Math class added a new MCQ</string>
-
-
 </resources>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:backgroundTint="@color/white"
-    tools:context=".Notification"
+    tools:context=".NotificationTeacher"
     android:orientation="vertical">
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="300dp"
         android:contentDescription="@string/Notification_Bell_T"
-        app:srcCompat="@drawable/bellimage"/>
+        app:srcCompat="@drawable/bellimage" />
 
     <ScrollView
         android:id="@+id/NotificationScroll"
@@ -47,28 +47,27 @@
                 android:id="@+id/txtNotificationMsg1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Teacher_Answer_1"
+                android:text="@string/Student_Quection_1"
                 android:textSize="18dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:textColor="@color/light" />
+                android:textColor="@color/light"/>
 
             <TextView
                 android:id="@+id/txtNotificationMsg2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Teacher_Answer_2"
+                android:text="@string/Student_Quection_2"
                 android:textSize="18dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:textColor="@color/darklightBlue"
-                android:background="@color/lightBlue"/>
+                android:textColor="@color/darklightBlue"/>
 
             <TextView
                 android:id="@+id/txtNotificationMsg3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Teacher_Answer_3"
+                android:text="@string/Studnt_Quection_3"
                 android:textSize="18dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/raleway_semibold"
@@ -78,23 +77,23 @@
                 android:id="@+id/txtNotificationMsg4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Teacher_Answer_4"
+                android:text="@string/Student_Quection_4"
                 android:textSize="18dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:textColor="@color/darklightBlue"
-                android:background="@color/lightBlue"/>
+                android:textColor="@color/darklightBlue"/>
             <TextView
                 android:id="@+id/txtNotificationMsg5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Teacher_Answer_1"
+                android:text="@string/Student_Quection_4"
                 android:textSize="18dp"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:textColor="@color/light" />
 
         </LinearLayout>
+
 
     </ScrollView>
 
