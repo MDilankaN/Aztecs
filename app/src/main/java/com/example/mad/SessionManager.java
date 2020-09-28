@@ -1,7 +1,4 @@
-package com.example.login;
-
-import android.content.Context;
-import android.content.SharedPreferences;
+package com.example.mad;
 
 public class SessionManager {
 

@@ -1,10 +1,10 @@
-package com.example.login;
+package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MainActivity5 extends AppCompatActivity {
+public class ResetPwdPage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

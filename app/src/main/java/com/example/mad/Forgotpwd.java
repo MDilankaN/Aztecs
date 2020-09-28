@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,27 +7,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-
+public class Forgotpwd extends AppCompatActivity {
     private Button btnSend ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.welcome);
+        setContentView(R.layout.forgotpwd);
         onButtonClick();
-
     }
     public void onButtonClick(){
-        btnSend = (Button) findViewById(R.id.btnstrt);
+        btnSend = (Button) findViewById(R.id.btnm3);
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openActivity3();
             }
         });
-    }
+}
     public void openActivity3(){
-        Intent intx = new Intent(this, MainActivity2.class);
+        Intent intx = new Intent(this, Veriyfypage.class);
         startActivity(intx);
     }
 }

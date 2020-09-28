@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.mad;
 
 import org.junit.Test;
 

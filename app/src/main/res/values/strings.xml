@@ -6,4 +6,15 @@
     <string name="un">UserName</string>
     <string name="fpwd">Forgot Password...?</string>
     <string name="e_mail">E-mail Address</string>
+    <string name="paper_1">Paper 1</string>
+    <string name="vm">View Marks</string>
+    <string name="paper_2">Paper 2</string>
+    <string name="papers">Papers</string>
+    <string name="p1m">Paper 1 Marks</string>
+    <string name="some_about_paper_description_and_time_details">Some about paper description and time details</string>
+    <string name="time_reamining">Time Reamining</string>
+    <string name="time">00:00:00</string>
+    <string name="submit">Submit</string>
+    <string name="des">Description about time and paper</string>
+    <string name="tm">Time Reaming :</string>
 </resources>

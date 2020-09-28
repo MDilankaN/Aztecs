@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.mad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity4 extends AppCompatActivity {
+public class Veriyfypage extends AppCompatActivity {
 
     private Button check;
     @Override
@@ -27,7 +27,7 @@ public class MainActivity4 extends AppCompatActivity {
         });
     }
     public void openActivity4(){
-        Intent intx = new Intent(this, MainActivity5.class);
+        Intent intx = new Intent(this, ResetPwdPage.class);
         startActivity(intx);
     }
 }

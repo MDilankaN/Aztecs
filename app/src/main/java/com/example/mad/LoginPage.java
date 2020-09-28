@@ -1,4 +1,4 @@
-package com.example.login;
+package com.example.mad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class MainActivity2 extends AppCompatActivity {
+public class LoginPage extends AppCompatActivity {
 
 
     SessionManager s = new SessionManager();
@@ -48,7 +48,7 @@ public class MainActivity2 extends AppCompatActivity {
         logbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validate();
+                validate(view);
             }
         });
     }
@@ -67,21 +67,21 @@ public class MainActivity2 extends AppCompatActivity {
 
     // open activity2 function
     public void openActivity2(){
-        Intent intx = new Intent(this, MainActivity3.class);
+        Intent intx = new Intent(this, Forgotpwd.class);
         startActivity(intx);
     }
 
     //check & validates user inputs
-    public void validate(){
+    public void validate(final View view){
         //hooks
         unedtxt  =(EditText) findViewById(R.id.unminput);
         pwdtxt  =(EditText) findViewById(R.id.pwdminput);
 
         try{
             if(TextUtils.isEmpty(unedtxt.getText())){
-                Toast.makeText(getApplicationContext(),"Username Field id empty",Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"Username Field id empty",Snackbar.LENGTH_SHORT).show();
             }else if(TextUtils.isEmpty(pwdtxt.getText())){
-                Toast.makeText(getApplicationContext(),"Password Field id empty",Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"Password Field id empty",Snackbar.LENGTH_SHORT).show();
             }else {
                 uname = unedtxt.getText().toString();
                 pwd = pwdtxt.getText().toString();
@@ -97,7 +97,7 @@ public class MainActivity2 extends AppCompatActivity {
                             s.setType(snapshot.child("userType").getValue().toString());
                         }else{
                             //if data not found
-                            Toast.makeText(getApplicationContext(),"Invalid User",Toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Invalid User",Snackbar.LENGTH_SHORT).show();
                         }
                     }
                     @Override
@@ -108,14 +108,15 @@ public class MainActivity2 extends AppCompatActivity {
                 //check the user inputs and database values are equal
                 if(s.getPwd().equals(pwd)){
                     if(s.getType().equals("teacher")){
-                        Toast.makeText(getApplicationContext(),"Loging in",Toast.LENGTH_SHORT).show();
+                        Snackbar.make(view,"Logging n",Snackbar.LENGTH_SHORT).show();
+
                         //Teacher's Homepage
                     }else{
-                        Toast.makeText(getApplicationContext(),"Loging in",Toast.LENGTH_SHORT).show();
+                        Snackbar.make(view,"Logging in",Snackbar.LENGTH_SHORT).show();
                         //Students's Homepage
                     }
                 }else{
-                    Toast.makeText(getApplicationContext(),"Invalid password",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view,"Invalid password",Snackbar.LENGTH_SHORT).show();
                 }
             }
         }catch (Exception e){
