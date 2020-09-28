@@ -7,7 +7,8 @@
     android:background="@color/white"
     android:backgroundTint="@color/white"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_marginHorizontal="5dp">
 
     <TextView
         android:id="@+id/txtNewsK"
@@ -37,6 +38,7 @@
 
         <EditText
             android:id="@+id/MultitxtK"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="135dp"
             android:autofillHints=""
@@ -93,7 +95,8 @@
         android:layout_height="40dp"
         android:background="@color/darkblue"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
 
 
         <Button

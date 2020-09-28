@@ -51,4 +51,13 @@
     <string name="Student_Quection_4">Navidu Perera Added A New Quection To The Sceince Class</string>
     <string name="science_class_added_a_new_MCQ">Science class added a new MCQ</string>
     <string name="math_class_added_a_new_MCQ">Math class added a new MCQ</string>
+    <string name="toptxt">SIGN UP</string>
+    <string name="btntxt">SIGN UP</string>
+    <string name="A2Bottxt">Retry</string>
+    <string name="A2Toptxt">Verify Your Email</string>
+    <string name="EmailHint">Email</string>
+    <string name="passwordHint">Password</string>
+    <string name="usernameHint">Username</string>
+    <string name="VerifyBtn">Verify</string>
+    <string name="codeHint">Verification code</string>
 </resources>

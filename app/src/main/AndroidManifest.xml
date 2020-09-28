@@ -15,12 +15,33 @@
         <activity android:name=".Student_profile" />
         <activity android:name=".Activity_Student_News" />
         <activity android:name=".MainActivity">
+
+
+        </activity>
+        <activity android:name=".Edit_quizzes"></activity>
+        <activity android:name=".Entering_MCQs" >
+        </activity>
+        <activity android:name=".Pass_Student" />
+        <activity android:name=".Student_results">
+
+        </activity>
+        <activity android:name=".QuizDetails" >
+
+        </activity>
+        <activity android:name=".Quizzes" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+        <activity android:name=".EmailVerification" />
+        <activity android:name=".SignUp">
+
+
+        </activity>
+
     </application>
 
 </manifest>
