@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">MobileApp</string>
+    //keshani
     <string name="News">News</string>
     <string name="new_post">New Post</string>
     <string name="add">Add</string>
@@ -51,6 +52,7 @@
     <string name="Student_Quection_4">Navidu Perera Added A New Quection To The Sceince Class</string>
     <string name="science_class_added_a_new_MCQ">Science class added a new MCQ</string>
     <string name="math_class_added_a_new_MCQ">Math class added a new MCQ</string>
+    //chamidu
     <string name="toptxt">SIGN UP</string>
     <string name="btntxt">SIGN UP</string>
     <string name="A2Bottxt">Retry</string>
@@ -60,4 +62,22 @@
     <string name="usernameHint">Username</string>
     <string name="VerifyBtn">Verify</string>
     <string name="codeHint">Verification code</string>
+    //menaka
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="pwd">Password</string>
+    <string name="un">UserName</string>
+    <string name="fpwd">Forgot Password...?</string>
+    <string name="e_mail">E-mail Address</string>
+    <string name="paper_1">Paper 1</string>
+    <string name="vm">View Marks</string>
+    <string name="paper_2">Paper 2</string>
+    <string name="papers">Papers</string>
+    <string name="p1m">Paper 1 Marks</string>
+    <string name="some_about_paper_description_and_time_details">Some about paper description and time details</string>
+    <string name="time_reamining">Time Reamining</string>
+    <string name="time">00:00:00</string>
+    <string name="submit">Submit</string>
+    <string name="des">Description about time and paper</string>
+    <string name="tm">Time Reaming :</string>
 </resources>

@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class TeacherNews extends AppCompatActivity {
 
     //initialize all the variables
     EditText  NewsDescription;
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.teacher_news);
 
         //assign insert values
         NewsDescription = (EditText) findViewById(R.id.MultitxtK);
@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     recyclerAdapter = new RecyclerAdapter(newsLists);
                     recyclerView.setAdapter(recyclerAdapter);
                 }else{
-                    Toast.makeText(MainActivity.this,"can't find news class",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TeacherNews.this,"can't find news class",Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
         btn_navi2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,ActivityTeacherProfile.class);
+                Intent intent = new Intent(TeacherNews.this,ActivityTeacherProfile.class);
                 startActivity(intent);
             }
         });

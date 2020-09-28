@@ -9,15 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        //keshani
         <activity android:name=".NotificationTeacher"></activity>
         <activity android:name=".NotificationStudent" />
         <activity android:name=".ActivityTeacherProfile" />
         <activity android:name=".Student_profile" />
         <activity android:name=".Activity_Student_News" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".TeacherNews">
+
 
 
         </activity>
+        //chamidu
         <activity android:name=".Edit_quizzes"></activity>
         <activity android:name=".Entering_MCQs" >
         </activity>
@@ -29,11 +32,7 @@
 
         </activity>
         <activity android:name=".Quizzes" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity android:name=".EmailVerification" />
@@ -41,6 +40,22 @@
 
 
         </activity>
+
+        //menaka
+        <activity android:name="com.example.mad.LoginPage" />
+        <activity android:name="com.example.mad.ResetPwdPage" />
+        <activity android:name="com.example.mad.Veriyfypage" />
+        <activity android:name="com.example.mad.Forgotpwd" />
+        <activity android:name="com.example.mad.welcomePage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.mad.PaperExamView"/>
+        <activity android:name="com.example.mad.Marksview" />
+        <activity android:name="com.example.mad.Paperviewstd"/>
 
     </application>
 
