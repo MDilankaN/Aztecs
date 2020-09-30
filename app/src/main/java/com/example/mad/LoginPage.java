@@ -86,34 +86,40 @@ public class LoginPage extends AppCompatActivity {
                 uname = unedtxt.getText().toString();
                 pwd = pwdtxt.getText().toString();
                 dref = FirebaseDatabase.getInstance().getReference().child("User").child(uname);
-                dref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChildren()){
-                            //if data was found
-                            s.setUname(snapshot.child("username").getValue().toString());
-                            s.setPwd(snapshot.child("password").getValue().toString());
-                            s.setE_mail(snapshot.child("email").getValue().toString());
-                            s.setType(snapshot.child("userType").getValue().toString());
-                        }else{
-                            //if data not found
-                            Snackbar.make(view,"Invalid User", Snackbar.LENGTH_SHORT).show();
-                        }
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
-                });
+//                dref.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        if(snapshot.hasChildren()){
+//                            //if data was found
+//                            s.setUname(snapshot.child("username").getValue().toString());
+//                            s.setPwd(snapshot.child("password").getValue().toString());
+//                            s.setE_mail(snapshot.child("email").getValue().toString());
+//                            s.setType(snapshot.child("userType").getValue().toString());
+//                        }else{
+//                            //if data not found
+//                            Snackbar.make(view,"Invalid User", Snackbar.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//                    }
+//                });
+
+                s.setUname("Akash");
+                s.setPwd("pwd");
+                s.setType("Teacher");
 
                 //check the user inputs and database values are equal
                 if(s.getPwd().equals(pwd)){
-                    if(s.getType().equals("teacher")){
+                    if(s.getType().equals("teacher") ||s.getType().equals("Teacher")){
                         Snackbar.make(view,"Logging n", Snackbar.LENGTH_SHORT).show();
-
                         //Teacher's Homepage
-                    }else{
+                        onteacherVali();
+
+                    }else if(s.getType().equals("student") ||s.getType().equals("Student")){
                         Snackbar.make(view,"Logging in", Snackbar.LENGTH_SHORT).show();
                         //Students's Homepage
+                        onstudentVali();
                     }
                 }else{
                     Snackbar.make(view,"Invalid password", Snackbar.LENGTH_SHORT).show();
@@ -122,6 +128,16 @@ public class LoginPage extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void onstudentVali() {
+        Intent intx = new Intent(this, studentClassroom.class);
+        startActivity(intx);
+    }
+
+    private void onteacherVali() {
+        Intent intx = new Intent(this, teacherHome.class);
+        startActivity(intx);
     }
 
     //Students's Homepage
