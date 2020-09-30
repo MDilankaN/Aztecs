@@ -14,10 +14,12 @@
         <activity android:name=".joinViewClassrooms" />
         <activity android:name=".teacherHome" />
         <activity android:name=".createClassroom" />
-        <activity android:name=".newforum" />
+        <activity android:name=".addForum" />
         <activity android:name=".ReplyForum" />
         <activity android:name=".forumviewTeacher" />
         <activity android:name=".studentClassroom" />
+        <activity android:name=".AddClassrooms"/>
+        <activity android:name=".viewUpdateTeacher"/>
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
