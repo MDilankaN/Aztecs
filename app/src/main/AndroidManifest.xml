@@ -32,13 +32,9 @@
 
         </activity>
         <activity android:name=".Quizzes" >
-
-
         </activity>
         <activity android:name=".EmailVerification" />
         <activity android:name=".SignUp">
-
-
         </activity>
 
         //menaka
@@ -56,6 +52,19 @@
         <activity android:name="com.example.mad.PaperExamView"/>
         <activity android:name="com.example.mad.Marksview" />
         <activity android:name="com.example.mad.Paperviewstd"/>
+
+        //tharini
+        <activity android:name=".receivedReplies" />
+        <activity android:name=".joinViewClassrooms" />
+        <activity android:name=".teacherHome" />
+        <activity android:name=".createClassroom" />
+        <activity android:name=".addForum" />
+        <activity android:name=".ReplyForum" />
+        <activity android:name=".forumviewTeacher" />
+        <activity android:name=".studentClassroom" />
+        <activity android:name=".AddClassrooms"/>
+        <activity android:name=".viewUpdateTeacher"/>
+        <activity android:name=".MainActivity" />
 
     </application>
 

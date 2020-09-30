@@ -17,6 +17,11 @@
     <color name="air_force_blue">#4a738c</color>
     <color name="dark_blue">#0a1b26</color>
     //tharini
+    <color name="lightcolor">#E4EBF2</color>
+    <color name="darkcolor">#0A1B26</color>
+    <color name="color1">#2F5373</color>
+    <color name="color2">#122E40</color>
+    <color name="color3">#4A738C</color>
     //menaka
     <color name="normal">#122E40</color>
     <color name="Select">#4A738C</color>
