@@ -28,7 +28,6 @@ public class Quizzes extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<QuizList> quizLists;
     RecyclerAdapter_QuizList recyclerAdapter;
-    DividerItemDecoration dividerItemDecoration;
     ArrayList<String> QNAME;
 
     @Override
@@ -37,8 +36,6 @@ public class Quizzes extends AppCompatActivity {
         setContentView(R.layout.activity_quizzes);
 
         recyclerView = findViewById(R.id.quizzesRecyclerview);
-        dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
         ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
 

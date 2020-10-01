@@ -6,8 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".Pass_Student"
     android:orientation="vertical"
-    android:background="@color/solitude">
+    android:background="@drawable/newbackground1">
 
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginLeft="7dp"
+        app:srcCompat="@drawable/backbutton" />
 
     <TextView
         android:layout_width="match_parent"
@@ -16,14 +24,12 @@
         android:text="Pass List"
         android:gravity="center"
         android:textColor="@color/picton_blue"
-        android:paddingVertical="7dp"
         android:fontFamily="@font/raleway_semibold"/>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/layout"
         android:orientation="horizontal">
 
         <TextView
