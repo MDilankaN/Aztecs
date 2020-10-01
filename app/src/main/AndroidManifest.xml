@@ -33,7 +33,7 @@
         <activity android:name=".SignUp"/>
 
 
-        //menaka
+        <!-- Menaka-->
         <activity android:name=".LoginPage" />
         <activity android:name=".ResetPwdPage" />
         <activity android:name=".Veriyfypage" />
@@ -49,7 +49,7 @@
         <activity android:name=".Marksview" />
         <activity android:name=".Paperviewstd"/>
 
-        //tharini
+        <!-- Tharini-->
         <activity android:name=".receivedReplies" />
         <activity android:name=".joinViewClassrooms" />
         <activity android:name=".teacherHome" />
