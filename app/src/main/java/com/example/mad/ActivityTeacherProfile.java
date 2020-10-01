@@ -1,6 +1,8 @@
 package com.example.mad;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,11 +18,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+
 public class ActivityTeacherProfile extends AppCompatActivity {
 
-    String userName = "T1";
-    EditText Username,Email;
-    TextView Username1,Email1;
+    String userName = "-MII2LaVlw57IDD3Brqg";
+    EditText Password,Email;
+    TextView Password1,Email1;
     Button btnProflieupdate;
 
 
@@ -29,21 +33,22 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_profile);
 
-        Username = findViewById(R.id.editTextTeacherName);
-        Username1 = findViewById(R.id.NamePrintT);
+        Password = findViewById(R.id.editTextTeacherName);
+        Password1 = findViewById(R.id.NamePrintT);
         Email = findViewById(R.id.editTeacherEmailAddress);
         Email1 = findViewById(R.id.EmailPrintT);
         btnProflieupdate = findViewById(R.id.btnProflieUpdate);
 
         final User user1 = new User();
 
-        final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("user").child(userName);
+        //Retrive data from database
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(userName);
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.hasChildren()){
-                    Username.setText(dataSnapshot.child("username").getValue().toString());
-                    Username1.setText(dataSnapshot.child("username").getValue().toString());
+                    Password.setText(dataSnapshot.child("password").getValue().toString());
+                    Password1.setText(dataSnapshot.child("password").getValue().toString());
                     Email.setText(dataSnapshot.child("email").getValue().toString());
                     Email1.setText(dataSnapshot.child("email").getValue().toString());
                 }
@@ -60,19 +65,44 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         btnProflieupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference().child("user");
+                final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference().child("User");
                 updDBref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild(userName) ){
 
-                            user1.setUsername(Username.getText().toString().trim());
+                            user1.setPassword(Password.getText().toString().trim());
                             user1.setEmail(Email.getText().toString().trim());
 
-                            //insert data to data base
-                            // = FirebaseDatabase.getInstance().getReference().child("user").child(userName);
 
+                            try{
+                                //insert data to data base
+                                DatabaseReference DBrefInsert = FirebaseDatabase.getInstance().getReference().child("User").child(userName);
 
+                                if(!Patterns.EMAIL_ADDRESS.matcher(Email.getText().toString()).matches()) {
+                                    Email.setTextColor(Color.RED);
+                                    Toast.makeText(getApplicationContext(), "Please enter your email correctly", Toast.LENGTH_SHORT).show();
+                                }
+                                else  if(Password.getText().toString().length()<6){
+                                    Password.setTextColor(Color.RED);
+                                    Toast.makeText(getApplicationContext(),"Please enter at least six characters for the password",Toast.LENGTH_SHORT).show();
+                                }
+
+                                user1.setPassword(Password.getText().toString().trim());
+                                user1.setEmail(Email.getText().toString().trim());
+
+                                DBrefInsert.setValue(user1);
+
+                                clearControls();
+
+                                Toast.makeText(getApplicationContext(),"Data update successfully",Toast.LENGTH_SHORT).show();
+
+                            }catch (Exception e){
+                                Toast.makeText(getApplicationContext(),"Exception error",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"Invalid User",Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -83,5 +113,11 @@ public class ActivityTeacherProfile extends AppCompatActivity {
                 });
             }
         });
+
+    }
+
+    private void clearControls(){
+        Password.setText("");
+        Email.setText("");
     }
 }

@@ -31,7 +31,7 @@ public class SignUp extends AppCompatActivity {
     ArrayAdapter AD;
     User user;
     Toast toast;
-    DatabaseReference ref;
+    public DatabaseReference ref;
     List<String> userList = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
