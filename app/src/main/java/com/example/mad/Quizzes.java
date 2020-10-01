@@ -40,7 +40,7 @@ public class Quizzes extends AppCompatActivity {
         dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child("Quiz 01");
+        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
 
             ref.addValueEventListener(new ValueEventListener(){
                 @Override

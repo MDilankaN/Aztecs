@@ -33,6 +33,7 @@ public class Student_results extends AppCompatActivity {
     int n=0;
     int mark = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,8 +44,10 @@ public class Student_results extends AppCompatActivity {
         dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child("IT").child("Quiz 01");
+        Intent intent = getIntent();
+        String qname = intent.getStringExtra("Extar");
+        System.out.println(qname);
+        ref = FirebaseDatabase.getInstance().getReference().child("Result").child("IT").child(qname);
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override

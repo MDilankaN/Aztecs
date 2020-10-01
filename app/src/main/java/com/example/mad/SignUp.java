@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -62,24 +63,24 @@ public class SignUp extends AppCompatActivity {
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(final View view) {
                         if(email.getText().toString().isEmpty() || username.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
-                          toast.makeText(getApplicationContext(),"Please fill all fields",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
                         }else if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
                             username.setTextColor(Color.BLACK);
                             password.setTextColor(Color.BLACK);
                             email.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter your email correctly",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please enter your email correctly",Snackbar.LENGTH_SHORT).show();
                         }else if(username.getText().toString().length()<4){
                             password.setTextColor(Color.BLACK);
                             email.setTextColor(Color.BLACK);
                             username.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter at least four characters for the username ",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please enter at least four characters for the username",Snackbar.LENGTH_SHORT).show();
                         }else  if(password.getText().toString().length()<6){
                             email.setTextColor(Color.BLACK);
                             username.setTextColor(Color.BLACK);
                             password.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter at least six characters for the password",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please enter at least six characters for the password",Snackbar.LENGTH_SHORT).show();
                         }else {
 
                             user.setEmail(email.getText().toString().trim());
@@ -93,9 +94,11 @@ public class SignUp extends AppCompatActivity {
                                         password.setTextColor(Color.BLACK);
                                         email.setTextColor(Color.BLACK);
                                         username.setTextColor(Color.RED);
+                                        Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
                                         Toast.makeText(getApplicationContext(),"This username already exists",Toast.LENGTH_SHORT).show();
                                     }else {
                                         ref.push().setValue(user);
+                                        Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
                                         toast.makeText(getApplicationContext(),"SIGN UP Successful",toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(SignUp.this, EmailVerification.class);
                                         startActivity(intent);

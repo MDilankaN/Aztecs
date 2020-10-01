@@ -3,6 +3,7 @@ package com.example.mad;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +25,7 @@ public class Edit_quizzes extends AppCompatActivity {
     DatabaseReference ref;
     Button update;
     Quiz_Details QD;
-    session s;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,29 @@ public class Edit_quizzes extends AppCompatActivity {
         QTime = findViewById(R.id.UpdateQtime);
         QDescription = findViewById(R.id.UpdateQdescription);
 
+        Intent intent = getIntent();
+        final String qname = intent.getStringExtra("Extar");
+
         ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
+        ref.child(qname).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.hasChildren()){
+                    QName.setText(snapshot.child("quizName").getValue().toString());
+                    QTime.setText(snapshot.child("quizTime").getValue().toString());
+                    QDescription.setText(snapshot.child("quizDescription").getValue().toString());
+
+                }else{
+                    Toast.makeText(getApplicationContext(),"can't find "+qname,Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         OnButtonClickListener();
     }
 

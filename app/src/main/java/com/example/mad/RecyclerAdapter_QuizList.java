@@ -28,6 +28,8 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
     ArrayList<QuizList> quizLists;
     Context quizzes;
     ArrayList<String> QNAME;
+    String q;
+
     public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME){
         this.quizLists = quizLists;
         this.quizzes = quizzes;
@@ -65,26 +67,28 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    q = QNAME.get(getAdapterPosition());
                     Intent intent = new Intent(quizzes,Student_results.class);
+                    intent.putExtra("Extar",q);
                     quizzes.startActivity(intent);
-
                 }
             });
 
            Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    q = QNAME.get(getAdapterPosition());
                     Intent intent = new Intent(quizzes,Edit_quizzes.class);
+                    intent.putExtra("Extar",q);
                     quizzes.startActivity(intent);
-
                 }
             });
 
             Delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String QName = QuizName.getText().toString();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("ClassQuize").child("maths").child("q4");
+                    q = QNAME.get(getAdapterPosition());
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child(q);
                     ref.removeValue();
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {

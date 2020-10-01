@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -62,7 +63,7 @@ public class Entering_MCQs extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(nullValidation()){
+                if(nullValidation(view)){
                     for(int i=0; i<mcqLayout.getChildCount(); i++) {
                         View mcqView = mcqLayout.getChildAt(i);
 
@@ -85,7 +86,7 @@ public class Entering_MCQs extends AppCompatActivity {
                         ref.child("MCQ "+n).setValue(mcq);
                     }
 
-                    Toast.makeText(getApplicationContext(),"Quiz successfully created",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view,"Quiz successfully created",Snackbar.LENGTH_SHORT).show();
                     Intent intent = new Intent(Entering_MCQs.this,Quizzes.class);
                     startActivity(intent);
                     finish();
@@ -126,10 +127,10 @@ public class Entering_MCQs extends AppCompatActivity {
         mcqLayout.removeView(view);
     }
 
-    private boolean nullValidation() {
+    private boolean nullValidation(View view) {
         boolean value = true;
         if(mcqLayout.getChildCount() == 0){
-            Toast.makeText(getApplicationContext(),"Please first add MCQs",Toast.LENGTH_SHORT).show();
+            Snackbar.make(view,"Please first add MCQs",Snackbar.LENGTH_SHORT).show();
             value = false;
         }else {
           for(int i=0; i<mcqLayout.getChildCount(); i++){
@@ -145,7 +146,7 @@ public class Entering_MCQs extends AppCompatActivity {
 
             if(question.getText().toString().isEmpty() | Ans1.getText().toString().isEmpty() | Ans2.getText().toString().isEmpty() | Ans3.getText().toString().isEmpty() | Ans4.getText().toString().isEmpty() ){
                 value = false;
-                Toast.makeText(getApplicationContext(),"Please fill all empty fields",Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"Please fill all empty fields",Snackbar.LENGTH_SHORT).show();
                 break;
             }
           }
