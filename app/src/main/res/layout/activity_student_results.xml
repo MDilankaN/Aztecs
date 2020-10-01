@@ -51,7 +51,7 @@
                 android:textSize="30dp" />
 
             <EditText
-                android:id="@+id/editTextNumber2"
+                android:id="@+id/edPassMark"
                 android:layout_width="170dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="16dp"

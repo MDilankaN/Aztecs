@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -26,8 +28,11 @@ public class Student_results extends AppCompatActivity {
     ArrayList<Result> resultsList;
     RecyclerAdapter_ResultList recyclerAdapter;
     DividerItemDecoration dividerItemDecoration;
+    EditText ED;
     public static final int putextra = 0;
     int n=0;
+    int mark = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +42,7 @@ public class Student_results extends AppCompatActivity {
         recyclerView = findViewById(R.id.resultRecyclerview);
         dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
+
 
         ref = FirebaseDatabase.getInstance().getReference().child("Result").child("IT").child("Quiz 01");
 
@@ -67,16 +73,21 @@ public class Student_results extends AppCompatActivity {
     }
 
     public void OnclickButtonListener() {
+        ED = (EditText) findViewById(R.id.edPassMark);
         button = findViewById(R.id.calculateBtn);
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-
-                        Intent intent = new Intent(Student_results.this, Pass_Student.class);
-                        intent.putExtra("AllResult",n);
-                        startActivity(intent);
+                       try {
+                               mark = Integer.parseInt(ED.getText().toString());
+                               Intent intent = new Intent(Student_results.this, Pass_Student.class);
+                               intent.putExtra("AllResult", n);
+                               intent.putExtra("mark", mark);
+                               startActivity(intent);
+                           } catch (NumberFormatException e) {
+                            Snackbar.make(view,"Invalid mark",Snackbar.LENGTH_SHORT).show();
+                       }
                     }
                 }
         );
