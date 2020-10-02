@@ -3,10 +3,15 @@ package com.example.mad;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -43,14 +48,31 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView textView;
-        //Button btn1,btn2;
+        Button update,delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.txtReadNews);
-            //btn1 = itemView.findViewById(R.id.btnUpdate1);
-            //btn2 = itemView.findViewById(R.id.btnDelete2);
+            update = itemView.findViewById(R.id.btnUpdate1);
+            delete = itemView.findViewById(R.id.btnDelete2);
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String newsName = textView.getText().toString();
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child("-MIA8lMIiQJGW55R44Q3");
+                    ref.removeValue();
+                    Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
+                    snackbar.setAction("OKAY", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                        }
+                    });
+                    snackbar.show();
+                }
+            });
 
         }
     }

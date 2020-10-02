@@ -3,10 +3,15 @@ package com.example.mad;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -41,10 +46,13 @@ public class RecyclerAdapterStudent extends RecyclerView.Adapter<RecyclerAdapter
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             textView = itemView.findViewById(R.id.txtNews1S);
         }
+
+
     }
 }
