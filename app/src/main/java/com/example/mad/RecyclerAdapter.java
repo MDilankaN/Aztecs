@@ -49,6 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         TextView textView;
         Button update,delete;
+        String newsName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -57,11 +58,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             update = itemView.findViewById(R.id.btnUpdate1);
             delete = itemView.findViewById(R.id.btnDelete2);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String newsName = textView.getText().toString();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child("-MIA8lMIiQJGW55R44Q3");
+                    //add child for delete function
+                    newsName = textView.getText().toString();
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child("-MIcMu662d5-WKfHT3rK");
                     ref.removeValue();
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {
