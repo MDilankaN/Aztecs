@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class teacherHome extends AppCompatActivity {
 
-    Button navNews,navProfile;
+    Button navNews,navProfile,BtnAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,18 @@ public class teacherHome extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        BtnAdd= (Button) findViewById(R.id.btnadd);
+        BtnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(teacherHome.this,addForum.class) ;
+                startActivity(intent);
+            }
+        });
+
 
     }
 }

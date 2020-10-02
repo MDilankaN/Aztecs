@@ -22,6 +22,7 @@ public class addForum extends AppCompatActivity {
     EditText addForum;
     Button btnsubmit;
     Button btnback;
+    NotificationCounter notificationCounter;//IT19804316
 
     DatabaseReference dbRef;
     Forum forum;
@@ -31,11 +32,7 @@ public class addForum extends AppCompatActivity {
     //Method to clear all user inputs
     private void clearControls(){
         addForum.setText("");
-
-
     }
-
-
 
 
     @Override
@@ -67,10 +64,6 @@ public class addForum extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
 
                     }
-
-
-
-
                 });
 
                 try{
@@ -88,13 +81,10 @@ public class addForum extends AppCompatActivity {
                         clearControls();
                     }
                 }catch(NumberFormatException e){
-
-
                 }
 
-
-
-
+                //IT19804316 - Keshani notification counter
+                notificationCounter.increaseNumber();
             }
         });
 

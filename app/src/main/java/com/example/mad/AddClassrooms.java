@@ -20,7 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AddClassrooms extends AppCompatActivity {
 
     EditText txtcode, txtname, txtdescription;
-    Button BtnCancel, btnCreate;
+    Button BtnCancel, btnCreate,BtnAdd;
     DatabaseReference dbRef;
     Classroom cls;
     //long maxid=0;
@@ -131,8 +131,9 @@ public class AddClassrooms extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        BtnCancel= (Button) findViewById(R.id.btnCancel);
-        BtnCancel.setOnClickListener(new View.OnClickListener() {
+
+        BtnAdd= (Button) findViewById(R.id.btnadd);
+        BtnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(AddClassrooms.this,addForum.class) ;

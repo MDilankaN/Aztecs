@@ -19,6 +19,7 @@ public class Student_profile extends AppCompatActivity {
     String userName = "S2";
     EditText Username,Email;
     TextView Username1,Email1;
+    NotificationCounter notificationCounter;//IT19804316
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,8 @@ public class Student_profile extends AppCompatActivity {
         Email = findViewById(R.id.editTextEmailAddress);
         Email1 = findViewById(R.id.EmailPrintS);
 
-
+        //notification Counter - IT19804316
+        notificationCounter = new NotificationCounter(findViewById(R.id.notification));
 
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("user").child(userName);
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
