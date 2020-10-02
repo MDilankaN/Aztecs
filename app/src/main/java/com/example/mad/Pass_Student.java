@@ -2,18 +2,15 @@ package com.example.mad;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,7 +36,7 @@ public class Pass_Student extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass__student);
-
+        percentage = findViewById(R.id.PassResult);
         recyclerView = findViewById(R.id.passRecyclerview);
         Intent intent = getIntent();
          AllResult = intent.getIntExtra("AllResult",0);
@@ -62,7 +59,8 @@ public class Pass_Student extends AppCompatActivity {
                     }
                              recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);
                              recyclerView.setAdapter(recyclerAdapter);
-                             calculation(AllResult,n);
+                             double result = calculation(AllResult,n);
+                             percentage.setText(df.format(result)+"%");
 
                 }else{
                     Toast.makeText(getApplicationContext(),"can't find any child",Toast.LENGTH_LONG).show();
@@ -84,9 +82,9 @@ public class Pass_Student extends AppCompatActivity {
         });
     }
 
-    private void calculation(double allResult, int n) {
-        percentage = findViewById(R.id.PassResult);
-            double percent =(n/allResult*100);
-            percentage.setText(df.format(percent)+"%");
+    public double calculation(double allResult, int n) {
+
+            double result =(n/allResult*100);
+            return result;
     }
 }

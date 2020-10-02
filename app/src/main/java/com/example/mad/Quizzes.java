@@ -57,7 +57,7 @@ public class Quizzes extends AppCompatActivity {
                         recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists,QNAME);
                         recyclerView.setAdapter(recyclerAdapter);
 
-                       // Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
+                       //Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
                     }else {
                         Toast.makeText(Quizzes.this,"can't find maths class",Toast.LENGTH_SHORT).show();
                     }
