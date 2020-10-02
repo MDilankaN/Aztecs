@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -25,6 +26,7 @@ public class Edit_quizzes extends AppCompatActivity {
     DatabaseReference ref;
     Button update;
     Quiz_Details QD;
+    ImageView backbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +100,14 @@ public class Edit_quizzes extends AppCompatActivity {
 
                 }
 
+            }
+        });
+
+        backbt = findViewById(R.id.BackBT);
+        backbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
     }

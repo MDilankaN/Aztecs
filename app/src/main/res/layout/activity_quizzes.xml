@@ -31,6 +31,7 @@
         android:paddingHorizontal="15dp"
         android:paddingTop="10dp"
         android:background="@drawable/quizzes"
+        android:alpha="0.5"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +53,7 @@
         android:onClick="openNewActivity"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/BackBT"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="7dp"

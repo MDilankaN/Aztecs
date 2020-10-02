@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class Quizzes extends AppCompatActivity {
     ArrayList<QuizList> quizLists;
     RecyclerAdapter_QuizList recyclerAdapter;
     ArrayList<String> QNAME;
+    ImageView backbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,12 +70,16 @@ public class Quizzes extends AppCompatActivity {
                 }
             });
 
+            backbt = findViewById(R.id.BackBT);
+            backbt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onBackPressed();
+                }
+            });
+
     }
 
-    public void on(){
-        Intent intent = new Intent(this, QuizDetails.class);
-        startActivity(intent);
-    }
 
     public void openNewActivity(View v){
         Intent intent = new Intent(this, QuizDetails.class);

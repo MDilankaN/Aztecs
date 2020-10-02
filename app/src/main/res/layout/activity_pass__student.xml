@@ -10,7 +10,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/BackBT"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="7dp"
@@ -21,9 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:text="Pass List"
+        android:text="Pass Student"
+        android:textStyle="bold"
         android:gravity="center"
-        android:textColor="@color/picton_blue"
+        android:textColor="@color/White"
         android:fontFamily="@font/raleway_semibold"/>
 
 
@@ -81,6 +82,8 @@
         android:id="@+id/passRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:alpha="0.5"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 

@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -27,12 +28,11 @@ public class Student_results extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<Result> resultsList;
     RecyclerAdapter_ResultList recyclerAdapter;
-    DividerItemDecoration dividerItemDecoration;
     EditText ED;
     public static final int putextra = 0;
     int n=0;
     int mark = 0;
-
+    ImageView backbt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,6 @@ public class Student_results extends AppCompatActivity {
         OnclickButtonListener();
 
         recyclerView = findViewById(R.id.resultRecyclerview);
-        dividerItemDecoration = new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
         Intent intent = getIntent();
         String qname = intent.getStringExtra("Extar");
@@ -94,5 +92,13 @@ public class Student_results extends AppCompatActivity {
                     }
                 }
         );
+
+        backbt = findViewById(R.id.BackBT);
+        backbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }

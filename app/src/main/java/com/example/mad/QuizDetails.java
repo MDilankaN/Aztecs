@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,8 @@ public class QuizDetails extends AppCompatActivity {
     Quiz_Details qd;
     String Class,QName;
     session s;
+    ImageView backbt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,5 +72,12 @@ public class QuizDetails extends AppCompatActivity {
                     }
                 }
         );
+        backbt = findViewById(R.id.BackBT);
+        backbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }
