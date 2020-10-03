@@ -31,7 +31,7 @@ public class Pass_Student extends AppCompatActivity {
     double AllResult;
     private  static DecimalFormat df = new DecimalFormat("0.00");
     ImageView backbt;
-
+    String Class,qname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +39,12 @@ public class Pass_Student extends AppCompatActivity {
         percentage = findViewById(R.id.PassResult);
         recyclerView = findViewById(R.id.passRecyclerview);
         Intent intent = getIntent();
-         AllResult = intent.getIntExtra("AllResult",0);
+        AllResult = intent.getIntExtra("AllResult",0);
         int mark = intent.getIntExtra("mark",0);
+        Class = intent.getStringExtra("Class");
+        qname = intent.getStringExtra("qname");
 
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child("IT").child("Quiz 01");
+        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
         ref.orderByChild("result").startAt(mark).addValueEventListener(new ValueEventListener() {
 
             @Override

@@ -29,11 +29,13 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
     Context quizzes;
     ArrayList<String> QNAME;
     String q;
+    String Class;
 
-    public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME){
+    public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME, String Class){
         this.quizLists = quizLists;
         this.quizzes = quizzes;
         this.QNAME = QNAME;
+        this.Class = Class;
     }
     @NonNull
     @Override
@@ -70,6 +72,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                     q = QNAME.get(getAdapterPosition());
                     Intent intent = new Intent(quizzes,Student_results.class);
                     intent.putExtra("Extar",q);
+                    intent.putExtra("Class",Class);
                     quizzes.startActivity(intent);
                 }
             });
@@ -80,6 +83,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                     q = QNAME.get(getAdapterPosition());
                     Intent intent = new Intent(quizzes,Edit_quizzes.class);
                     intent.putExtra("Extar",q);
+                    intent.putExtra("Class",Class);
                     quizzes.startActivity(intent);
                 }
             });
@@ -88,7 +92,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                 @Override
                 public void onClick(View view) {
                     q = QNAME.get(getAdapterPosition());
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child(q);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class).child(q);
                     ref.removeValue();
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {

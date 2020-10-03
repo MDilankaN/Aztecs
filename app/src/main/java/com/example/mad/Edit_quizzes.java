@@ -39,8 +39,9 @@ public class Edit_quizzes extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String qname = intent.getStringExtra("Extar");
+        String Class = intent.getStringExtra("Class");
 
-        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
+        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
         ref.child(qname).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

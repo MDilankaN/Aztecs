@@ -31,6 +31,7 @@ public class Quizzes extends AppCompatActivity {
     RecyclerAdapter_QuizList recyclerAdapter;
     ArrayList<String> QNAME;
     ImageView backbt;
+    String Class;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,8 @@ public class Quizzes extends AppCompatActivity {
         setContentView(R.layout.activity_quizzes);
 
         recyclerView = findViewById(R.id.quizzesRecyclerview);
-
-        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
+        Class = "IT";
+        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
 
             ref.addValueEventListener(new ValueEventListener(){
                 @Override
@@ -54,7 +55,7 @@ public class Quizzes extends AppCompatActivity {
                              ql.setQuizName(ds.child("quizName").getValue().toString());
                              QNAME.add(ql.getQuizName());
                         }
-                        recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists,QNAME);
+                        recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists,QNAME,Class);
                         recyclerView.setAdapter(recyclerAdapter);
 
                        //Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
@@ -83,6 +84,7 @@ public class Quizzes extends AppCompatActivity {
 
     public void openNewActivity(View v){
         Intent intent = new Intent(this, QuizDetails.class);
+        intent.putExtra("Class",Class);
         startActivity(intent);
     }
 }

@@ -33,6 +33,7 @@ public class Entering_MCQs extends AppCompatActivity {
     TextView QNumber;
     List<Integer> correctAnsList = new ArrayList<Integer>();
     DatabaseReference ref;
+    String Class,qname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,16 @@ public class Entering_MCQs extends AppCompatActivity {
         setContentView(R.layout.activity_entering__m_c_qs);
 
         mcqLayout = findViewById(R.id.mcq_Layout);
+        Intent intent = getIntent();
+        Class = intent.getStringExtra("Class");
+        qname = intent.getStringExtra("qname");
 
         correctAnsList.add(1);
         correctAnsList.add(2);
         correctAnsList.add(3);
         correctAnsList.add(4);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("MCQ").child("IT").child("Quiz 01");
+        ref = FirebaseDatabase.getInstance().getReference().child("MCQ").child(Class).child(qname);
         OnclickButtonListener();
     }
 
@@ -88,6 +92,7 @@ public class Entering_MCQs extends AppCompatActivity {
 
                     Snackbar.make(view,"Quiz successfully created",Snackbar.LENGTH_SHORT).show();
                     Intent intent = new Intent(Entering_MCQs.this,Quizzes.class);
+                   // intent.putExtra("qname",qname);
                     startActivity(intent);
                     finish();
                 }
