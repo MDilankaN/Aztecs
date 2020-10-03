@@ -92,7 +92,7 @@ public class Entering_MCQs extends AppCompatActivity {
 
                     Snackbar.make(view,"Quiz successfully created",Snackbar.LENGTH_SHORT).show();
                     Intent intent = new Intent(Entering_MCQs.this,Quizzes.class);
-                   // intent.putExtra("qname",qname);
+                   // intent.putExtra("Class",C3lass);
                     startActivity(intent);
                     finish();
                 }
