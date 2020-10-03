@@ -11,29 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="ExtraText">
+        <activity android:name=".EditNews"></activity>
         <!-- Keshani -->
-        <activity android:name=".NotificationTeacher"/>
+        <activity android:name=".NotificationTeacher" />
         <activity android:name=".NotificationStudent" />
         <activity android:name=".ActivityTeacherProfile" />
         <activity android:name=".Student_profile" />
         <activity android:name=".Activity_Student_News" />
-        <activity android:name=".TeacherNews">
-
-
-
-        </activity>
-        <!-- chamidu-->
-        <activity android:name=".Edit_quizzes"/>
-        <activity android:name=".Entering_MCQs"/>
+        <activity android:name=".TeacherNews"></activity> <!-- chamidu -->
+        <activity android:name=".Edit_quizzes" />
+        <activity android:name=".Entering_MCQs" />
         <activity android:name=".Pass_Student" />
-        <activity android:name=".Student_results"/>
+        <activity android:name=".Student_results" />
         <activity android:name=".QuizDetails" />
-        <activity android:name=".Quizzes"/>
-        <activity android:name=".EmailVerification"/>
-        <activity android:name=".SignUp"/>
-
-
-        <!-- Menaka-->
+        <activity android:name=".Quizzes" />
+        <activity android:name=".EmailVerification" />
+        <activity android:name=".SignUp" /> <!-- Menaka -->
         <activity android:name=".LoginPage" />
         <activity android:name=".ResetPwdPage" />
         <activity android:name=".Veriyfypage" />
@@ -45,11 +38,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PaperExamView"/>
+        <activity android:name=".PaperExamView" />
         <activity android:name=".Marksview" />
-        <activity android:name=".Paperviewstd"/>
-
-        <!-- Tharini-->
+        <activity android:name=".Paperviewstd" /> <!-- Tharini -->
         <activity android:name=".receivedReplies" />
         <activity android:name=".joinViewClassrooms" />
         <activity android:name=".teacherHome" />
@@ -58,10 +49,9 @@
         <activity android:name=".ReplyForum" />
         <activity android:name=".forumviewTeacher" />
         <activity android:name=".studentClassroom" />
-        <activity android:name=".AddClassrooms"/>
-        <activity android:name=".viewUpdateTeacher"/>
+        <activity android:name=".AddClassrooms" />
+        <activity android:name=".viewUpdateTeacher" />
         <activity android:name=".MainActivity" />
-
     </application>
 
 </manifest>

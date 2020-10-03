@@ -1,5 +1,7 @@
 package com.example.mad;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public RecyclerAdapter(ArrayList<News> newsLists){
         this.newsLists = newsLists;
     }
+
 
     @NonNull
     @Override
