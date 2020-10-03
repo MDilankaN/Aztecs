@@ -77,7 +77,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_weight="1"
-                        android:onClick="onmbtnClick();"
                         android:background="@drawable/custom_button1"
                         android:fontFamily="@font/raleway_semibold"
                         android:text="@string/submit"
@@ -90,16 +89,17 @@
 
     </androidx.cardview.widget.CardView>
 
-    <HorizontalScrollView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/mcqviewline"/>
-    </HorizontalScrollView>
+    </ScrollView>
 
 
 </LinearLayout>

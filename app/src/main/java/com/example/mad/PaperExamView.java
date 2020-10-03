@@ -35,7 +35,9 @@ public class PaperExamView extends AppCompatActivity {
     private LinearLayout listx;
     private ArrayList<Integer> correctAns;
     private CountDownTimer countDownTimer;
-    private  int marks;
+    private  int marks,arraySize;
+    private int Mark[];
+    private Bundle bundle = new Bundle();;
 
     private TextView question,title,paperid,counter,descr;
     RadioButton r1,r2,r3,r4;
@@ -158,8 +160,8 @@ public class PaperExamView extends AppCompatActivity {
         btnm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMarksview();
                 marks = chechQuiz();
+                openMarksview();
             }
 
 
@@ -168,14 +170,19 @@ public class PaperExamView extends AppCompatActivity {
     }
     public void openMarksview(){
         Intent intx = new Intent(this, Marksview.class);
+
+        bundle.putIntArray("Marks",Mark);
+        bundle.putInt("TotalMarks",marks);
+        intx.putExtras(bundle);
         startActivity(intx);
     }
 
     public int chechQuiz() {
-        int mcqAns = 0 ;
+        Mark = new int[listx.getChildCount()];
+        int mcqAns = 0,k ;
         int totalmarks = 0;
-        for(int i = 0;i < listx.getChildCount();i++){
-            View itemView = listx.getChildAt(i);
+        for(k = 0;k < listx.getChildCount();k++){
+            View itemView = listx.getChildAt(k);
             r1 = itemView.findViewById(R.id.Rbnm1);
             r2 = itemView.findViewById(R.id.Rbnm2);
             r3 = itemView.findViewById(R.id.Rbnm3);
@@ -195,12 +202,19 @@ public class PaperExamView extends AppCompatActivity {
             }
 
             System.out.println(mcqAns);
-            if(correctAns.get(i) == mcqAns){
+            if(correctAns.get(k) == mcqAns){
                 totalmarks++;
+                Mark[k] = 1;
+            } else{
+                Mark[k] = 0;
             }
-
         }
         System.out.println("total  "+totalmarks);
+        for(int j =0; j<Mark.length;j++){
+            System.out.println("Question "+j+" / "+Mark[j]);
+        }
+
+        arraySize = k;
         return totalmarks;
     }
 }
