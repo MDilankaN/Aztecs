@@ -35,6 +35,16 @@
             android:textColor="@color/darkblue"
             android:textSize="30dp" />
 
+        <EditText
+            android:id="@+id/NewsID"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Enter News ID"
+            android:fontFamily="@font/raleway_medium"
+            android:textAlignment="textStart"
+            android:textColor="@color/lightBlue"
+            />
+
 
         <EditText
             android:id="@+id/MultitxtK"

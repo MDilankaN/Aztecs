@@ -20,9 +20,13 @@ import java.util.ArrayList;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder>{
     //Array
     ArrayList<News> newsLists;
+    Context teacherNews;
+    ArrayList<String> news;
 
-    public RecyclerAdapter(ArrayList<News> newsLists){
+    public RecyclerAdapter(ArrayList<News> newsLists, TeacherNews teacherNews, ArrayList<String> news){
         this.newsLists = newsLists;
+        this.teacherNews = teacherNews;
+        this.news = news;
     }
 
 
@@ -61,9 +65,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             update = itemView.findViewById(R.id.btnUpdate1);
             delete = itemView.findViewById(R.id.btnDelete2);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    String News = news.get(getAdapterPosition());
+                    Intent intent = new Intent(teacherNews,EditNews.class);
+                    intent.putExtra("id",News);
+                    teacherNews.startActivity(intent);
+
 
                 }
             });
@@ -72,8 +81,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 @Override
                 public void onClick(View view) {
                     //add child for delete function
+                    String News = news.get(getAdapterPosition());
                     newsName = textView.getText().toString();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child("-MIcMu662d5-WKfHT3rK");
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child(News);
                     ref.removeValue();
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {

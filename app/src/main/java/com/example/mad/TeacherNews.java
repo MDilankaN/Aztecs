@@ -18,12 +18,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class TeacherNews extends AppCompatActivity {
 
     //initialize all the variables
-    EditText  NewsDescription;
+    EditText  NewsDescription,newsID;
     //TextView News1;
     Button btnAddNewsK,btn_navi2;
     DatabaseReference dbRef;
@@ -43,6 +44,7 @@ public class TeacherNews extends AppCompatActivity {
 
         //assign insert values
         NewsDescription = (EditText) findViewById(R.id.MultitxtK);
+        newsID = (EditText)findViewById(R.id.NewsID);
 
         //assign button
         btnAddNewsK = (Button) findViewById(R.id.btnAddK);
@@ -50,35 +52,26 @@ public class TeacherNews extends AppCompatActivity {
         //create new News object
         news = new News();
 
-
+        dbRef = FirebaseDatabase.getInstance().getReference().child("News");
 
         btnAddNewsK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //create db connection
-                dbRef = FirebaseDatabase.getInstance().getReference().child("News");
-                dbRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists());
-                        //maxId =  (dataSnapshot.getChildrenCount());
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                String NID = newsID.getText().toString().trim();
                 try{
                     if (TextUtils.isEmpty(NewsDescription.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please Enter Description", Toast.LENGTH_SHORT);
                     else{
                         //Take input from the user and assigning them to this instance (std) of the Student...
                         news.setNews(NewsDescription.getText().toString().trim());
+                        news.setId(newsID.getText().toString().trim());
 
                         //insert in to the Database..
                         //dbRef.child(String.valueOf(maxId+1)).setValue(news);
-                        dbRef.push().setValue(news);
+                        System.out.println(NID +" 123");
+                        dbRef.child(NID).setValue(news);
+
                         //dbRef.child("newsID").setValue(news);
 
                         //feedback to the user via a Toast
@@ -94,18 +87,21 @@ public class TeacherNews extends AppCompatActivity {
 
         //find recyclerView id
         recyclerView = findViewById(R.id.Recycleview1);
+        //retrieve data from data base
         dbRef = FirebaseDatabase.getInstance().getReference().child("News");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChildren()) {
                     newsLists = new ArrayList<>();
+                    ArrayList<String> news = new  ArrayList<>();
                     for(DataSnapshot ds : snapshot.getChildren()){
                         News N1 = new News();
                         newsLists.add(N1);
                         N1.setNews(ds.child("news").getValue().toString());
+                        news.add(ds.child("id").getValue().toString());
                     }
-                    recyclerAdapter = new RecyclerAdapter(newsLists);
+                    recyclerAdapter = new RecyclerAdapter(newsLists,TeacherNews.this,news);
                     recyclerView.setAdapter(recyclerAdapter);
                 }else{
                     Toast.makeText(TeacherNews.this,"can't find news class",Toast.LENGTH_SHORT).show();
@@ -116,7 +112,7 @@ public class TeacherNews extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                //Toast.makeText(MainActivity.this,error.getMessage(),Toast.LENGTH_SHORT).show();
+                //Toast.makeText(TeacherNews.this,error.getMessage(),Toast.LENGTH_SHORT).show();
             }
         });
 

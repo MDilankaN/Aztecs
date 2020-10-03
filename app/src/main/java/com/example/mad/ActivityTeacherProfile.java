@@ -65,8 +65,17 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         btnProflieupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference().child("User");
-                updDBref.addListenerForSingleValueEvent(new ValueEventListener() {
+                //final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference().child("User");
+                final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference();
+                updDBref.child("User").child("-MII2LaVlw57IDD3Brqg").child("password").setValue(Password.getText().toString().trim());
+                updDBref.child("User").child("-MII2LaVlw57IDD3Brqg").child("email").setValue(Email.getText().toString().trim());
+                Toast.makeText(getApplicationContext(), "Data update successfully", Toast.LENGTH_SHORT).show();
+                clearControls();
+
+            }
+
+
+               /* updDBref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild(userName) ){
@@ -114,10 +123,15 @@ public class ActivityTeacherProfile extends AppCompatActivity {
             }
         });
 
-    }
+    }*/
+
 
     private void clearControls(){
         Password.setText("");
         Email.setText("");
     }
-}
+        });
+    }
+
+
+    }
