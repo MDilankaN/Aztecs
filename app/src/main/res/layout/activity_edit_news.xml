@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EditNews">
+    tools:context=".EditNews"
+    android:background="@drawable/newbackground1">
 
 
     <TextView
@@ -14,8 +15,9 @@
         android:layout_height="47dp"
         android:text="Edit News"
         android:textAlignment="center"
-        android:textColor="@color/darkblue"
-        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:fontFamily="@font/raleway_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,7 +38,10 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
+        app:layout_constraintVertical_bias="0.397"
+        android:alpha="0.5"
+        android:background="@drawable/custom_edittxt1"
+        android:textColor="@color/darklightBlue"/>
 
     <Button
         android:id="@+id/updateBT"
@@ -49,8 +54,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.666"
-        android:textColor="@color/darklightBlue"
-        android:backgroundTint="@color/light"/>
+        android:textColor="@color/whitelike"
+        android:background="@drawable/darklightbutton"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
