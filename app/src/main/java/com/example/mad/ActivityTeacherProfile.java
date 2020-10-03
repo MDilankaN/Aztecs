@@ -1,5 +1,6 @@
 package com.example.mad;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -22,7 +23,7 @@ import java.util.HashMap;
 
 public class ActivityTeacherProfile extends AppCompatActivity {
 
-    String userName = "-MII2LaVlw57IDD3Brqg";
+    String userName;
     EditText Password,Email;
     TextView Password1,Email1;
     Button btnProflieupdate;
@@ -38,39 +39,25 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         Email = findViewById(R.id.editTeacherEmailAddress);
         Email1 = findViewById(R.id.EmailPrintT);
         btnProflieupdate = findViewById(R.id.btnProflieUpdate);
+        Intent intent = getIntent();
+         userName = intent.getStringExtra("name");
 
         final User user1 = new User();
 
-        //Retrive data from database
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(userName);
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()){
-                    Password.setText(dataSnapshot.child("password").getValue().toString());
-                    Password1.setText(dataSnapshot.child("password").getValue().toString());
-                    Email.setText(dataSnapshot.child("email").getValue().toString());
-                    Email1.setText(dataSnapshot.child("email").getValue().toString());
-                }
-                else
-                    Toast.makeText(getApplicationContext(), "No Source to Display", Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+        retriveData();
 
-            }
-        });
 
         btnProflieupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference().child("User");
                 final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference();
-                updDBref.child("User").child("-MII2LaVlw57IDD3Brqg").child("password").setValue(Password.getText().toString().trim());
-                updDBref.child("User").child("-MII2LaVlw57IDD3Brqg").child("email").setValue(Email.getText().toString().trim());
+                updDBref.child("User").child(userName).child("password").setValue(Password.getText().toString().trim());
+                updDBref.child("User").child(userName).child("email").setValue(Email.getText().toString().trim());
                 Toast.makeText(getApplicationContext(), "Data update successfully", Toast.LENGTH_SHORT).show();
                 clearControls();
+                retriveData();
 
             }
 
@@ -133,5 +120,28 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         });
     }
 
+    private void retriveData() {
+        //Retrive data from database
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(userName);
+        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.hasChildren()){
+                    Password.setText(dataSnapshot.child("password").getValue().toString());
+                    Password1.setText(dataSnapshot.child("password").getValue().toString());
+                    Email.setText(dataSnapshot.child("email").getValue().toString());
+                    Email1.setText(dataSnapshot.child("email").getValue().toString());
+                }
+                else
+                    Toast.makeText(getApplicationContext(), "No Source to Display", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
+
+
+}

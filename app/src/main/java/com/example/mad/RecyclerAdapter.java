@@ -22,11 +22,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     ArrayList<News> newsLists;
     Context teacherNews;
     ArrayList<String> news;
+    String name;
 
-    public RecyclerAdapter(ArrayList<News> newsLists, TeacherNews teacherNews, ArrayList<String> news){
+    public RecyclerAdapter(ArrayList<News> newsLists, TeacherNews teacherNews, ArrayList<String> news, String name){
         this.newsLists = newsLists;
         this.teacherNews = teacherNews;
         this.news = news;
+        this.name = name;
     }
 
 
@@ -71,6 +73,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     String News = news.get(getAdapterPosition());
                     Intent intent = new Intent(teacherNews,EditNews.class);
                     intent.putExtra("id",News);
+                    intent.putExtra("name",name);
                     teacherNews.startActivity(intent);
 
 
@@ -82,8 +85,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View view) {
                     //add child for delete function
                     String News = news.get(getAdapterPosition());
-                    newsName = textView.getText().toString();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child(News);
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child(name).child(News);
                     ref.removeValue();
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {

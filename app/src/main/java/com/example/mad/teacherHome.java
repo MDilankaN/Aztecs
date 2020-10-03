@@ -10,10 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 public class teacherHome extends AppCompatActivity {
 
     Button navNews,navProfile,BtnAdd;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_home);
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
 
     }
 
@@ -29,6 +32,7 @@ public class teacherHome extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent= new Intent(teacherHome.this, TeacherNews.class);
+                intent.putExtra("name",name);
                 startActivity(intent);
 
             }
@@ -39,6 +43,7 @@ public class teacherHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(teacherHome.this, ActivityTeacherProfile.class);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });

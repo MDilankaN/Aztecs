@@ -28,8 +28,9 @@ public class EditNews extends AppCompatActivity {
 
         Intent intent = getIntent();
        String id =  intent.getStringExtra("id");
+       String name =  intent.getStringExtra("name");
 
-        ref = FirebaseDatabase.getInstance().getReference().child("News").child(id);
+        ref = FirebaseDatabase.getInstance().getReference().child("News").child(name).child(id);
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override

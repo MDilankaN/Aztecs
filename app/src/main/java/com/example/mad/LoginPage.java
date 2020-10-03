@@ -137,6 +137,7 @@ public class LoginPage extends AppCompatActivity {
 
     private void onteacherVali() {
         Intent intx = new Intent(this, teacherHome.class);
+        intx.putExtra("name",uname);
         startActivity(intx);
     }
 

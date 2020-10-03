@@ -35,7 +35,7 @@ public class TeacherNews extends AppCompatActivity {
     //create recyclerView object
     RecyclerView recyclerView;
     RecyclerAdapter recyclerAdapter;
-
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,10 @@ public class TeacherNews extends AppCompatActivity {
 
         //create new News object
         news = new News();
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
 
-        dbRef = FirebaseDatabase.getInstance().getReference().child("News");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("News").child(name);
 
         btnAddNewsK.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -88,7 +90,7 @@ public class TeacherNews extends AppCompatActivity {
         //find recyclerView id
         recyclerView = findViewById(R.id.Recycleview1);
         //retrieve data from data base
-        dbRef = FirebaseDatabase.getInstance().getReference().child("News");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("News").child(name);
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -101,7 +103,7 @@ public class TeacherNews extends AppCompatActivity {
                         N1.setNews(ds.child("news").getValue().toString());
                         news.add(ds.child("id").getValue().toString());
                     }
-                    recyclerAdapter = new RecyclerAdapter(newsLists,TeacherNews.this,news);
+                    recyclerAdapter = new RecyclerAdapter(newsLists,TeacherNews.this,news,name);
                     recyclerView.setAdapter(recyclerAdapter);
                 }else{
                     Toast.makeText(TeacherNews.this,"can't find news class",Toast.LENGTH_SHORT).show();
