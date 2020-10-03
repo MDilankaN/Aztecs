@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:backgroundTint="@color/white"
+    android:background="@drawable/newbackground1"
     android:orientation="vertical"
     tools:context=".TeacherNews"
     android:layout_marginHorizontal="5dp">
@@ -17,7 +16,7 @@
         android:fontFamily="@font/raleway_semibold"
         android:text="@string/news"
         android:textAlignment="center"
-        android:textColor="@color/darkblue"
+        android:textColor="@color/white"
         android:textSize="30dp" />
 
     <LinearLayout
@@ -32,33 +31,37 @@
             android:fontFamily="@font/raleway_semibold"
             android:text="@string/new_post"
             android:textAlignment="center"
-            android:textColor="@color/darkblue"
-            android:textSize="30dp" />
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
         <EditText
             android:id="@+id/NewsID"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
+            android:background="@drawable/custom_edittxt1"
+            android:alpha="0.5"
             android:hint="Enter News ID"
             android:fontFamily="@font/raleway_medium"
             android:textAlignment="textStart"
             android:textColor="@color/lightBlue"
-            />
+            android:paddingStart="10dp" />
 
 
         <EditText
             android:id="@+id/MultitxtK"
             android:padding="10dp"
             android:layout_width="match_parent"
-            android:layout_height="135dp"
+            android:layout_height="125dp"
             android:autofillHints=""
+            android:alpha="0.5"
             android:background="@drawable/custom_edittxt1"
             android:ems="10"
             android:fontFamily="@font/raleway_medium"
             android:gravity="start|top"
             android:inputType="textMultiLine"
             android:textAlignment="textStart"
-            android:textColor="@color/lightBlue" />
+            android:textColor="@color/lightBlue"
+            android:hint="Enter news details"/>
 
         <Button
             android:id="@+id/btnAddK"
@@ -81,7 +84,8 @@
             android:layout_marginBottom="20dp"
             android:background="?android:attr/listDivider"
             android:contextClickable="true"
-            android:foreground="@color/darklightBlue" />
+            android:alpha="0.75"
+            android:foreground="@color/darkblue" />
 
 
     </LinearLayout>
