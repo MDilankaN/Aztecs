@@ -114,6 +114,8 @@ public class LoginPage extends AppCompatActivity {
                     }else{
                         Snackbar.make(view,"Logging in",Snackbar.LENGTH_SHORT).show();
                         //Students's Homepage
+                        Intent intx = new Intent(this, Paperviewstd.class);
+                        startActivity(intx);
                     }
                 }else{
                     Snackbar.make(view,"Invalid password",Snackbar.LENGTH_SHORT).show();

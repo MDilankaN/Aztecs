@@ -14,14 +14,17 @@
         <activity android:name="com.example.mad.Veriyfypage" />
         <activity android:name="com.example.mad.Forgotpwd" />
         <activity android:name="com.example.mad.welcomePage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name="com.example.mad.PaperExamView">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+
+
         </activity>
         <activity android:name="com.example.mad.Marksview" />
         <activity android:name="com.example.mad.Paperviewstd"/>

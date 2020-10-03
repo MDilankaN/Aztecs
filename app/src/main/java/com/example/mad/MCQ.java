@@ -6,7 +6,7 @@ public class MCQ {
     private String Ans2;
     private String Ans3;
     private String Ans4;
-    private int CorrectAns;
+    private String CorrectAns;
 
     public MCQ() {
     }
@@ -51,11 +51,11 @@ public class MCQ {
         Ans4 = ans4;
     }
 
-    public int getCorrectAns() {
+    public String getCorrectAns() {
         return CorrectAns;
     }
 
-    public void setCorrectAns(int correctAns) {
+    public void setCorrectAns(String correctAns) {
         CorrectAns = correctAns;
     }
 }
