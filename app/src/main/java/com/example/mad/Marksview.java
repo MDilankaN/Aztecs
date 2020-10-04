@@ -12,7 +12,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class Marksview extends AppCompatActivity {
 
-    TextView total,questionNo,questionMark;
+    TextView total,questionNo,questionMark,header;
     LinearLayout tblrow;
 
 
@@ -24,7 +24,8 @@ public class Marksview extends AppCompatActivity {
         //hooks
         tblrow = findViewById(R.id.rowsoftbl);
         total = findViewById(R.id.TotalMark);
-        View v = findViewById(android.R.id.content) ;
+        header = findViewById(R.id.hedaertxt);
+        View v = findViewById(android.R.id.content);
 
         try{
             //getting values from bundel
@@ -32,6 +33,9 @@ public class Marksview extends AppCompatActivity {
             Bundle bundle = data.getExtras();
             int TotalMark = bundle.getInt("TotalMarks");
             int Marks[] = bundle.getIntArray("Marks");
+            String headerx = bundle.getString("QuizNo");
+
+            header.setText(headerx+" Results");
 
             total.setText(""+TotalMark);//setting values
 

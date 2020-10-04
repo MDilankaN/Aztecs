@@ -178,6 +178,7 @@ public class PaperExamView extends AppCompatActivity {
 
         bundle.putIntArray("Marks",Mark);
         bundle.putInt("TotalMarks",marks);
+        bundle.putString("QuizNo",Quizname);
         intx.putExtras(bundle);
         startActivity(intx);
     }
