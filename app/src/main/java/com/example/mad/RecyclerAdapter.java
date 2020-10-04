@@ -91,7 +91,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                     snackbar.setAction("OKAY", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-
                         }
                     });
                     snackbar.show();

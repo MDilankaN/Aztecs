@@ -78,14 +78,9 @@ public class TeacherNews extends AppCompatActivity {
                         //Take input from the user and assigning them to this instance (std) of the Student...
                         news.setNews(NewsDescription.getText().toString().trim());
                         news.setId(newsID.getText().toString().trim());
-
                         //insert in to the Database..
-                        //dbRef.child(String.valueOf(maxId+1)).setValue(news);
-                        //System.out.println(NID +" 123");
                         dbRef.child(NID).setValue(news);
                         dbRef2.child(NID).setValue(news);
-
-                        //dbRef.child("newsID").setValue(news);
 
                         //feedback to the user via a Toast
                         Snackbar.make(v,"Data Saved Successfully",Snackbar.LENGTH_SHORT).show();
@@ -119,8 +114,6 @@ public class TeacherNews extends AppCompatActivity {
                 }else{
                     Snackbar.make(viewx,"can't find news class",Snackbar.LENGTH_SHORT).show();
                 }
-
-
             }
 
             @Override

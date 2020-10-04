@@ -9,15 +9,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class teacherHome extends AppCompatActivity {
 
-    Button navNews,navProfile,viewClass,addclass,  checkForum;
+    Button navNews,navProfile,viewClass,addclass,  checkForum,navClassHome;
     Button tempory;
     private  String sessionID;
+    Bundle bundle = new Bundle();
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_home);
 
         sessionID=getIntent().getStringExtra("sessionID");
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
 
 
 
@@ -40,21 +44,20 @@ public class teacherHome extends AppCompatActivity {
        //tempory=findViewById(R.id.tempory);
 
         //navigation for teacher news
-        navNews.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent= new Intent(teacherHome.this, TeacherNews.class);
-                startActivity(intent);
-
-            }
-        });
-
-        //navigation for teacher profile
         navProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(teacherHome.this, ActivityTeacherProfile.class);
+                Intent intent = new Intent(teacherHome.this,ActivityTeacherProfile.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+
+        navProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(teacherHome.this,TeacherNews.class);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });

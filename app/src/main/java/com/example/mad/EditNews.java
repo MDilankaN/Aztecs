@@ -44,14 +44,11 @@ public class EditNews extends AppCompatActivity {
                         ref.child("news").setValue(updateet.getText().toString().trim());
                         Snackbar.make(view,"Successful...!!!",Snackbar.LENGTH_LONG).show();
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                         Snackbar.make(view,"Error...!!!",Snackbar.LENGTH_LONG).show();
-
                     }
                 });
-
             }
         });
 
