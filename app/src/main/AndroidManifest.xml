@@ -25,7 +25,8 @@
         <activity android:name=".ActivityTeacherProfile" />
         <activity android:name=".Student_profile" />
         <activity android:name=".Activity_Student_News" />
-        <activity android:name=".TeacherNews" /> <!-- chamidu -->
+        <activity android:name=".TeacherNews" />
+        <!-- chamidu -->
         <activity android:name=".Edit_quizzes" />
         <activity android:name=".Entering_MCQs" />
         <activity android:name=".Pass_Student" />
@@ -33,7 +34,8 @@
         <activity android:name=".QuizDetails" />
         <activity android:name=".Quizzes" />
         <activity android:name=".EmailVerification" />
-        <activity android:name=".SignUp" /> <!-- Menaka -->
+        <activity android:name=".SignUp" />
+        <!-- Menaka -->
         <activity android:name=".LoginPage" />
         <activity android:name=".ResetPwdPage" />
         <activity android:name=".Veriyfypage" />
@@ -47,7 +49,8 @@
         </activity>
         <activity android:name=".PaperExamView" />
         <activity android:name=".Marksview" />
-        <activity android:name=".Paperviewstd" /> <!-- Tharini -->
+        <activity android:name=".Paperviewstd" />
+        <!-- Tharini -->
         <activity android:name=".receivedReplies" />
         <activity android:name=".joinViewClassrooms" />
         <activity android:name=".teacherHome" />

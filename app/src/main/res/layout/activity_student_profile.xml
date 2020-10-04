@@ -266,7 +266,8 @@
         android:layout_height="50dp"
         android:background="@color/darkblue"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
 
 
         <Button

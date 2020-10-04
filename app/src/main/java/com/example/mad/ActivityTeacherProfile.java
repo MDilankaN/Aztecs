@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 public class ActivityTeacherProfile extends AppCompatActivity {
 
-    String userName;
+
     EditText Password,Email;
     TextView Password1,Email1,NoClasses,NoPapers;
     Button btnProflieupdate;
@@ -31,10 +31,16 @@ public class ActivityTeacherProfile extends AppCompatActivity {
     Button navClassHome,navNews,BtnAdd;
     String name;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_profile);
+
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        final String uname = bundle.getString("Name");
+        name = uname;
 
         Password = findViewById(R.id.editTextTeacherName);
         Password1 = findViewById(R.id.NamePrintT);
@@ -43,14 +49,14 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         NoClasses = findViewById(R.id.Card1SubS);
         NoPapers = findViewById(R.id.Card3SubS);
         btnProflieupdate = findViewById(R.id.btnProflieUpdate);
-        Intent intent = getIntent();
-        userName = intent.getStringExtra("name");
+
+        //name = intent.getStringExtra("name");
 
         final User user1 = new User();
 
         retriveData();
 
-        DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("Classroom").child(userName);
+        DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
         classref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -102,8 +108,8 @@ public class ActivityTeacherProfile extends AppCompatActivity {
             public void onClick(View view) {
                 //final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference().child("User");
                 final DatabaseReference updDBref = FirebaseDatabase.getInstance().getReference();
-                updDBref.child("User").child(userName).child("password").setValue(Password.getText().toString().trim());
-                updDBref.child("User").child(userName).child("email").setValue(Email.getText().toString().trim());
+                updDBref.child("User").child(name).child("password").setValue(Password.getText().toString().trim());
+                updDBref.child("User").child(name).child("email").setValue(Email.getText().toString().trim());
                 Toast.makeText(getApplicationContext(), "Data update successfully", Toast.LENGTH_SHORT).show();
                 clearControls();
                 retriveData();
@@ -121,7 +127,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
 
     private void retriveData() {
         //Retrive data from database
-        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(userName);
+        DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(name);
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -11,6 +11,7 @@ public class teacherHome extends AppCompatActivity {
 
     Button navNews,navProfile,BtnAdd;
     String name;
+    Bundle bundle = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,9 @@ public class teacherHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(teacherHome.this, ActivityTeacherProfile.class);
-                intent.putExtra("name",name);
+                bundle.putString("Name",name);
+                intent.putExtras(bundle);
+                //intent.putExtra("name",name);
                 startActivity(intent);
             }
         });

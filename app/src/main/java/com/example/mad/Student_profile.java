@@ -25,12 +25,15 @@ public class Student_profile extends AppCompatActivity {
     TextView Password1,Email1,NoClasses,NoPapers;
     Button btnProflieupdate;
     int countClass,countPaper;
+    String uname;
     //NotificationCounter notificationCounter;//IT19804316
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_profile);
+
+
 
         //find text and edit view
         Password = findViewById(R.id.editTextStudentName);
@@ -41,7 +44,7 @@ public class Student_profile extends AppCompatActivity {
         NoPapers = findViewById(R.id.Card2SubS);
         Intent intent = getIntent();
         userName = intent.getStringExtra("name");
-
+        Button navNews,navHome;
         final User user1 = new User();
 
         //find button id
@@ -91,6 +94,25 @@ public class Student_profile extends AppCompatActivity {
             private void clearControls(){
                 Password.setText("");
                 Email.setText("");
+            }
+        });
+
+        navHome = findViewById(R.id.btn_navi1);
+        navHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Student_profile.this,studentClassroom.class);
+                intent.putExtra("name",userName);
+                startActivity(intent);
+            }
+        });
+        navNews = findViewById(R.id.btn_navi2);
+        navNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Student_profile.this,Activity_Student_News.class);
+                intent.putExtra("name",userName);
+                startActivity(intent);
             }
         });
     }

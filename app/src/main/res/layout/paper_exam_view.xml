@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/paperHead"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="1dp"
@@ -20,18 +21,18 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/paperID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="10dp"
                 android:fontFamily="@font/raleway_semibold"
+                android:paddingTop="10dp"
                 android:text="@string/paper_1"
                 android:textAlignment="center"
                 android:textColor="@color/dark"
                 android:textSize="30sp" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/paperDes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/raleway_medium"
@@ -41,6 +42,7 @@
                 android:textSize="22sp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/timeView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -50,10 +52,10 @@
                     android:background="@color/lite"
                     android:orientation="horizontal"
                     android:paddingTop="10dp"
-                    android:paddingBottom="5dp" >
+                    android:paddingBottom="5dp">
 
                     <TextView
-                        android:id="@+id/textView19"
+                        android:id="@+id/string"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -62,16 +64,16 @@
                         android:textColor="@color/dark" />
 
                     <TextView
-                        android:id="@+id/textView18"
+                        android:id="@+id/countdown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="00:00:00"
+                        android:text="@string/time"
                         android:textAlignment="viewStart"
                         android:textColor="@color/dark" />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/submitbtn"
                         android:layout_width="wrap_content"
                         android:layout_height="40dp"
                         android:layout_weight="1"
@@ -82,284 +84,21 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
         </LinearLayout>
+
     </androidx.cardview.widget.CardView>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="10dp">
+        >
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/whitelike"
-            android:orientation="vertical">
-
-
-            <androidx.cardview.widget.CardView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtqn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question No 01"
-                        android:textAlignment="center"
-                        android:textColor="@color/dark"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/txtqus"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question details..?"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/dark"
-                        android:textSize="20sp" />
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <RadioButton
-                            android:id="@+id/Rbnm1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 1"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 2"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 3"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 4"
-                            android:textSize="18sp" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtqnx"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question No 02"
-                        android:textAlignment="center"
-                        android:textColor="@color/dark"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/txtquxs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question details..?"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/dark"
-                        android:textSize="20sp" />
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <RadioButton
-                            android:id="@+id/Rbnmx1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 1"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnmx2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 2"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnmx3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 3"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnmx4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 4"
-                            android:textSize="18sp" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtqnz"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question No 03"
-                        android:textAlignment="center"
-                        android:textColor="@color/dark"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/txtqusz"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question details..?"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/dark"
-                        android:textSize="20sp" />
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <RadioButton
-                            android:id="@+id/Rbnm1z"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 1"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm2z"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 2"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm3z"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 3"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm4z"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 4"
-                            android:textSize="18sp" />
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtqnq"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question No 04"
-                        android:textAlignment="center"
-                        android:textColor="@color/dark"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/txtqusq"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/raleway_medium"
-                        android:text="Question details..?"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="10dp"
-                        android:textColor="@color/dark"
-                        android:textSize="20sp" />
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <RadioButton
-                            android:id="@+id/Rbnm1q"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 1"
-                            android:textSize="18sp"/>
-
-                        <RadioButton
-                            android:id="@+id/Rbnm2q"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 2"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm3q"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 3"
-                            android:textSize="18sp" />
-
-                        <RadioButton
-                            android:id="@+id/Rbnm4q"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Answer 4"
-                            android:textSize="18sp"/>
-                    </RadioGroup>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/mcqviewline"/>
     </ScrollView>
 
 

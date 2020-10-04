@@ -7,13 +7,18 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class welcomePage extends AppCompatActivity {
 
     private Button btnSend ;
+    private DatabaseReference dref;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
+        dref = FirebaseDatabase.getInstance().getReference();
         onButtonClick();
 
     }

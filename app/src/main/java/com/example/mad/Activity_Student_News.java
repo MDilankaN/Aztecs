@@ -1,6 +1,9 @@
 package com.example.mad;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,15 +24,20 @@ public class Activity_Student_News extends AppCompatActivity {
     ArrayList<News> studentNewsLists;
     RecyclerView recyclerView;
     RecyclerAdapterStudent recyclerAdapterStudent;
+    String uname;
+    Button navhome, navprofile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity__student__news);
+        Intent intent = getIntent();
+        final String name = intent.getStringExtra("name");
+        uname = name;
 
         //find recyclerView id
         recyclerView = findViewById(R.id.Recycleview2);
-        dbRef = FirebaseDatabase.getInstance().getReference().child("News");
+        dbRef = FirebaseDatabase.getInstance().getReference().child("StuNews");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -52,6 +60,25 @@ public class Activity_Student_News extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 //Toast.makeText(MainActivity.this,error.getMessage(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        navhome = findViewById(R.id.btn_navi1);
+        navhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Activity_Student_News.this,studentClassroom.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+        navprofile = findViewById(R.id.btn_navi3);
+        navprofile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Activity_Student_News.this,Student_profile.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
             }
         });
 

@@ -4,48 +4,98 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Paperviewstd extends AppCompatActivity {
 
+    private DatabaseReference dref ;
     private Button btnp1 ;
     private Button btnm1 ;
+    private LinearLayout ly;
+    private String username = "chamidu";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paperviewstd);
-        onpbtnClick();
-        onmbtnClick();
-    }
 
-    protected void onpbtnClick(){
-        btnp1 = (Button) findViewById(R.id.btnp1);
-        btnp1.setOnClickListener(new View.OnClickListener() {
+        ly = findViewById(R.id.stshowlay);
+        final View v = findViewById(android.R.id.content) ;
+
+
+        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
+        dref.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                openPaperview();
+            public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                for(DataSnapshot snapshot : datasnapshot.getChildren()){
+                    try{
+                        Quiz_Details qdd = new Quiz_Details();
+                        final View itemView3 = getLayoutInflater().inflate(R.layout.quizbtnlayout,null,false);//
+
+                        ly.addView(itemView3);
+
+                        qdd.setQuizName(snapshot.child("quizName").getValue().toString());
+
+                        btnp1 = itemView3.findViewById(R.id.btnp1);
+                        btnp1.setText(qdd.getQuizName());
+
+                        onpbtnClick(itemView3,qdd.getQuizName());
+                        onmbtnClick(itemView3,username);
+
+
+                    }catch (Exception e){
+                        Snackbar.make(v,"Error occurred", Snackbar.LENGTH_SHORT).show();
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
     }
-    protected void onmbtnClick(){
+
+    protected void onpbtnClick(View viewx, final String Clzname){
+        btnp1 = (Button) viewx.findViewById(R.id.btnp1);
+        btnp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPaperview(Clzname);
+            }
+        });
+    }
+    protected void onmbtnClick(View viewx,final String uname){
         btnm1 = (Button) findViewById(R.id.btnm1);
         btnm1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openMarksview();
+                openMarksview(uname);
             }
         });
 
     }
-    public void openPaperview(){
+    public void openPaperview(String clz){
        Intent intx = new Intent(this, PaperExamView.class);
+        intx.putExtra("QuizName",clz);
        startActivity(intx);
     }
 
-    public void openMarksview(){
+    public void openMarksview(String uname){
         Intent intx = new Intent(this, Marksview.class);
+        intx.putExtra("Username",uname);
         startActivity(intx);
     }
 }

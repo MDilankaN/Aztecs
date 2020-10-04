@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/lite"
+            android:orientation="horizontal"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:id="@+id/QuestionNo"
+                android:layout_width="84dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:text="Question No"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/QuestionMark"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingTop="3dp"
+                android:text="Value"
+                android:textAlignment="center"
+                android:textColor="#000"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>

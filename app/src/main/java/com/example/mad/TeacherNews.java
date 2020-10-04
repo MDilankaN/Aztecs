@@ -29,6 +29,7 @@ public class TeacherNews extends AppCompatActivity {
     //TextView News1;
     Button btnAddNewsK,navProfile,navClassHome;
     DatabaseReference dbRef;
+    DatabaseReference dbRef2;
     News news;
     //long maxId = 0;
     ArrayList<News> newsLists;
@@ -37,6 +38,8 @@ public class TeacherNews extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerAdapter recyclerAdapter;
     String name;
+
+    Bundle bundle = new Bundle();
 
 
     @Override
@@ -58,6 +61,7 @@ public class TeacherNews extends AppCompatActivity {
         name = intent.getStringExtra("name");
 
         dbRef = FirebaseDatabase.getInstance().getReference().child("News").child(name);
+        dbRef2 = FirebaseDatabase.getInstance().getReference().child("StuNews");
 
         btnAddNewsK.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -79,6 +83,7 @@ public class TeacherNews extends AppCompatActivity {
                         //dbRef.child(String.valueOf(maxId+1)).setValue(news);
                         //System.out.println(NID +" 123");
                         dbRef.child(NID).setValue(news);
+                        dbRef2.child(NID).setValue(news);
 
                         //dbRef.child("newsID").setValue(news);
 
@@ -141,6 +146,15 @@ public class TeacherNews extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TeacherNews.this,ActivityTeacherProfile.class);
+                bundle.putString("Name",name);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        navClassHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TeacherNews.this,teacherHome.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
             }
