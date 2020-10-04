@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="bottom"
-    android:background="@color/lightcolor"
+    android:background="@drawable/background"
 
     tools:context=".MainActivity">
 
@@ -88,6 +88,7 @@
             android:layout_weight="3">
 
         </Space>
+
 
 <!--    End of the first horizontal linear layout-->
     </LinearLayout>

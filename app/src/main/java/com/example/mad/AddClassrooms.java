@@ -1,29 +1,36 @@
 package com.example.mad;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseAuthException;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class AddClassrooms extends AppCompatActivity {
 
     EditText txtcode, txtname, txtdescription;
     Button BtnCancel, btnCreate;
+    TextView textViewDate;
     DatabaseReference dbRef;
     Classroom cls;
+    private SimpleDateFormat dateformat;
+    private String date;
+    private String sessionID;
     //long maxid=0;
 
 
@@ -45,12 +52,23 @@ public class AddClassrooms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_classroom);
         //Create classroom interface
+        sessionID=getIntent().getStringExtra("sessionID");
+
         txtcode=findViewById(R.id.EtCode);
         txtname=findViewById(R.id.EtName);
         txtdescription=findViewById(R.id.EtDes);
 
         btnCreate=findViewById(R.id.btnCreate);
         BtnCancel=findViewById(R.id.btnCancel);
+
+        Calendar calender=Calendar.getInstance();
+        dateformat = new SimpleDateFormat("MM/dd/yyyy");
+        date = dateformat.format(calender.getTime());
+        textViewDate = findViewById(R.id.txtdate);
+        textViewDate.setText(date);
+
+
+
 
         //Classroom object
         cls=new Classroom();
@@ -70,6 +88,7 @@ public class AddClassrooms extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom");
+
                 dbRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -94,12 +113,16 @@ public class AddClassrooms extends AppCompatActivity {
                     }else{
 
                         //take user valid inputs
+                        cls.setTeacherID(sessionID.toString().trim());
                         cls.setName(txtname.getText().toString().trim());
                         cls.setCode(Integer.parseInt(txtcode.getText().toString().trim()));
                         cls.setDescription(txtdescription.getText().toString().trim());
 
+                        cls.setDate(date);
+
                         //inserting created classroom details in the database
-                        dbRef.push().setValue(cls);
+                        dbRef.child(txtcode.getText().toString().trim()).setValue(cls);
+//                        dbRef.push().setValue(cls);
                         // dbRef.child(String.valueOf(maxid+1)).setValue(cls);
 
                         //Feedback through the toast message
@@ -111,7 +134,7 @@ public class AddClassrooms extends AppCompatActivity {
                 }
 
 
-                catch(java.lang.NumberFormatException e){
+                catch(NumberFormatException e){
                     Toast.makeText(getApplicationContext(), "Invalid code syntax", Toast.LENGTH_SHORT).show();
                 }
 
@@ -120,6 +143,9 @@ public class AddClassrooms extends AppCompatActivity {
             }
 
         });
+
+
+
 
 
 

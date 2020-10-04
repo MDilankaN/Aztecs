@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mad" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.mad">
 
     <application
         android:allowBackup="true"
@@ -8,29 +9,63 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".receivedReplies" >
-        </activity>
-        <activity android:name=".joinViewClassrooms" />
-        <activity android:name=".teacherHome" />
-        <activity android:name=".createClassroom" />
-        <activity android:name=".addForum" />
-        <activity android:name=".ReplyForum" />
-        <activity android:name=".forumviewTeacher" />
-        <activity android:name=".studentClassroom" />
-        <activity android:name=".AddClassrooms"/>
-        <activity android:name=".viewUpdateTeacher"/>
-        <activity android:name=".MainActivity" >
+        android:theme="@style/AppTheme"
+        tools:ignore="ExtraText">
+        <activity android:name=".card_holderForum"></activity>
+        <activity android:name=".updateDeleteClsTeacher" /> <!-- Keshani -->
+        <activity android:name=".NotificationTeacher" />
+        <activity android:name=".NotificationStudent" />
+        <activity android:name=".ActivityTeacherProfile" />
+        <activity android:name=".Student_profile" />
+        <activity android:name=".Activity_Student_News" />
+        <activity android:name=".TeacherNews" /> <!-- chamidu -->
+        <activity android:name=".Edit_quizzes" />
+        <activity android:name=".Entering_MCQs" />
+        <activity android:name=".Pass_Student" />
+        <activity android:name=".Student_results" />
+        <activity android:name=".QuizDetails" />
+        <activity android:name=".Quizzes" />
+        <activity android:name=".EmailVerification" />
+        <activity android:name=".SignUp" /> <!-- Menaka -->
+        <activity android:name=".LoginPage" />
+        <activity android:name=".ResetPwdPage" />
+        <activity android:name=".Veriyfypage" />
+        <activity android:name=".Forgotpwd" />
+        <activity android:name=".welcomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PaperExamView" />
+        <activity android:name=".Marksview" />
+        <activity android:name=".Paperviewstd" /> <!-- Tharini -->
+        <activity android:name=".receivedReplies" />
+        <activity android:name=".joinViewClassrooms">
+            <!--  <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
 
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+                   <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>-->
+        </activity>
+        <activity android:name=".teacherHome" />
+        <activity android:name=".createClassroom" />
+        <activity android:name=".addForum">
+            <!--      <intent-filter>
+                  <action android:name="android.intent.action.MAIN" />
+
+                  <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>-->
+        </activity>
+
+        <activity android:name=".ReplyForum" />
+        <activity android:name=".forumviewTeacher" />
+        <activity android:name=".studentClassroom" />
+        <activity android:name=".AddClassrooms" />
+        <activity android:name=".viewUpdateTeacher" />
+        <activity android:name=".MainActivity" />
+
     </application>
 
 </manifest>

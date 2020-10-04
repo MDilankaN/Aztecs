@@ -5,6 +5,16 @@ public class Classroom {
     private Integer code;
     private String name;
     private String description;
+    private String date;
+    private  String teacherID;
+
+    public String getTeacherID() {
+        return teacherID;
+    }
+
+    public void setTeacherID(String teacherID) {
+        this.teacherID = teacherID;
+    }
 
     public Classroom() {
     }
@@ -33,6 +43,13 @@ public class Classroom {
         this.description = description;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
 
 }

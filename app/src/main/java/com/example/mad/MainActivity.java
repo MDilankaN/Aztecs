@@ -1,8 +1,8 @@
 package com.example.mad;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +10,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_classroom);
+
+        /*Calendar calender=Calendar.getInstance();
+        String currentDate = DateFormat.getDateInstance().format(calender.getTime());
+        TextView textViewDate= findViewById(R.id.txtdate);
+        textViewDate.setText(currentDate);
+        */
+
+
     }
 }

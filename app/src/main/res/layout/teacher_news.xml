@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
+    android:orientation="vertical"
+    tools:context=".TeacherNews"
+    android:layout_marginHorizontal="5dp">
+
+    <TextView
+        android:id="@+id/txtNewsK"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:fontFamily="@font/raleway_semibold"
+        android:text="@string/news"
+        android:textAlignment="center"
+        android:textColor="@color/darkblue"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtPostK"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:text="@string/new_post"
+            android:textAlignment="center"
+            android:textColor="@color/darkblue"
+            android:textSize="30dp" />
+
+
+        <EditText
+            android:id="@+id/MultitxtK"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:autofillHints=""
+            android:background="@drawable/custom_edittxt1"
+            android:ems="10"
+            android:fontFamily="@font/raleway_medium"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:textAlignment="textStart"
+            android:textColor="@color/lightBlue" />
+
+        <Button
+            android:id="@+id/btnAddK"
+            android:layout_width="145dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/darklightbutton"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/add"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <View
+            android:id="@+id/divider1"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="?android:attr/listDivider"
+            android:contextClickable="true"
+            android:foreground="@color/darklightBlue" />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="270dp"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/Recycleview1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" >
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/darkblue"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp">
+
+
+        <Button
+            android:id="@+id/btn_navi1"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/classroom">
+
+        </Button>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+        </Space>
+
+        <Button
+            android:id="@+id/btn_navi2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/selectnews">
+
+        </Button>
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </Space>
+
+        <Button
+            android:id="@+id/btn_navi3"
+            android:layout_width="137dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/profile"></Button>
+    </LinearLayout>
+</LinearLayout>

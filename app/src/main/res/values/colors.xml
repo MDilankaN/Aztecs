@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    //keshani
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="light">#2F5373</color>
+    <color name="white">#E4EBF2</color>
+    <color name="darkblue">#0A1B26</color>
+    <color name="darklightBlue">#122E40</color>
+    <color name="lightBlue">#4A738C</color>
+    //chamidu
+    <color name="White">#ffff</color>
+    <color name="black">#000000</color>
+    <color name="solitude">#e4ebf2</color>
+    <color name="picton_blue">#2f5373</color>
+    <color name="air_force_blue">#4a738c</color>
+    <color name="dark_blue">#0a1b26</color>
+    //tharini
     <color name="lightcolor">#E4EBF2</color>
     <color name="darkcolor">#0A1B26</color>
     <color name="color1">#2F5373</color>
     <color name="color2">#122E40</color>
     <color name="color3">#4A738C</color>
+    //menaka
+    <color name="normal">#122E40</color>
+    <color name="Select">#4A738C</color>
+    <color name="dark">#0A1B26</color>
+    <color name="midlite">#2F5373</color>
+    <color name="lite">#729ab3</color>
+    <color name="whitelike">#E4EBF2</color>
 </resources>

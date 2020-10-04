@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="@color/lightcolor"
+    android:background="@drawable/background"
     android:gravity="bottom"
-    tools:context=".MainActivity">
+    tools:context=".AddClassrooms">
 
     <!--    Layout1-->
     <LinearLayout
@@ -196,6 +196,63 @@
 
 
         </LinearLayout>
+
+
+        <!--    Layout for classroom description -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:fontFamily="@font/raleway_semibold"
+                android:text="Date"
+                android:textColor="@color/lightcolor"
+                android:textSize="25dp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="22">
+
+            </Space>
+
+            <TextView
+                android:id="@+id/txtdate"
+                android:layout_width="138dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/inputid"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3">
+
+            </Space>
+
+
+        </LinearLayout>
+
 
 
     </LinearLayout>

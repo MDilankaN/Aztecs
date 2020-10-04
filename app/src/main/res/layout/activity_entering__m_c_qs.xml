@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/solitude"
+    android:orientation="vertical"
+    tools:context=".Entering_MCQs">
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Enter Your MCQs"
+        android:textColor="@color/picton_blue"
+        android:textSize="30dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="600dp">
+
+        <LinearLayout
+            android:id="@+id/mcq_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/mcq_add"
+            android:layout_width="150dp"
+            android:layout_height="108dp"
+            android:background="@drawable/button5"
+            android:text="Add"
+            android:textColor="@color/White"
+            android:textSize="28dp" />
+
+        <Button
+            android:id="@+id/mcqSubmitBT"
+            android:layout_width="209dp"
+            android:layout_height="108dp"
+            android:background="@drawable/button5"
+            android:text="Submit"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/White"
+            android:textSize="28dp" />
+    </LinearLayout>
+
+</LinearLayout>
