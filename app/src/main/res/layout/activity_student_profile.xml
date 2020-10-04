@@ -156,7 +156,7 @@
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/raleway_semibold"
                     android:includeFontPadding="false"
-                    android:text="@string/number_of_total_answer_papersS"
+                    android:text="Number Of Total Forum"
                     android:textAlignment="center"
                     android:textColor="@color/darkblue"
                     android:textSize="20dp" />

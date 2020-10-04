@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,6 +42,7 @@ public class TeacherNews extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_news);
+        final View viewx = findViewById(android.R.id.content);
 
         //assign insert values
         NewsDescription = (EditText) findViewById(R.id.MultitxtK);
@@ -63,9 +65,10 @@ public class TeacherNews extends AppCompatActivity {
                 String NID = newsID.getText().toString().trim();
                 try{
                     if (TextUtils.isEmpty(NewsDescription.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter Description", Toast.LENGTH_SHORT);
+                        //Toast.makeText(getApplicationContext(), "Please Enter Description", Toast.LENGTH_SHORT);
+                        Snackbar.make(v, "Please Enter Description", Snackbar.LENGTH_SHORT).show();
                     else if (TextUtils.isEmpty(newsID.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please Enter ID", Toast.LENGTH_SHORT);
+                        Snackbar.make(v, "Please Enter ID", Snackbar.LENGTH_SHORT).show();
                     else{
                         //Take input from the user and assigning them to this instance (std) of the Student...
                         news.setNews(NewsDescription.getText().toString().trim());
@@ -73,18 +76,18 @@ public class TeacherNews extends AppCompatActivity {
 
                         //insert in to the Database..
                         //dbRef.child(String.valueOf(maxId+1)).setValue(news);
-                        System.out.println(NID +" 123");
+                        //System.out.println(NID +" 123");
                         dbRef.child(NID).setValue(news);
 
                         //dbRef.child("newsID").setValue(news);
 
                         //feedback to the user via a Toast
-                        Toast.makeText(getApplicationContext(),"Data Saved Successfully",Toast.LENGTH_SHORT);
+                        Snackbar.make(v,"Data Saved Successfully",Snackbar.LENGTH_SHORT).show();
                         clearControls();
                     }
                 }
                 catch(Exception e){
-                    Toast.makeText(getApplicationContext(),"Empty fields", Toast.LENGTH_SHORT);
+                    Snackbar.make(v,"Empty fields", Snackbar.LENGTH_SHORT).show();
                 }
             }
         });
@@ -108,7 +111,7 @@ public class TeacherNews extends AppCompatActivity {
                     recyclerAdapter = new RecyclerAdapter(newsLists,TeacherNews.this,news,name);
                     recyclerView.setAdapter(recyclerAdapter);
                 }else{
-                    Toast.makeText(TeacherNews.this,"can't find news class",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(viewx,"can't find news class",Snackbar.LENGTH_SHORT).show();
                 }
 
 

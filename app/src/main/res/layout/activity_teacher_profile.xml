@@ -160,7 +160,7 @@
                     android:layout_centerHorizontal="true"
                     android:fontFamily="@font/raleway_semibold"
                     android:includeFontPadding="false"
-                    android:text="@string/number_of_total_mcqsT"
+                    android:text="Number of Total Quizess"
                     android:textAlignment="center"
                     android:textColor="@color/darklightBlue"
                     android:textSize="20dp" />

@@ -25,9 +25,9 @@ public class ActivityTeacherProfile extends AppCompatActivity {
 
     String userName;
     EditText Password,Email;
-    TextView Password1,Email1,NoClasses;
+    TextView Password1,Email1,NoClasses,NoPapers;
     Button btnProflieupdate;
-    int countClass;
+    int countClass,countPaper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +39,12 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         Email = findViewById(R.id.editTeacherEmailAddress);
         Email1 = findViewById(R.id.EmailPrintT);
         NoClasses = findViewById(R.id.Card1SubS);
+        NoPapers = findViewById(R.id.Card3SubS);
         btnProflieupdate = findViewById(R.id.btnProflieUpdate);
         Intent intent = getIntent();
         userName = intent.getStringExtra("name");
 
         final User user1 = new User();
-
 
         retriveData();
 
@@ -61,6 +61,30 @@ public class ActivityTeacherProfile extends AppCompatActivity {
                 else
                 {
                     NoClasses.setText("0");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        Classroom cr = new Classroom();
+
+        DatabaseReference paperRef = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
+        paperRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists())
+                {
+                    countPaper = (int) dataSnapshot.getChildrenCount();
+                    NoPapers.setText(Integer.toString(countPaper));
+
+                }
+                else
+                {
+                    NoPapers.setText("0");
                 }
             }
 

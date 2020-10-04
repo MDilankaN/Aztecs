@@ -105,8 +105,8 @@ public class LoginPage extends AppCompatActivity {
 //                    }
 //                });
 
-                s.setUname("chamiya");
-                s.setPwd("123455");
+                s.setUname("A");
+                s.setPwd("123456");
                 s.setType("Teacher");
 
                 //check the user inputs and database values are equal
