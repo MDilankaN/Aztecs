@@ -64,6 +64,8 @@ public class TeacherNews extends AppCompatActivity {
                 try{
                     if (TextUtils.isEmpty(NewsDescription.getText().toString()))
                         Toast.makeText(getApplicationContext(), "Please Enter Description", Toast.LENGTH_SHORT);
+                    else if (TextUtils.isEmpty(newsID.getText().toString()))
+                        Toast.makeText(getApplicationContext(), "Please Enter ID", Toast.LENGTH_SHORT);
                     else{
                         //Take input from the user and assigning them to this instance (std) of the Student...
                         news.setNews(NewsDescription.getText().toString().trim());
@@ -123,6 +125,7 @@ public class TeacherNews extends AppCompatActivity {
     //method to clear all the user inputs
     private void clearControls(){
         NewsDescription.setText("");
+        newsID.setText("");
     }
 
     @Override
