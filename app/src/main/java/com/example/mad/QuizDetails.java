@@ -60,6 +60,7 @@ public class QuizDetails extends AppCompatActivity {
                          qd.setQuizDescription(description.getText().toString());
 
                          ref.child(qd.getQuizName()).setValue(qd);
+
                          Snackbar.make(view,"Successful",Snackbar.LENGTH_SHORT).show();
 
                          Intent intent = new Intent(QuizDetails.this, Entering_MCQs.class);
@@ -69,7 +70,6 @@ public class QuizDetails extends AppCompatActivity {
                          finish();
                      }
                       }catch (NumberFormatException e){
-                        Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
                          Snackbar.make(view,"Invalid Time Duration",Snackbar.LENGTH_SHORT).show();
                       }
                     }

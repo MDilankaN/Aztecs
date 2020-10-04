@@ -37,10 +37,12 @@ public class SignUp extends AppCompatActivity {
     Toast toast;
     DatabaseReference ref;
     List<String> userList = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
 
         userType = findViewById(R.id.UserType);
         email = findViewById(R.id.ETEmail);
@@ -94,12 +96,12 @@ public class SignUp extends AppCompatActivity {
                                         password.setTextColor(Color.BLACK);
                                         email.setTextColor(Color.BLACK);
                                         username.setTextColor(Color.RED);
-                                        Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
-                                        Toast.makeText(getApplicationContext(),"This username already exists",Toast.LENGTH_SHORT).show();
+                                        Snackbar.make(view,"This username already exists",Snackbar.LENGTH_SHORT).show();
+
                                     }else {
-                                        ref.push().setValue(user);
-                                        Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
-                                        toast.makeText(getApplicationContext(),"SIGN UP Successful",toast.LENGTH_SHORT).show();
+                                        ref.child(user.getUsername()).setValue(user);
+                                        Snackbar.make(view,"SIGN UP Successful",Snackbar.LENGTH_SHORT).show();
+                                        toast.makeText(getApplicationContext(),"",toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(SignUp.this, EmailVerification.class);
                                         startActivity(intent);
                                         finish();

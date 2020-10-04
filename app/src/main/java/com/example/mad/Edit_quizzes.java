@@ -32,7 +32,7 @@ public class Edit_quizzes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_quizzes);
-
+        final View view = findViewById(android.R.id.content);
         QName = findViewById(R.id.UpdateQname);
         QTime = findViewById(R.id.UpdateQtime);
         QDescription = findViewById(R.id.UpdateQdescription);
@@ -51,7 +51,7 @@ public class Edit_quizzes extends AppCompatActivity {
                     QDescription.setText(snapshot.child("quizDescription").getValue().toString());
 
                 }else{
-                    Toast.makeText(getApplicationContext(),"can't find "+qname,Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view,"can't find "+qname,Snackbar.LENGTH_SHORT).show();
                 }
 
             }
@@ -77,7 +77,7 @@ public class Edit_quizzes extends AppCompatActivity {
                                     QD.setQuizName(QName.getText().toString());
                                     QD.setQuizTime(Integer.parseInt(QTime.getText().toString().trim()));
                                     QD.setQuizDescription(QDescription.getText().toString());
-                            ref.orderByChild("quizName").equalTo(QD.getQuizName()).addValueEventListener(new ValueEventListener() {
+                                    ref.orderByChild("quizName").equalTo(QD.getQuizName()).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     if(snapshot.hasChildren()){

@@ -32,7 +32,7 @@ public class Student_results extends AppCompatActivity {
     EditText ED;
     public static final int putextra = 0;
     int n=0;
-    int mark = 0;
+    double mark = 0;
     ImageView backbt;
     String Class,qname;
 
@@ -48,8 +48,8 @@ public class Student_results extends AppCompatActivity {
          qname = intent.getStringExtra("Extar");
          Class = intent.getStringExtra("Class");
         System.out.println(qname);
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
 
+        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -84,7 +84,7 @@ public class Student_results extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                        try {
-                               mark = Integer.parseInt(ED.getText().toString());
+                               mark = Double.parseDouble(ED.getText().toString());
                                Intent intent = new Intent(Student_results.this, Pass_Student.class);
                                intent.putExtra("AllResult", n);
                                intent.putExtra("mark", mark);

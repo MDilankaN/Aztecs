@@ -32,6 +32,7 @@ public class Pass_Student extends AppCompatActivity {
     private  static DecimalFormat df = new DecimalFormat("0.00");
     ImageView backbt;
     String Class,qname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

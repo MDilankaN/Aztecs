@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,11 +38,11 @@ public class Quizzes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizzes);
-
+        final View view = findViewById(android.R.id.content);
         recyclerView = findViewById(R.id.quizzesRecyclerview);
         Class = "IT";
-        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
 
+        ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
             ref.addValueEventListener(new ValueEventListener(){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -49,18 +50,18 @@ public class Quizzes extends AppCompatActivity {
                         quizLists = new ArrayList<>();
                         QNAME = new ArrayList<>();
                         for(DataSnapshot ds : snapshot.getChildren()){
-
                              QuizList ql = new QuizList();
                              quizLists.add(ql);
                              ql.setQuizName(ds.child("quizName").getValue().toString());
                              QNAME.add(ql.getQuizName());
                         }
+
                         recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists,QNAME,Class);
                         recyclerView.setAdapter(recyclerAdapter);
 
                        //Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
                     }else {
-                        Toast.makeText(Quizzes.this,"can't find maths class",Toast.LENGTH_SHORT).show();
+                        Snackbar.make(view,"can't find  class",Snackbar.LENGTH_SHORT).show();
                     }
 
                 }

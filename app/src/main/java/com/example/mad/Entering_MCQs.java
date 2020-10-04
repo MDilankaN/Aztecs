@@ -69,6 +69,7 @@ public class Entering_MCQs extends AppCompatActivity {
             public void onClick(View view) {
                 if(nullValidation(view)){
                     for(int i=0; i<mcqLayout.getChildCount(); i++) {
+
                         View mcqView = mcqLayout.getChildAt(i);
 
                         question = mcqView.findViewById(R.id.quetion);
@@ -87,6 +88,7 @@ public class Entering_MCQs extends AppCompatActivity {
                         mcq.setCorrectAns(correctAnsList.get(correctAns.getSelectedItemPosition()));
 
                         int n = i+1;
+
                         ref.child("MCQ "+n).setValue(mcq);
                     }
 

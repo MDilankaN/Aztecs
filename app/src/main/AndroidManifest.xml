@@ -8,7 +8,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Edit_quizzes"></activity>
-        <activity android:name=".Entering_MCQs" >
+        <activity android:name=".Entering_MCQs"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
         <activity android:name=".Pass_Student" />
@@ -19,14 +20,15 @@
 
         </activity>
         <activity android:name=".Quizzes" >
+
+        </activity>
+        <activity android:name=".EmailVerification" />
+        <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".EmailVerification" />
-        <activity android:name=".SignUp">
 
         </activity>
 
