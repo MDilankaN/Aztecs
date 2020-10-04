@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mad">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,25 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.mad.LoginPage" />
-        <activity android:name="com.example.mad.ResetPwdPage" />
-        <activity android:name="com.example.mad.Veriyfypage" />
-        <activity android:name="com.example.mad.Forgotpwd" />
-        <activity android:name="com.example.mad.welcomePage">
+
+
+        <activity android:name=".LoginPage" />
+        <activity android:name=".ResetPwdPage" />
+        <activity android:name=".Veriyfypage" />
+        <activity android:name=".Forgotpwd" />
+        <activity android:name=".welcomePage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name="com.example.mad.PaperExamView">
-
-
-
-        </activity>
-        <activity android:name="com.example.mad.Marksview" />
-        <activity android:name="com.example.mad.Paperviewstd"/>
+        <activity android:name=".PaperExamView" />
+        <activity android:name=".Marksview" />
+        <activity android:name=".Paperviewstd" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -35,8 +36,10 @@ public class PaperExamView extends AppCompatActivity {
     private LinearLayout listx;
     private ArrayList<Integer> correctAns;
     private CountDownTimer countDownTimer;
-    private  int marks,arraySize;
+    private  int marks;
     private int Mark[];
+    private String stname = "chamidu";
+    private String Quizname;
     private Bundle bundle = new Bundle();;
 
     private TextView question,title,paperid,counter,descr;
@@ -47,18 +50,20 @@ public class PaperExamView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paper_exam_view);
+        //getting values
+        Intent intx = getIntent();
+        Quizname = intx.getStringExtra("QuizName");
+
         //arraylist
         correctAns = new ArrayList<>();
-        //recycle view
+        //LinerLayout view
         listx = findViewById(R.id.mcqviewline);
-        //getting data
+        View v = findViewById(android.R.id.content) ;//creating view for SnackBar
+
+        //Functions
         setquizHead();
-        getQuizMcqs();
-
+        getQuizMcqs(v);
         onmbtnClick();
-
-
-
 
     }
 
@@ -67,7 +72,7 @@ public class PaperExamView extends AppCompatActivity {
         paperid = findViewById(R.id.paperID);
         descr = findViewById(R.id.paperDes);
         counter = findViewById(R.id.countdown);
-        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child("Quiz 01");
+        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child(Quizname);
         int time;
 
         dref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -105,9 +110,9 @@ public class PaperExamView extends AppCompatActivity {
 
     }
 
-    private void getQuizMcqs() {
+    private void getQuizMcqs(final View v) {
 
-        dref = FirebaseDatabase.getInstance().getReference().child("MCQ").child("IT").child("Quiz 01");
+        dref = FirebaseDatabase.getInstance().getReference().child("MCQ").child("IT").child(Quizname);
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
@@ -139,7 +144,7 @@ public class PaperExamView extends AppCompatActivity {
                         correctAns.add(Integer.parseInt(snapshot.child("correctAns").getValue().toString()));
 
                     } catch (Exception e){
-                        e.printStackTrace();
+                        Snackbar.make(v,"Error occurred",Snackbar.LENGTH_SHORT).show();
                     }
                 }
 
@@ -214,7 +219,14 @@ public class PaperExamView extends AppCompatActivity {
             System.out.println("Question "+j+" / "+Mark[j]);
         }
 
-        arraySize = k;
+        MarkData md = new MarkData(stname,totalmarks);
+        addtoStudentDatabase(md);
         return totalmarks;
+    }
+
+    private void addtoStudentDatabase(MarkData md) {
+        dref = FirebaseDatabase.getInstance().getReference().child("Quiz_Marks").child("IT").child(Quizname);
+        dref.push().setValue(md);
+
     }
 }

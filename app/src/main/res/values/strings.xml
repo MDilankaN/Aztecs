@@ -18,4 +18,10 @@
     <string name="des">Description about time and paper</string>
     <string name="tm">Time Reaming :</string>
     <string name="_00_00_00">00:00:00</string>
+    <string name="title_activity_student_mark_view">StudentMarkView</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
