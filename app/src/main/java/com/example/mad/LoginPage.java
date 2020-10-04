@@ -104,7 +104,7 @@ public class LoginPage extends AppCompatActivity {
                 sessionID="Akash";
                 s.setUname(sessionID);
                 s.setPwd("pwd");
-                s.setType("Teacher");
+                s.setType("student");
 
 
                 //check the user inputs and database values are equal
@@ -130,7 +130,7 @@ public class LoginPage extends AppCompatActivity {
 
     private void onstudentVali() {
         Intent intx = new Intent(this, joinViewClassrooms.class);
-        //intx.putExtra("sessionID",sessionID);
+        intx.putExtra("sessionID",sessionID);
         startActivity(intx);
     }
 

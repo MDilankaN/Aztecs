@@ -36,7 +36,7 @@ public class joinViewClassrooms extends AppCompatActivity implements View.OnClic
                 startActivity(intent);
                 break;
             case R.id.btnview:
-                Intent intent2= new Intent(joinViewClassrooms.this, MainActivity.class);
+                Intent intent2= new Intent(joinViewClassrooms.this, studentClassroom.class);
                 startActivity(intent2);
                 break;
             case R.id.btnviewreply:

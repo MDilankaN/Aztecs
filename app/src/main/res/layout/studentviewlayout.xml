@@ -5,7 +5,10 @@
     app:cardElevation="5dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,6 +53,8 @@
 
         </LinearLayout>
 
+
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"

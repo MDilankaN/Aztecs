@@ -11,9 +11,6 @@
     tools:context=".MainActivity">
 
 <!--    Start scrolling view for whole content-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,492 +31,41 @@
                 android:textStyle="bold">
 
             </TextView>
-          <!--  <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:src="@drawable/childl" />-->
+
 
             <TextView
-                android:id="@+id/txt_scls1"
+                android:id="@+id/txtcurrent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/raleway_semibold"
-                android:text="@string/newlyaddedclassrooms"
+                android:text="Current Classrooms"
                 android:textColor="@color/darkcolor"
                 android:textSize="18sp"
                 android:textStyle="bold"></TextView>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/linearlayout"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="30dp">
-
-            <TextView
-                android:id="@+id/txt_stucls2"
-                android:layout_width="241dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="@string/sub1"
-                android:textColor="@color/darkcolor"
-                android:textSize="16dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-            </Space>
-
-            <TextView
-                android:id="@+id/txt_code10"
-                android:layout_width="54dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/darkcolor"
-                android:text="@string/code_1"
-                android:textSize="16dp"
-                android:textStyle="bold">
-
-            </TextView>
 
 
-        </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/linearlayout"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="30dp">
-
-                <TextView
-                    android:id="@+id/txt_clsin20"
-                    android:layout_width="238dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:text="@string/subject2"
-                    android:textColor="@color/darkcolor"
-                    android:textSize="16dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-                <Space
-                    android:layout_width="111dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                </Space>
-
-                <TextView
-                    android:id="@+id/txt_code23"
-                    android:layout_width="57dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/darkcolor"
-                    android:text="code 2"
-                    android:textSize="16dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-
-            </LinearLayout>
-
-            <!--<LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="0dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/linearlayout"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="30dp">
-
-                <TextView
-                    android:id="@+id/txt_clsin30"
-                    android:layout_width="238dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/raleway_semibold"
-                    android:text="@string/subject3"
-                    android:textColor="@color/darkcolor"
-                    android:textSize="16dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
-
-                </Space>
-
-                <TextView
-                    android:id="@+id/txt_code33"
-                    android:layout_width="55dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="sans-serif"
-                    android:textColor="@color/darkcolor"
-                    android:textSize="16dp"
-                    android:textStyle="bold">
-
-                </TextView>
-
-
-            </LinearLayout>-->
-        </LinearLayout>
-
-    </ScrollView>
-
-            <TextView
-                android:id="@+id/txt_clsS22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="@string/most_popular_classrooms"
-                android:textColor="@color/darkcolor"
-                android:textSize="18sp"
-                android:textStyle="bold"></TextView>
-
-<!--Most popular scrollview begin-->
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-               >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:orientation="vertical">
-
-                  <!--  <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/linearlayout"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="30dp">
-
-                        <TextView
-                            android:id="@+id/txt_clsSin10"
-                            android:layout_width="241dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_semibold"
-                            android:text=""
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <Space
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </Space>
-
-                        <TextView
-                            android:id="@+id/txt_code16"
-                            android:layout_width="54dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-
-                    </LinearLayout>
--->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="0dp"
-                        android:background="@drawable/linearlayout"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="30dp">
-
-                        <TextView
-                            android:id="@+id/txt_clsin21"
-                            android:layout_width="238dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
-                            android:text="@string/subject2"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <Space
-                            android:layout_width="111dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </Space>
-
-                        <TextView
-                            android:id="@+id/txt_code21"
-                            android:layout_width="57dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="0dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/linearlayout"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="30dp">
-
-                        <TextView
-                            android:id="@+id/txt_clsin31"
-                            android:layout_width="238dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_semibold"
-                            android:text="@string/subject3"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <Space
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </Space>
-
-                        <TextView
-                            android:id="@+id/txt_code31"
-                            android:layout_width="55dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="20dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-            </ScrollView>
-
-
-            <TextView
-                android:id="@+id/txt_clsS2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="@string/current_classrooms"
-                android:textColor="@color/darkcolor"
-                android:textSize="18sp"
-                android:textStyle="bold"></TextView>
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-               >
+                android:layout_height="510dp">
 
                 <LinearLayout
+                    android:id="@+id/Classrooms"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/linearlayout"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="30dp">
-
-                        <TextView
-                            android:id="@+id/txt_clsSin1"
-                            android:layout_width="241dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_semibold"
-                            android:text="Subject1"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <Space
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </Space>
-
-                        <TextView
-                            android:id="@+id/txt_code1"
-                            android:layout_width="54dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
-                            android:fontFamily="sans-serif"
-                            android:text="@string/code_1"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="0dp"
-                        android:background="@drawable/linearlayout"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="30dp">
-
-                        <TextView
-                            android:id="@+id/txt_clsin2"
-                            android:layout_width="238dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif"
-                            android:text="subject2"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <Space
-                            android:layout_width="111dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </Space>
-
-                        <TextView
-                            android:id="@+id/txt_code2"
-                            android:layout_width="57dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="20dp"
-                            android:fontFamily="sans-serif"
-                            android:text="code 2"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-
-                    </LinearLayout>
-
-                   <!-- <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:layout_marginTop="0dp"
-                        android:background="@drawable/linearlayout"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingStart="30dp">
-
-                        <TextView
-                            android:id="@+id/txt_clsin3"
-                            android:layout_width="238dp"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/raleway_semibold"
-                            android:text="@string/subject3"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-                        <Space
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1">
-
-                        </Space>
-
-                        <TextView
-                            android:id="@+id/txt_code3"
-                            android:layout_width="55dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="20dp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/darkcolor"
-                            android:textSize="16dp"
-                            android:textStyle="bold">
-
-                        </TextView>
-
-
-                    </LinearLayout>-->
                 </LinearLayout>
 
-            </ScrollView>
+                </ScrollView>
 
-<!--            Student inputs classroom ID to join to the new classroom-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="63dp"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="30dp">
@@ -543,34 +89,27 @@
                     android:textColor="@color/darkcolor">
 
                 </EditText>
+
                 <Button
+                    android:id="@+id/btnjoin"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@drawable/btnjoin"
-                    >
+                    android:background="@drawable/btnjoin">
 
                 </Button>
             </LinearLayout>
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="3"></Space>
+
             <!--Begin bottom tab-->
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-            </Space>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
-                android:background="@color/darkcolor">
+                android:background="@color/darkcolor"
+                >
 
 
                 <Button
@@ -580,6 +119,7 @@
                     android:background="@drawable/selected">
 
                 </Button>
+
                 <Space
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -609,53 +149,8 @@
                     android:background="@drawable/profile">
 
                 </Button>
-
-
-
             </LinearLayout>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </LinearLayout>
-
-
-
-    </ScrollView>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </androidx.appcompat.widget.LinearLayoutCompat>

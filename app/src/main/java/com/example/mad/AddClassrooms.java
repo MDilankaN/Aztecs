@@ -89,20 +89,6 @@ public class AddClassrooms extends AppCompatActivity {
             public void onClick(View v){
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom");
 
-                dbRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists());
-                        //maxid=(dataSnapshot.getChildrenCount());
-
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
                 try{
                     if(TextUtils.isEmpty(txtname.getText().toString())){
                         Toast.makeText(getApplicationContext(), "Please Enter a classroom name", Toast.LENGTH_SHORT).show();
