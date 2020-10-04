@@ -27,7 +27,7 @@ public class TeacherNews extends AppCompatActivity {
     //initialize all the variables
     EditText  NewsDescription,newsID;
     //TextView News1;
-    Button btnAddNewsK,btn_navi2;
+    Button btnAddNewsK,navProfile,navClassHome;
     DatabaseReference dbRef;
     News news;
     //long maxId = 0;
@@ -134,8 +134,9 @@ public class TeacherNews extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        btn_navi2 =(Button)findViewById(R.id.btn_navi3);
-        btn_navi2.setOnClickListener(new View.OnClickListener() {
+        navProfile =(Button)findViewById(R.id.btn_navi3);
+        navClassHome = (Button)findViewById(R.id.btn_navi1);
+        navProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TeacherNews.this,ActivityTeacherProfile.class);

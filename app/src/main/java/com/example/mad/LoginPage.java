@@ -1,5 +1,8 @@
 package com.example.mad;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -7,9 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
@@ -79,50 +79,50 @@ public class LoginPage extends AppCompatActivity {
 
         try{
             if(TextUtils.isEmpty(unedtxt.getText())){
-                Snackbar.make(view,"Username Field id empty", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(view,"Username Field id empty",Snackbar.LENGTH_SHORT).show();
             }else if(TextUtils.isEmpty(pwdtxt.getText())){
-                Snackbar.make(view,"Password Field id empty", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(view,"Password Field id empty",Snackbar.LENGTH_SHORT).show();
             }else {
                 uname = unedtxt.getText().toString();
                 pwd = pwdtxt.getText().toString();
                 dref = FirebaseDatabase.getInstance().getReference().child("User").child(uname);
-//                dref.addListenerForSingleValueEvent(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                        if(snapshot.hasChildren()){
-//                            //if data was found
-//                            s.setUname(snapshot.child("username").getValue().toString());
-//                            s.setPwd(snapshot.child("password").getValue().toString());
-//                            s.setE_mail(snapshot.child("email").getValue().toString());
-//                            s.setType(snapshot.child("userType").getValue().toString());
-//                        }else{
-//                            //if data not found
-//                            Snackbar.make(view,"Invalid User", Snackbar.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//                    }
-//                });
-
-                s.setUname("A");
-                s.setPwd("123456");
-                s.setType("Teacher");
+                dref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                        if(datasnapshot.hasChildren()){
+                            //if data was found
+                            s.setUname(datasnapshot.child("username").getValue().toString());
+                            s.setPwd(datasnapshot.child("password").getValue().toString());
+                            s.setE_mail(datasnapshot.child("email").getValue().toString());
+                            s.setType(datasnapshot.child("userType").getValue().toString());
+                        }else{
+                            //if data not found
+                            Snackbar.make(view,"Invalid User",Snackbar.LENGTH_SHORT).show();
+                        }
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
 
                 //check the user inputs and database values are equal
                 if(s.getPwd().equals(pwd)){
-                    if(s.getType().equals("teacher") ||s.getType().equals("Teacher")){
-                        Snackbar.make(view,"Logging n", Snackbar.LENGTH_SHORT).show();
-                        //Teacher's Homepage
-                        onteacherVali();
+                    if(s.getType().equals("Teacher")){
+                        Snackbar.make(view,"Logging n",Snackbar.LENGTH_SHORT).show();
 
-                    }else if(s.getType().equals("student") ||s.getType().equals("Student")){
-                        Snackbar.make(view,"Logging in", Snackbar.LENGTH_SHORT).show();
+                        //Teacher's Homepage
+                        Intent intx = new Intent(this, teacherHome.class);
+                        intx.putExtra("name",uname);
+                        startActivity(intx);
+                    }else{
+                        Snackbar.make(view,"Logging in",Snackbar.LENGTH_SHORT).show();
                         //Students's Homepage
-                        onstudentVali();
+                        Intent intx = new Intent(this, studentClassroom.class);
+                        intx.putExtra("name",uname);
+                        startActivity(intx);
                     }
                 }else{
-                    Snackbar.make(view,"Invalid password", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(view,"Invalid password",Snackbar.LENGTH_SHORT).show();
                 }
             }
         }catch (Exception e){
@@ -130,20 +130,11 @@ public class LoginPage extends AppCompatActivity {
         }
     }
 
-    private void onstudentVali() {
-        Intent intx = new Intent(this, studentClassroom.class);
-        startActivity(intx);
-    }
-
-    private void onteacherVali() {
-        Intent intx = new Intent(this, teacherHome.class);
-        intx.putExtra("name",uname);
-        startActivity(intx);
-    }
-
     //Students's Homepage
     //Teacher's Homepage
     //sign in page
 }
+
+
 
 

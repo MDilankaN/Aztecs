@@ -28,6 +28,8 @@ public class ActivityTeacherProfile extends AppCompatActivity {
     TextView Password1,Email1,NoClasses,NoPapers;
     Button btnProflieupdate;
     int countClass,countPaper;
+    Button navClassHome,navNews,BtnAdd;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,6 +142,38 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        navClassHome = findViewById(R.id.btn_navi1);
+        navNews = findViewById(R.id.btn_navi2);
+
+        //navigation for teacher news
+        navClassHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(ActivityTeacherProfile.this, TeacherNews.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+
+            }
+        });
+
+        //navigation for teacher profile
+        navNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(ActivityTeacherProfile.this, teacherHome.class);
+                intent.putExtra("name",name);
+                startActivity(intent);
+            }
+        });
+
+
+
+    }
 
 
 

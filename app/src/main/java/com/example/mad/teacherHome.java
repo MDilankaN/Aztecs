@@ -42,7 +42,7 @@ public class teacherHome extends AppCompatActivity {
         navProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(teacherHome.this, Student_profile.class);
+                Intent intent= new Intent(teacherHome.this, ActivityTeacherProfile.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
             }
