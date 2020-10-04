@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="@color/lightcolor"
+
+    android:background="@drawable/background"
     android:gravity="bottom"
     tools:context=".MainActivity">
 
@@ -38,7 +39,7 @@
     </ImageView>
 
 
-    <!--    Layout3-->
+   <!-- &lt;!&ndash;    Layout3&ndash;&gt;
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -194,8 +195,8 @@
 
 
         </LinearLayout>
-    </LinearLayout>
-
+    </LinearLayout>-->
+-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -206,10 +207,10 @@
         android:layout_marginLeft="10dp">
 
     </TextView>
-    <!--    Layout4-->
+    <!--&lt;!&ndash;    Layout4&ndash;&gt;
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="250dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -353,7 +354,18 @@
         </LinearLayout>
 
     </ScrollView>
+-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvForum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"></Space>
 
     <!--    Layout5-->
     <LinearLayout

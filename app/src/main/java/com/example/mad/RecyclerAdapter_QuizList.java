@@ -21,10 +21,14 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
     ArrayList<QuizList> quizLists;
     Context quizzes;
     ArrayList<String> QNAME;
-    public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME){
+    String q;
+    String Class;
+
+    public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME, String Class){
         this.quizLists = quizLists;
         this.quizzes = quizzes;
         this.QNAME = QNAME;
+        this.Class = Class;
     }
     @NonNull
     @Override
@@ -58,28 +62,32 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(quizzes,Student_results.class);
+                    q = QNAME.get(getAdapterPosition());
+                    Intent intent = new Intent(quizzes, Student_results.class);
+                    intent.putExtra("Extar",q);
+                    intent.putExtra("Class",Class);
                     quizzes.startActivity(intent);
-
                 }
             });
 
            Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    q = QNAME.get(getAdapterPosition());
                     Intent intent = new Intent(quizzes, Edit_quizzes.class);
+                    intent.putExtra("Extar",q);
+                    intent.putExtra("Class",Class);
                     quizzes.startActivity(intent);
-
                 }
             });
 
             Delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String QName = QuizName.getText().toString();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("ClassQuize").child("maths").child("q4");
+                    q = QNAME.get(getAdapterPosition());
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class).child(q);
                     ref.removeValue();
-                    Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
+                    Snackbar snackbar = Snackbar.make(view,"successfully deleted", Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {

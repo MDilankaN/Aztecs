@@ -33,7 +33,6 @@
         <activity android:name=".Student_results" />
         <activity android:name=".QuizDetails" />
         <activity android:name=".Quizzes" />
-        <activity android:name=".EmailVerification" />
         <activity android:name=".SignUp" />
         <!-- Menaka -->
         <activity android:name=".LoginPage" />

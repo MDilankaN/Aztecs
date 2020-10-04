@@ -5,13 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuizDetails"
-    android:background="@color/solitude">
+    android:background="@drawable/newbackground1">
 
+
+    <ImageView
+        android:id="@+id/BackBT"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backbutton"
+        android:background="?android:attr/selectableItemBackground"/>
 
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +40,7 @@
             android:gravity="center"
             android:padding="23dp"
             android:text="Enter quiz details"
-            android:textColor="@color/picton_blue"
+            android:textColor="@color/White"
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -57,6 +69,7 @@
                 android:layout_gravity=""
                 android:background="@drawable/edit_text"
                 android:gravity="center"
+                android:alpha="0.5"
                 android:inputType="textPersonName"
                 android:paddingVertical="8dp" />
 
@@ -87,6 +100,7 @@
                 android:background="@drawable/edit_text"
                 android:gravity="center"
                 android:inputType="text"
+                android:alpha="0.5"
                 android:paddingVertical="8dp" />
 
         </LinearLayout>
@@ -111,6 +125,7 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/edit_text"
             android:ems="10"
+            android:alpha="0.5"
             android:inputType="textMultiLine"
             android:padding="10dp" />
 

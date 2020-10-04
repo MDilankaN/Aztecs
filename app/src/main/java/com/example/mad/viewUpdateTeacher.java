@@ -1,6 +1,7 @@
 package com.example.mad;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,75 +23,102 @@ public class viewUpdateTeacher extends AppCompatActivity {
     ArrayList<ClassroomView> list;
     RecyclerView recyclerView;
     SearchView searchView;
+    Button btn_classroom_retrieve_name;
+    Button btn_classroom_retrieve_code;
+    AdupterClass mRepositoryAdapter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_update_teacher);
-
         ref = FirebaseDatabase.getInstance().getReference().child("Classroom");
-        recyclerView=findViewById(R.id.rv);
-        searchView=findViewById(R.id.searchView);
+        recyclerView =findViewById(R.id.rv);
+        searchView =findViewById(R.id.searchView);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        if(ref!=null){
-
+        if (ref!=null){
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()){
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if(snapshot.exists()){
+                        list=new ArrayList<>();
+                        for(DataSnapshot ds: snapshot.getChildren()){
 
-                    list=new ArrayList<>();
-                    for(DataSnapshot ds:dataSnapshot.getChildren()){
-                        list.add(ds.getValue(ClassroomView.class));
+                            list.add(ds.getValue(ClassroomView.class));
+
+                        }
+
+                        AdupterClass adupterClass =new AdupterClass(list);
+                        recyclerView.setAdapter(adupterClass);
+
+
 
                     }
-                    AdupterClass adapterClass=new AdupterClass(list);
-                    recyclerView.setAdapter(adapterClass);
-                }
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                    Toast.makeText(viewUpdateTeacher.this,databaseError.getMessage(),Toast.LENGTH_SHORT).show();
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                    Toast.makeText(viewUpdateTeacher.this,error.getMessage(),Toast.LENGTH_SHORT).show();
+
+
                 }
-            });        }
+            });
+
+
+
+        }
 
         if(searchView!=null){
-
             searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                                                  @Override
-                                                  public boolean onQueryTextSubmit(String query) {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
 
-                                                      return false;
-                                                  }
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    search(newText);
+                    return true;
+                }
+            });
 
-                                                  @Override
-                                                  public boolean onQueryTextChange(String s) {
 
-                                                      search(s);
-                                                      return true;
-                                                  }
-                                              }
-            );
         }
+
+
+
+
+
     }
 
     private void search(String str){
-    ArrayList<ClassroomView> myList =new ArrayList<>();
-    for(ClassroomView object: list){
-        if( object.getName().toLowerCase().contains(str.toLowerCase())){
+        ArrayList<ClassroomView> myList=new ArrayList<>();
+        for(ClassroomView object : list){
+            if(object.getCode().toString().trim().toLowerCase().contains(str.toLowerCase())){
+                myList.add(object);
+            }
 
-            myList.add(object);
+         /*   if(object.getName().toString().trim().toLowerCase().contains(str.toLowerCase())){
+                myList.add(object);
+            }*/
+
+
         }
-        AdupterClass adupterClass = new AdupterClass(myList);
+
+        AdupterClass adupterClass=new AdupterClass(myList);
         recyclerView.setAdapter(adupterClass);
 
+
     }
 
 
-    }
+
+
 }

@@ -42,4 +42,6 @@ public class RecyclerAdapter_ResultList extends RecyclerView.Adapter<RecyclerAda
             sresult = itemView.findViewById(R.id.SResult);
         }
     }
+
+
 }

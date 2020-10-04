@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="top"
-    android:background="@color/lightcolor"
+    android:background="@drawable/background"
 
-    tools:context=".MainActivity">
+    tools:context=".addForum">
 
 
     <TextView
@@ -22,6 +22,27 @@
         android:textStyle="bold">
 
     </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Classroom code"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/raleway_medium"></TextView>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type your question below"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/raleway_semibold"></TextView>
 
     <!--    vertical lenear layout beging-->
     <LinearLayout
@@ -142,24 +163,6 @@
 
 
     </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

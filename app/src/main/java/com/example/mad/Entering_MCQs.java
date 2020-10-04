@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,6 +32,7 @@ public class Entering_MCQs extends AppCompatActivity {
     TextView QNumber;
     List<Integer> correctAnsList = new ArrayList<Integer>();
     DatabaseReference ref;
+    String Class,qname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +40,16 @@ public class Entering_MCQs extends AppCompatActivity {
         setContentView(R.layout.activity_entering__m_c_qs);
 
         mcqLayout = findViewById(R.id.mcq_Layout);
+        Intent intent = getIntent();
+        Class = intent.getStringExtra("Class");
+        qname = intent.getStringExtra("qname");
 
         correctAnsList.add(1);
         correctAnsList.add(2);
         correctAnsList.add(3);
         correctAnsList.add(4);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("MCQ").child("IT").child("Quiz 01");
+        ref = FirebaseDatabase.getInstance().getReference().child("MCQ").child(Class).child(qname);
         OnclickButtonListener();
     }
 
@@ -62,8 +66,9 @@ public class Entering_MCQs extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(nullValidation()){
+                if(nullValidation(view)){
                     for(int i=0; i<mcqLayout.getChildCount(); i++) {
+
                         View mcqView = mcqLayout.getChildAt(i);
 
                         question = mcqView.findViewById(R.id.quetion);
@@ -82,11 +87,13 @@ public class Entering_MCQs extends AppCompatActivity {
                         mcq.setCorrectAns(correctAnsList.get(correctAns.getSelectedItemPosition()));
 
                         int n = i+1;
+
                         ref.child("MCQ "+n).setValue(mcq);
                     }
 
-                    Toast.makeText(getApplicationContext(),"Quiz successfully created",Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view,"Quiz successfully created", Snackbar.LENGTH_SHORT).show();
                     Intent intent = new Intent(Entering_MCQs.this, Quizzes.class);
+                   // intent.putExtra("Class",C3lass);
                     startActivity(intent);
                     finish();
                 }
@@ -126,10 +133,10 @@ public class Entering_MCQs extends AppCompatActivity {
         mcqLayout.removeView(view);
     }
 
-    private boolean nullValidation() {
+    private boolean nullValidation(View view) {
         boolean value = true;
         if(mcqLayout.getChildCount() == 0){
-            Toast.makeText(getApplicationContext(),"Please first add MCQs",Toast.LENGTH_SHORT).show();
+            Snackbar.make(view,"Please first add MCQs", Snackbar.LENGTH_SHORT).show();
             value = false;
         }else {
           for(int i=0; i<mcqLayout.getChildCount(); i++){
@@ -145,7 +152,7 @@ public class Entering_MCQs extends AppCompatActivity {
 
             if(question.getText().toString().isEmpty() | Ans1.getText().toString().isEmpty() | Ans2.getText().toString().isEmpty() | Ans3.getText().toString().isEmpty() | Ans4.getText().toString().isEmpty() ){
                 value = false;
-                Toast.makeText(getApplicationContext(),"Please fill all empty fields",Toast.LENGTH_SHORT).show();
+                Snackbar.make(view,"Please fill all empty fields", Snackbar.LENGTH_SHORT).show();
                 break;
             }
           }

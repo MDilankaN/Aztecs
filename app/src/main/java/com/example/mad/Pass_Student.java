@@ -2,12 +2,13 @@ package com.example.mad;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Pass_Student extends AppCompatActivity {
@@ -23,37 +25,46 @@ public class Pass_Student extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<Result> resultsList;
     RecyclerAdapter_ResultList recyclerAdapter;
-    DividerItemDecoration dividerItemDecoration;
     TextView percentage;
-    int n = 0;
+    int n=0;
+    ArrayList<String> a;
+    double AllResult;
+    private  static DecimalFormat df = new DecimalFormat("0.00");
+    ImageView backbt;
+    String Class,qname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass__student);
-
+        percentage = findViewById(R.id.PassResult);
         recyclerView = findViewById(R.id.passRecyclerview);
         Intent intent = getIntent();
-        int AllResult = intent.getIntExtra("AllResult",0);
+        AllResult = intent.getIntExtra("AllResult",0);
+        int mark = intent.getIntExtra("mark",0);
+        Class = intent.getStringExtra("Class");
+        qname = intent.getStringExtra("qname");
 
-        dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerItemDecoration);
+        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
+        ref.orderByChild("result").startAt(mark).addValueEventListener(new ValueEventListener() {
 
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child("IT").child("Quiz 01");
-        ref.orderByChild("result").startAt(AllResult).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.hasChildren()){
                     resultsList = new ArrayList<>();
 
                     for(DataSnapshot DS : snapshot.getChildren()){
-                        Result R = new Result();
+                        Result R= new Result();
                         resultsList.add(R);
                         R.setSName(DS.child("name").getValue().toString());
                         R.setSResult(Integer.parseInt((DS.child("result").getValue().toString())));
                         n++;
                     }
-                    recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);
-                    recyclerView.setAdapter(recyclerAdapter);
+                             recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);
+                             recyclerView.setAdapter(recyclerAdapter);
+                             double result = calculation(AllResult,n);
+                             percentage.setText(df.format(result)+"%");
+
                 }else{
                     Toast.makeText(getApplicationContext(),"can't find any child",Toast.LENGTH_LONG).show();
                 }
@@ -64,14 +75,19 @@ public class Pass_Student extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"ERROR",Toast.LENGTH_LONG).show();
             }
         });
-        percentage = findViewById(R.id.PassResult);
 
-        if(n == 0){
-            //Toast.makeText(getApplicationContext(),"n ="+n,Toast.LENGTH_LONG).show();
-        }else{
+        backbt = findViewById(R.id.BackBT);
+        backbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               onBackPressed();
+            }
+        });
+    }
 
-            percentage.setText(AllResult+"%");
-        }
+    public double calculation(double allResult, int n) {
 
+            double result =(n/allResult*100);
+            return result;
     }
 }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,12 +32,14 @@ public class SignUp extends AppCompatActivity {
     ArrayAdapter AD;
     User user;
     Toast toast;
-    public DatabaseReference ref;
+    DatabaseReference ref;
     List<String> userList = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+
 
         userType = findViewById(R.id.UserType);
         email = findViewById(R.id.ETEmail);
@@ -59,24 +62,24 @@ public class SignUp extends AppCompatActivity {
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
+                    public void onClick(final View view) {
                         if(email.getText().toString().isEmpty() || username.getText().toString().isEmpty() || password.getText().toString().isEmpty()){
-                          toast.makeText(getApplicationContext(),"Please fill all fields",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please fill all fields", Snackbar.LENGTH_SHORT).show();
                         }else if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()){
                             username.setTextColor(Color.BLACK);
                             password.setTextColor(Color.BLACK);
                             email.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter your email correctly",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please enter your email correctly", Snackbar.LENGTH_SHORT).show();
                         }else if(username.getText().toString().length()<4){
                             password.setTextColor(Color.BLACK);
                             email.setTextColor(Color.BLACK);
                             username.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter at least four characters for the username ",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please enter at least four characters for the username", Snackbar.LENGTH_SHORT).show();
                         }else  if(password.getText().toString().length()<6){
                             email.setTextColor(Color.BLACK);
                             username.setTextColor(Color.BLACK);
                             password.setTextColor(Color.RED);
-                            toast.makeText(getApplicationContext(),"Please enter at least six characters for the password",toast.LENGTH_SHORT).show();
+                            Snackbar.make(view,"Please enter at least six characters for the password", Snackbar.LENGTH_SHORT).show();
                         }else {
 
                             user.setEmail(email.getText().toString().trim());
@@ -90,11 +93,13 @@ public class SignUp extends AppCompatActivity {
                                         password.setTextColor(Color.BLACK);
                                         email.setTextColor(Color.BLACK);
                                         username.setTextColor(Color.RED);
-                                        Toast.makeText(getApplicationContext(),"This username already exists",Toast.LENGTH_SHORT).show();
+                                        Snackbar.make(view,"This username already exists", Snackbar.LENGTH_SHORT).show();
+
                                     }else {
-                                        ref.push().setValue(user);
-                                        toast.makeText(getApplicationContext(),"SIGN UP Successful",toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(SignUp.this, EmailVerification.class);
+                                        ref.child(user.getUsername()).setValue(user);
+                                        Snackbar.make(view,"SIGN UP Successful", Snackbar.LENGTH_SHORT).show();
+                                        toast.makeText(getApplicationContext(),"",toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(SignUp.this, LoginPage.class);
                                         startActivity(intent);
                                         finish();
                                     }

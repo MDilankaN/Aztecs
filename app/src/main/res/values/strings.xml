@@ -98,4 +98,9 @@
     <string name="imgstudent_id">Student ID</string>
     <string name="btnreply">Reply</string>
     <string name="txtdate">Date</string>
+    <string-array name="classrooms">
+        <item>3490</item>
+        <item>8045</item>
+        <item>8090</item>
+    </string-array>
 </resources>

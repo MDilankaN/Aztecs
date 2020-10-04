@@ -1,53 +1,67 @@
 package com.example.mad;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class studentClassroom extends AppCompatActivity {
 
-    Button navPro,navNews;
+    DatabaseReference ref;
+    LinearLayout clzroom;
+    Button clzname,code;
 
-    String uname;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_classroom);
-        Intent intent = getIntent();
-        final String name = intent.getStringExtra("name");
-        uname = name;
+
+        clzroom = findViewById(R.id.Classrooms);
+
+       setScroll();
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        navPro = findViewById(R.id.btn_navi3);
-        navNews = findViewById(R.id.btn_navi2);
+    public void setScroll() {
+        try {
+            ref = FirebaseDatabase.getInstance().getReference().child("Classroom");
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-        navNews.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                    for(DataSnapshot ds: snapshot.getChildren()){
+                        View Container =getLayoutInflater().inflate(R.layout.card_hoder,null,false);
 
-                Intent intent= new Intent(studentClassroom.this, Activity_Student_News.class);
-                intent.putExtra("name",uname);
-                startActivity(intent);
+                        clzname = Container.findViewById(R.id.clsName);
+                        code = Container.findViewById(R.id.clsCode);
 
-            }
-        });
-        navPro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                        clzroom.addView(Container);
 
-                Intent intent= new Intent(studentClassroom.this, Student_profile.class);
-                intent.putExtra("name",uname);
-                startActivity(intent);
+                        clzname.setText(ds.child("name").getValue().toString());
+                        code.setText(ds.child("code").getValue().toString());
 
-            }
-        });
+                    }
 
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                    Toast.makeText(studentClassroom.this,error.getMessage(),Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

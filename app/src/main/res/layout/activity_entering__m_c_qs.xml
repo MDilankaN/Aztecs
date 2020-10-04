@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/solitude"
+    android:background="@drawable/newbackground1"
     android:orientation="vertical"
     tools:context=".Entering_MCQs">
 
@@ -15,12 +15,13 @@
         android:gravity="center"
         android:padding="8dp"
         android:text="Enter Your MCQs"
-        android:textColor="@color/picton_blue"
-        android:textSize="30dp" />
+        android:textColor="@color/White"
+        android:textSize="30dp"
+        android:textStyle="bold"/>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="600dp">
+        android:layout_height="579dp">
 
         <LinearLayout
             android:id="@+id/mcq_Layout"

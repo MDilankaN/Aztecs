@@ -9,15 +9,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class teacherHome extends AppCompatActivity {
 
-    Button navNews,navProfile,BtnAdd;
-    String name;
-    Bundle bundle = new Bundle();
+    Button navNews,navProfile,viewClass,addclass,  checkForum;
+    Button tempory;
+    private  String sessionID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_home);
-        Intent intent = getIntent();
-        name = intent.getStringExtra("name");
+
+        sessionID=getIntent().getStringExtra("sessionID");
+
+
+
+
+
+
+
+
 
     }
 
@@ -26,6 +34,10 @@ public class teacherHome extends AppCompatActivity {
         super.onResume();
         navNews = findViewById(R.id.btn_navi2);
         navProfile = findViewById(R.id.btn_navi3);
+        viewClass=findViewById(R.id.btnview);
+        addclass=findViewById(R.id.btnadd);
+        checkForum=findViewById(R.id.btnform);
+       //tempory=findViewById(R.id.tempory);
 
         //navigation for teacher news
         navNews.setOnClickListener(new View.OnClickListener() {
@@ -33,7 +45,6 @@ public class teacherHome extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent= new Intent(teacherHome.this, TeacherNews.class);
-                intent.putExtra("name",name);
                 startActivity(intent);
 
             }
@@ -44,23 +55,50 @@ public class teacherHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(teacherHome.this, ActivityTeacherProfile.class);
-                bundle.putString("Name",name);
-                intent.putExtras(bundle);
-                //intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
 
-
-
-        BtnAdd= (Button) findViewById(R.id.btnadd);
-        BtnAdd.setOnClickListener(new View.OnClickListener() {
+        //navigation for view current classrooms
+        viewClass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(teacherHome.this,addForum.class) ;
+                Intent intent= new Intent(teacherHome.this, viewUpdateTeacher.class);
+                intent.putExtra("sessionID",sessionID);
                 startActivity(intent);
             }
         });
+
+        //navigation for add new  classrooms
+        addclass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(teacherHome.this, AddClassrooms.class);
+                intent.putExtra("sessionID",sessionID);
+                startActivity(intent);
+            }
+        });
+
+
+        //tempory navigate button testing update,delete
+        checkForum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(teacherHome.this, forumviewTeacher.class);
+                startActivity(intent);
+            }
+        });
+
+       /* //tempory navigate add forum
+        *//*tempory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(teacherHome.this,addForum.class);
+                startActivity(intent);
+            }*//*
+        });*/
+
+
 
 
     }

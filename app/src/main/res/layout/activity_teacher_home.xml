@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".teacherHome"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
 
@@ -36,60 +37,135 @@
         android:layout_height="400dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/linearlayout"
+        android:background="@drawable/background"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:gravity="center"
-        >
+        android:paddingTop="10dp">
 
         <LinearLayout
-            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="horizontal">
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
 
             <Button
-                android:id="@+id/btnview"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/viewupdate">
-            </Button>
 
+                android:id="@+id/btnview"
+                android:layout_width="200dp"
+
+                android:layout_height="40dp"
+                android:background="@drawable/viewupdate"></Button>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
         </LinearLayout>
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:orientation="horizontal">
 
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
             <Button
+
                 android:id="@+id/btnadd"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+
+                android:layout_height="40dp"
                 android:background="@drawable/addcls">
             </Button>
 
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp"
-            android:gravity="center">
+            android:orientation="horizontal">
 
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
             <Button
+
                 android:id="@+id/btnform"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+
+                android:layout_height="40dp"
                 android:background="@drawable/chkforum">
             </Button>
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
+            <!--<Button
+
+                android:id="@+id/tempory"
+                android:layout_width="200dp"
+
+                android:layout_height="40dp"
+                android:text="ADD"
+                android:textSize="20dp">
+            </Button>-->
+
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </Space>
 
         </LinearLayout>
 
     </LinearLayout>
+
+
 
     <!--bottom -->
 

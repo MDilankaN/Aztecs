@@ -10,20 +10,20 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="161dp"
-        android:layout_height="51dp"
+        android:layout_width="193dp"
+        android:layout_height="58dp"
         android:fontFamily="@font/raleway_medium"
         android:text="@string/toptxt"
         android:textAlignment="center"
         android:textColor="@color/picton_blue"
-        android:textSize="36sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
+        app:layout_constraintVertical_bias="0.297" />
 
     <EditText
         android:id="@+id/ETUsername"
@@ -35,7 +35,7 @@
         android:background="@drawable/edit_text"
         android:importantForAutofill="no"
         android:inputType="text"
-        android:text="@string/usernameHint"
+        android:hint="Username"
         android:padding="10dp"
         android:elevation="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -105,17 +105,32 @@
 
     <Spinner
         android:id="@+id/UserType"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/edit_text"
-        android:elevation="6dp"
+        android:layout_width="148dp"
+        android:layout_height="37dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="170dp"
         android:layout_marginBottom="70dp"
+        android:background="@drawable/edit_text"
+        android:elevation="6dp"
         app:layout_constraintBottom_toTopOf="@+id/signupBtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ETPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/ETPassword"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="248dp"
+        android:layout_height="677dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="210dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toEndOf="@+id/signupBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/singup_image" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

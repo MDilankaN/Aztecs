@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -25,9 +27,13 @@ public class Student_results extends AppCompatActivity {
     DatabaseReference ref;
     ArrayList<Result> resultsList;
     RecyclerAdapter_ResultList recyclerAdapter;
-    DividerItemDecoration dividerItemDecoration;
+    EditText ED;
     public static final int putextra = 0;
     int n=0;
+    double mark = 0;
+    ImageView backbt;
+    String Class,qname;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +41,13 @@ public class Student_results extends AppCompatActivity {
         OnclickButtonListener();
 
         recyclerView = findViewById(R.id.resultRecyclerview);
-        dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
-        recyclerView.addItemDecoration(dividerItemDecoration);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child("IT").child("Quiz 01");
+        Intent intent = getIntent();
+         qname = intent.getStringExtra("Extar");
+         Class = intent.getStringExtra("Class");
+        System.out.println(qname);
 
+        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -55,8 +63,8 @@ public class Student_results extends AppCompatActivity {
                     recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);
                     recyclerView.setAdapter(recyclerAdapter);
                 }else {
-                    View view = null;
-                    Snackbar.make(view,"No one is attempt for this quiz yet",Snackbar.LENGTH_SHORT).show();
+
+                    Toast.makeText(getApplicationContext(),"No one is attempt for this quiz yet",Toast.LENGTH_SHORT).show();
                 }
             }
             @Override
@@ -67,18 +75,33 @@ public class Student_results extends AppCompatActivity {
     }
 
     public void OnclickButtonListener() {
+        ED = (EditText) findViewById(R.id.edPassMark);
         button = findViewById(R.id.calculateBtn);
         button.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
-
-                        Intent intent = new Intent(Student_results.this, Pass_Student.class);
-                        intent.putExtra("AllResult",n);
-                        startActivity(intent);
+                       try {
+                               mark = Double.parseDouble(ED.getText().toString());
+                               Intent intent = new Intent(Student_results.this, Pass_Student.class);
+                               intent.putExtra("AllResult", n);
+                               intent.putExtra("mark", mark);
+                               intent.putExtra("qname", qname);
+                               intent.putExtra("Class", Class);
+                               startActivity(intent);
+                           } catch (NumberFormatException e) {
+                            Snackbar.make(view,"Invalid mark", Snackbar.LENGTH_SHORT).show();
+                       }
                     }
                 }
         );
+
+        backbt = findViewById(R.id.BackBT);
+        backbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }

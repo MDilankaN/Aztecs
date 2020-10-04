@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +21,8 @@ public class QuizDetails extends AppCompatActivity {
     DatabaseReference ref;
     Quiz_Details qd;
     String Class,QName;
-    session s;
+    ImageView backbt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +31,9 @@ public class QuizDetails extends AppCompatActivity {
         time = findViewById(R.id.ETQuizTime);
         description = findViewById(R.id.ETQuizDescription);
         OnclickButtonListener();
-        s = new session();
-        s.setCLASS("IT");
-        Class = s.getCLASS();
+        Intent intent = getIntent();
+        Class = intent.getStringExtra("Class");
+
         ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
     }
 
@@ -44,10 +45,10 @@ public class QuizDetails extends AppCompatActivity {
                     public void onClick(View view) {
                  try {
                      if (quizName.getText().toString().isEmpty() | time.getText().toString().trim().isEmpty() | description.getText().toString().isEmpty()) {
-                         Snackbar.make(view,"Please fill all fields",Snackbar.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Please fill all fields", Snackbar.LENGTH_SHORT).show();
                          quizName.setTextColor(Color.BLACK);
                      } else if (quizName.getText().toString().length() < 4) {
-                         Snackbar.make(view,"Please enter at least four characters for the username",Snackbar.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Please enter at least four characters for the username", Snackbar.LENGTH_SHORT).show();
                          quizName.setTextColor(Color.RED);
 
                      } else {
@@ -55,18 +56,29 @@ public class QuizDetails extends AppCompatActivity {
                          qd.setQuizName(quizName.getText().toString());
                          qd.setQuizTime(Integer.parseInt(time.getText().toString().trim()));
                          qd.setQuizDescription(description.getText().toString());
+
                          ref.child(qd.getQuizName()).setValue(qd);
-                         Snackbar.make(view,"Successful",Snackbar.LENGTH_SHORT).show();
+
+                         Snackbar.make(view,"Successful", Snackbar.LENGTH_SHORT).show();
+
                          Intent intent = new Intent(QuizDetails.this, Entering_MCQs.class);
+                         intent.putExtra("Class",Class);
+                         intent.putExtra("qname",qd.getQuizName());
                          startActivity(intent);
                          finish();
                      }
                       }catch (NumberFormatException e){
-                        Toast.makeText(getApplicationContext(),"",Toast.LENGTH_SHORT).show();
-                         Snackbar.make(view,"Invalid Time Duration",Snackbar.LENGTH_SHORT).show();
+                         Snackbar.make(view,"Invalid Time Duration", Snackbar.LENGTH_SHORT).show();
                       }
                     }
                 }
         );
+        backbt = findViewById(R.id.BackBT);
+        backbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }
