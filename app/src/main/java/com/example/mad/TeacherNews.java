@@ -38,6 +38,7 @@ public class TeacherNews extends AppCompatActivity {
     RecyclerAdapter recyclerAdapter;
     String name;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,6 +141,7 @@ public class TeacherNews extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TeacherNews.this,ActivityTeacherProfile.class);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });

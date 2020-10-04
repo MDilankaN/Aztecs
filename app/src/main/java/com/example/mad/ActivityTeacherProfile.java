@@ -154,7 +154,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent= new Intent(ActivityTeacherProfile.this, TeacherNews.class);
+                Intent intent= new Intent(ActivityTeacherProfile.this, teacherHome.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
 
@@ -165,7 +165,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         navNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(ActivityTeacherProfile.this, teacherHome.class);
+                Intent intent= new Intent(ActivityTeacherProfile.this, TeacherNews.class);
                 intent.putExtra("name",name);
                 startActivity(intent);
             }
