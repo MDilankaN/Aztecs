@@ -22,33 +22,29 @@ import com.google.firebase.database.ValueEventListener;
 
 public class addForum extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private String sessionID;
+    private String sessionID,className;
     EditText addForum;
     Button btnsubmit;
     Button btnback;
 
-    DatabaseReference dbRef;
+    DatabaseReference dbRef,dbRef2;
     Forum forum;
     long maxid=0;
-
-
 
     //Method to clear all user inputs
     private void clearControls(){
         addForum.setText("");
-
-
     }
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newforum);
 
-        sessionID=getIntent().getStringExtra("sessionID");
+        Intent intent = getIntent();
+
+        sessionID = intent.getStringExtra("username");
+        className = intent.getStringExtra("Classname");
 
         //Add forum interface
         addForum=findViewById(R.id.forum);
@@ -84,7 +80,8 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Forum");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Forum").child(className).child(sessionID);
+                dbRef2 = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(sessionID).child(className);
                 dbRef.addValueEventListener(new ValueEventListener(){
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -115,7 +112,7 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
                         forum.setStdusername(sessionID.toString().trim());
                         //inserting new forum  details in the database
                         //dbRef.push().setValue(forum);
-                        dbRef.child(String.valueOf(maxid+1)).setValue(forum);
+                       // dbRef.child(String.valueOf(maxid+1)).setValue(forum);
                         //Feedback through the toast message
                         Toast.makeText(getApplicationContext(), "Forum added successfully..", Toast.LENGTH_SHORT).show();
                         clearControls();

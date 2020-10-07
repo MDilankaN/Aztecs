@@ -29,16 +29,6 @@
             android:textColor="#ffffff"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btnm1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/custom_button2"
-            android:fontFamily="@font/raleway_semibold"
-            android:text="@string/vm"
-            android:textAllCaps="false"
-            android:textColor="#ffffff" />
     </LinearLayout>
 
 

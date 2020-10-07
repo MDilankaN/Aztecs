@@ -61,6 +61,7 @@
         <activity android:name=".AddClassrooms" />
         <activity android:name=".viewUpdateTeacher" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".updateDeleteClsTeacher"/>
     </application>
 
 </manifest>

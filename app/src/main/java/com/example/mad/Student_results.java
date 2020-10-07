@@ -30,7 +30,7 @@ public class Student_results extends AppCompatActivity {
     EditText ED;
     public static final int putextra = 0;
     int n=0;
-    double mark = 0;
+    int mark = 0;
     ImageView backbt;
     String Class,qname;
 
@@ -82,7 +82,7 @@ public class Student_results extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                        try {
-                               mark = Double.parseDouble(ED.getText().toString());
+                               mark = Integer.parseInt(ED.getText().toString());
                                Intent intent = new Intent(Student_results.this, Pass_Student.class);
                                intent.putExtra("AllResult", n);
                                intent.putExtra("mark", mark);

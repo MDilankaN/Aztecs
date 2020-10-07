@@ -24,7 +24,7 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
     private EditText txtname,txtdes,txtDate;
     private TextView txtcode;
    Classroom cls=new Classroom();
-    String name;
+    String codename,username;
 
 
     //Method to clear all user inputs
@@ -48,9 +48,14 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
         txtdes=findViewById(R.id.EtDes);
         txtDate=findViewById(R.id.txtdate);
 
+
+
         Intent i =getIntent();
-        name= i.getStringExtra("code");
-        dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
+        username = i.getStringExtra("name");
+        codename = i.getStringExtra("code");
+        System.out.println(username+" , "+ codename);
+        dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
+
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -87,18 +92,18 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom");
+                dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(name)){
+                        if(snapshot.hasChild(codename)){
                             try{
                             cls.setName(txtname.getText().toString().trim());
                             cls.setCode(Integer.parseInt(txtcode.getText().toString().trim()));
                             cls.setDescription(txtdes.getText().toString().trim());
                             cls.setDate(txtDate.getText().toString().trim());
 
-                            dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
+                            dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
                             dbRef.setValue(cls);
 
                             clearControls();
@@ -131,14 +136,14 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom");
+                dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener(){
 
 
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(name)){
-                            dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
+                        if(snapshot.hasChild(codename)){
+                            dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
                             dbRef.removeValue();
                             clearControls();
                             Toast.makeText(getApplicationContext(),"Classroom deleted successfully",Toast.LENGTH_SHORT).show();

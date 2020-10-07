@@ -19,14 +19,9 @@ public class teacherHome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_home);
 
-        sessionID=getIntent().getStringExtra("sessionID");
+
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
-
-
-
-
-
 
 
 
@@ -67,7 +62,7 @@ public class teacherHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(teacherHome.this, viewUpdateTeacher.class);
-                intent.putExtra("sessionID",sessionID);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
@@ -77,7 +72,7 @@ public class teacherHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(teacherHome.this, AddClassrooms.class);
-                intent.putExtra("sessionID",sessionID);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });
@@ -88,6 +83,7 @@ public class teacherHome extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(teacherHome.this, forumviewTeacher.class);
+                intent.putExtra("name",name);
                 startActivity(intent);
             }
         });

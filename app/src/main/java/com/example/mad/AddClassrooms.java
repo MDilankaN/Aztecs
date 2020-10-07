@@ -48,7 +48,7 @@ public class AddClassrooms extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_classroom);
         //Create classroom interface
-        sessionID=getIntent().getStringExtra("sessionID");
+        sessionID=getIntent().getStringExtra("name");
 
         txtcode=findViewById(R.id.EtCode);
         txtname=findViewById(R.id.EtName);
@@ -83,7 +83,7 @@ public class AddClassrooms extends AppCompatActivity {
 
             @Override
             public void onClick(View v){
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom");
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(sessionID);
 
                 try{
                     if(TextUtils.isEmpty(txtname.getText().toString())){

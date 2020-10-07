@@ -22,18 +22,24 @@ public class Paperviewstd extends AppCompatActivity {
     private Button btnp1 ;
     private Button btnm1 ;
     private LinearLayout ly;
-    private String username = "chamidu";
+    private String username;
+    private String Clzname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paperviewstd);
+        Intent intent = getIntent();
+        username = intent.getStringExtra("name");
+        Clzname = intent.getStringExtra("ClassName");
+
+
 
         ly = findViewById(R.id.stshowlay);
         final View v = findViewById(android.R.id.content) ;
 
 
-        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
+        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Clzname);
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
@@ -50,7 +56,7 @@ public class Paperviewstd extends AppCompatActivity {
                         btnp1.setText(qdd.getQuizName());
 
                         onpbtnClick(itemView3,qdd.getQuizName());
-                        onmbtnClick(itemView3,username);
+                       // onmbtnClick(itemView3,username);
 
 
                     }catch (Exception e){
@@ -77,25 +83,30 @@ public class Paperviewstd extends AppCompatActivity {
             }
         });
     }
-    protected void onmbtnClick(View viewx,final String uname){
-        btnm1 = (Button) findViewById(R.id.btnm1);
-        btnm1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMarksview(uname);
-            }
-        });
 
-    }
-    public void openPaperview(String clz){
+    public void openPaperview(String qname){
        Intent intx = new Intent(this, PaperExamView.class);
-        intx.putExtra("QuizName",clz);
+        intx.putExtra("QuizName",qname);
+        intx.putExtra("Class",Clzname);
+        intx.putExtra("userName",username);
+
        startActivity(intx);
     }
 
-    public void openMarksview(String uname){
-        Intent intx = new Intent(this, Marksview.class);
-        intx.putExtra("Username",uname);
-        startActivity(intx);
-    }
+//    protected void onmbtnClick(View viewx,final String uname){
+//        btnm1 = (Button) findViewById(R.id.btnm1);
+//        btnm1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openMarksview(uname);
+//            }
+//        });
+//
+//    }
+
+//    public void openMarksview(String uname){
+//        Intent intx = new Intent(this, Marksview.class);
+//        intx.putExtra("Username",uname);
+//        startActivity(intx);
+//    }
 }

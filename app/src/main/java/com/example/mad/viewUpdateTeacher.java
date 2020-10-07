@@ -1,5 +1,6 @@
 package com.example.mad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,6 +27,9 @@ public class viewUpdateTeacher extends AppCompatActivity {
     Button btn_classroom_retrieve_name;
     Button btn_classroom_retrieve_code;
     AdupterClass mRepositoryAdapter;
+    String name;
+    ArrayList<String> codeList;
+    ArrayList<String> nameList;
 
 
 
@@ -33,9 +37,16 @@ public class viewUpdateTeacher extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_update_teacher);
-        ref = FirebaseDatabase.getInstance().getReference().child("Classroom");
+
         recyclerView =findViewById(R.id.rv);
         searchView =findViewById(R.id.searchView);
+
+
+        Intent intent = getIntent();
+        name = intent.getStringExtra("name");
+        ref = FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
+
+
 
     }
 
@@ -48,13 +59,17 @@ public class viewUpdateTeacher extends AppCompatActivity {
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.exists()){
                         list=new ArrayList<>();
+                        codeList=new ArrayList<>();
+                        nameList=new ArrayList<>();
                         for(DataSnapshot ds: snapshot.getChildren()){
 
                             list.add(ds.getValue(ClassroomView.class));
+                            codeList.add(ds.child("code").getValue().toString().trim());
+                            nameList.add(ds.child("name").getValue().toString().trim());
 
                         }
 
-                        AdupterClass adupterClass =new AdupterClass(list);
+                        AdupterClass adupterClass =new AdupterClass(list,viewUpdateTeacher.this,name,codeList,nameList);
                         recyclerView.setAdapter(adupterClass);
 
 

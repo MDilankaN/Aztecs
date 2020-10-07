@@ -1,5 +1,6 @@
 package com.example.mad;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,14 +20,20 @@ public class studentClassroom extends AppCompatActivity {
 
     DatabaseReference ref;
     LinearLayout clzroom;
-    Button clzname,code;
+    Button clzname,code,navNews,navPro,idbt;
+    String Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_classroom);
+        Intent intent = getIntent();
+        Name = intent.getStringExtra("name");
+
 
         clzroom = findViewById(R.id.Classrooms);
+
+
 
        setScroll();
 
@@ -34,7 +41,7 @@ public class studentClassroom extends AppCompatActivity {
 
     public void setScroll() {
         try {
-            ref = FirebaseDatabase.getInstance().getReference().child("Classroom");
+            ref = FirebaseDatabase.getInstance().getReference().child("Student").child(Name);
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -47,8 +54,14 @@ public class studentClassroom extends AppCompatActivity {
 
                         clzroom.addView(Container);
 
-                        clzname.setText(ds.child("name").getValue().toString());
+
+                        String cname =ds.child("name").getValue().toString();
+                        clzname.setText(cname);
                         code.setText(ds.child("code").getValue().toString());
+
+                        openclzroon(Container,cname);
+
+
 
                     }
 
@@ -63,5 +76,50 @@ public class studentClassroom extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void openclzroon(View container, final String clzname) {
+        idbt = container.findViewById(R.id.clsName);
+        idbt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(studentClassroom.this,Paperviewstd.class);
+                intent.putExtra("ClassName",clzname);
+                intent.putExtra("name",Name);
+               // System.out.println(clzname+" , "+Name);
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        Name = intent.getStringExtra("name");
+
+        navNews = findViewById(R.id.btn_navi2);
+        navPro = findViewById(R.id.btn_navi3);
+
+
+        navNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(studentClassroom.this,Activity_Student_News.class);
+                intent.putExtra("name",Name);
+                startActivity(intent);
+            }
+        });
+
+        navPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(studentClassroom.this,Student_profile.class);
+                intent.putExtra("name",Name);
+                startActivity(intent);
+            }
+        });
+
     }
 }

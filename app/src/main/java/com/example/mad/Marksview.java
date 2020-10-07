@@ -3,6 +3,7 @@ package com.example.mad;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,7 +14,9 @@ import com.google.android.material.snackbar.Snackbar;
 public class Marksview extends AppCompatActivity {
 
     TextView total,questionNo,questionMark,header;
+    Button forum;
     LinearLayout tblrow;
+    String name,clzname;
 
 
     @Override
@@ -27,6 +30,7 @@ public class Marksview extends AppCompatActivity {
         header = findViewById(R.id.hedaertxt);
         View v = findViewById(android.R.id.content);
 
+
         try{
             //getting values from bundel
             Intent data = getIntent();
@@ -34,6 +38,8 @@ public class Marksview extends AppCompatActivity {
             int TotalMark = bundle.getInt("TotalMarks");
             int Marks[] = bundle.getIntArray("Marks");
             String headerx = bundle.getString("QuizNo");
+            name = bundle.getString("UserName");
+            clzname = bundle.getString("ClassName");
 
             header.setText(headerx+" Results");
 
@@ -58,8 +64,22 @@ public class Marksview extends AppCompatActivity {
             Snackbar.make(v,"Error occurred", Snackbar.LENGTH_SHORT).show();
         }
 
+        forumbtnClick();
 
 
 
+    }
+
+    private void forumbtnClick() {
+        forum = findViewById(R.id.btnforum);
+        forum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intx = new Intent(Marksview.this,addForum.class);
+                intx.putExtra("username",name);
+                intx.putExtra("Classname",clzname);
+                startActivity(intx);
+            }
+        });
     }
 }

@@ -34,7 +34,7 @@ public class PaperExamView extends AppCompatActivity {
     private  int marks;
     private int Mark[];
     private String stname = "chamidu";
-    private String Quizname;
+    private String Quizname,clzname,username;
     private Bundle bundle = new Bundle();;
 
     private TextView question,title,paperid,counter,descr;
@@ -48,6 +48,8 @@ public class PaperExamView extends AppCompatActivity {
         //getting values
         Intent intx = getIntent();
         Quizname = intx.getStringExtra("QuizName");
+        clzname = intx.getStringExtra("Class");
+        username = intx.getStringExtra("userName");
 
         //arraylist
         correctAns = new ArrayList<>();
@@ -67,7 +69,7 @@ public class PaperExamView extends AppCompatActivity {
         paperid = findViewById(R.id.paperID);
         descr = findViewById(R.id.paperDes);
         counter = findViewById(R.id.countdown);
-        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT").child(Quizname);
+        dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(clzname).child(Quizname);
         int time;
 
         dref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -107,7 +109,7 @@ public class PaperExamView extends AppCompatActivity {
 
     private void getQuizMcqs(final View v) {
 
-        dref = FirebaseDatabase.getInstance().getReference().child("MCQ").child("IT").child(Quizname);
+        dref = FirebaseDatabase.getInstance().getReference().child("MCQ").child(clzname).child(Quizname);
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
@@ -174,6 +176,8 @@ public class PaperExamView extends AppCompatActivity {
         bundle.putIntArray("Marks",Mark);
         bundle.putInt("TotalMarks",marks);
         bundle.putString("QuizNo",Quizname);
+        bundle.putString("ClassName",clzname);
+        bundle.putString("UserName",username);
         intx.putExtras(bundle);
         startActivity(intx);
     }
