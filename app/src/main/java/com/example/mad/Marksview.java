@@ -16,7 +16,7 @@ public class Marksview extends AppCompatActivity {
     TextView total,questionNo,questionMark,header;
     Button forum;
     LinearLayout tblrow;
-    String name,clzname;
+    String name,clzname,TeacherName;
 
 
     @Override
@@ -40,6 +40,8 @@ public class Marksview extends AppCompatActivity {
             String headerx = bundle.getString("QuizNo");
             name = bundle.getString("UserName");
             clzname = bundle.getString("ClassName");
+            TeacherName = bundle.getString("TeacherName");
+
 
             header.setText(headerx+" Results");
 
@@ -78,6 +80,7 @@ public class Marksview extends AppCompatActivity {
                 Intent intx = new Intent(Marksview.this,addForum.class);
                 intx.putExtra("username",name);
                 intx.putExtra("Classname",clzname);
+                intx.putExtra("TeacherName",TeacherName);
                 startActivity(intx);
             }
         });

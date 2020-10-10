@@ -85,6 +85,7 @@ public class AddClassrooms extends AppCompatActivity {
             public void onClick(View v){
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(sessionID);
 
+
                 try{
                     if(TextUtils.isEmpty(txtname.getText().toString())){
                         Toast.makeText(getApplicationContext(), "Please Enter a classroom name", Toast.LENGTH_SHORT).show();

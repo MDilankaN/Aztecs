@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Marksview">
+    tools:context=".Marksview"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/hedaertxt"
@@ -36,7 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="15dp">
+            android:background="@color/lite">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -50,7 +51,7 @@
                     android:background="@color/dark"
                     android:orientation="horizontal"
                     android:paddingTop="6dp"
-                    android:paddingBottom="6dp">
+                    >
 
                     <TextView
                         android:id="@+id/textView7"

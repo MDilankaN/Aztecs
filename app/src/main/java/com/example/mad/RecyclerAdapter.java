@@ -85,8 +85,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
                 public void onClick(View view) {
                     //add child for delete function
                     String News = news.get(getAdapterPosition());
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("News").child(name).child(News);
+                    DatabaseReference ref2 , ref;
+                    ref = FirebaseDatabase.getInstance().getReference().child("News").child(name).child(News);
+                    ref2 = FirebaseDatabase.getInstance().getReference().child("StuNews").child(News);
+
                     ref.removeValue();
+                    ref2.removeValue();
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted",Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {
                         @Override

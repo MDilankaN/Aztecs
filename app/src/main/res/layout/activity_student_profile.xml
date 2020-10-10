@@ -192,7 +192,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/raleway_semibold"
-            android:text="@string/nameS"
+            android:text="Password"
             android:textColor="@color/darkblue"
             android:textSize="20dp" />
 
@@ -206,15 +206,17 @@
             android:fontFamily="@font/raleway_medium"
             android:inputType="textPersonName"
             android:textColor="@color/light"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:paddingStart="5dp"/>
 
         <TextView
             android:id="@+id/StudentEmailEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text="Email"
             android:fontFamily="@font/raleway_semibold"
-            android:textColor="@color/light"
+            android:textColor="@color/darkblue"
             android:textSize="20dp" />
 
         <EditText
@@ -227,7 +229,8 @@
             android:inputType="textEmailAddress"
             android:text="@string/EmailSProfile"
             android:textColor="#2F5373"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:paddingStart="5dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"

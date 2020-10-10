@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Paperviewstd">
+    tools:context=".Paperviewstd"
+    android:background="@drawable/background">
 
 
     <TextView
@@ -30,7 +31,8 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676">
+        app:layout_constraintVertical_bias="0.676"
+        >
 
         <LinearLayout
             android:id="@+id/stshowlay"

@@ -23,7 +23,7 @@ public class Paperviewstd extends AppCompatActivity {
     private Button btnm1 ;
     private LinearLayout ly;
     private String username;
-    private String Clzname;
+    private String Clzname,TeacherID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class Paperviewstd extends AppCompatActivity {
         Intent intent = getIntent();
         username = intent.getStringExtra("name");
         Clzname = intent.getStringExtra("ClassName");
+        TeacherID = intent.getStringExtra("teacherID");
 
 
 
@@ -89,6 +90,7 @@ public class Paperviewstd extends AppCompatActivity {
         intx.putExtra("QuizName",qname);
         intx.putExtra("Class",Clzname);
         intx.putExtra("userName",username);
+        intx.putExtra("teacherID",TeacherID);
 
        startActivity(intx);
     }

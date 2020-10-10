@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class addForum extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private String sessionID,className;
+    private String sessionID,className,TeacherName;
     EditText addForum;
     Button btnsubmit;
     Button btnback;
@@ -45,6 +45,7 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
 
         sessionID = intent.getStringExtra("username");
         className = intent.getStringExtra("Classname");
+        TeacherName = intent.getStringExtra("TeacherName");
 
         //Add forum interface
         addForum=findViewById(R.id.forum);
@@ -53,11 +54,11 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
         btnback=findViewById(R.id.btn_back);
 
         //retrieve classrooms to spinner
-        Spinner spinner=findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.classrooms,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        //Spinner spinner=findViewById(R.id.spinner);
+        //ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.classrooms,android.R.layout.simple_spinner_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //spinner.setAdapter(adapter);
+        //spinner.setOnItemSelectedListener(this);
 
         dbRef = FirebaseDatabase.getInstance().getReference();
         dbRef.child("Classroom").addValueEventListener(new ValueEventListener() {
@@ -80,13 +81,13 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Forum").child(className).child(sessionID);
-                dbRef2 = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(sessionID).child(className);
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Forum").child(TeacherName).child(className);
+                dbRef2 = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(sessionID);
                 dbRef.addValueEventListener(new ValueEventListener(){
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists());
-                        maxid=(dataSnapshot.getChildrenCount());
+                        //maxid=(dataSnapshot.getChildrenCount());
                     }
 
                     @Override
@@ -100,19 +101,22 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
                 });
 
                 try{
-                    Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
-                    String text = mySpinner.getSelectedItem().toString();
+                    //Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
+                    //String text = mySpinner.getSelectedItem().toString();
 
                     if (TextUtils.isEmpty(addForum.getText().toString())){
                         Toast.makeText(getApplicationContext(), "Please type your question...", Toast.LENGTH_SHORT).show();
                     }else {
                         //take user valid inputs
                         forum.setMessage(addForum.getText().toString().trim());
-                        forum.setCode(Integer.parseInt(text));
+                        //forum.setCode(Integer.parseInt(text));
                         forum.setStdusername(sessionID.toString().trim());
+
                         //inserting new forum  details in the database
                         //dbRef.push().setValue(forum);
                        // dbRef.child(String.valueOf(maxid+1)).setValue(forum);
+                        dbRef.child(sessionID).setValue(forum);
+                        dbRef2.child(className).setValue(forum);
                         //Feedback through the toast message
                         Toast.makeText(getApplicationContext(), "Forum added successfully..", Toast.LENGTH_SHORT).show();
                         clearControls();
@@ -129,6 +133,14 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
         });
 
 
+        btnback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(addForum.this, studentClassroom.class) ;
+                intent.putExtra("name",sessionID);
+                startActivity(intent);
+            }
+        });
 
 
     }
@@ -139,13 +151,7 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
     protected void onResume() {
         super.onResume();
         btnback= (Button) findViewById(R.id.btn_back);
-        btnback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(com.example.mad.addForum.this, viewUpdateTeacher.class) ;
-                startActivity(intent);
-            }
-        });
+
 
 
     }

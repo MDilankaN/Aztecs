@@ -34,7 +34,7 @@ public class PaperExamView extends AppCompatActivity {
     private  int marks;
     private int Mark[];
     private String stname = "chamidu";
-    private String Quizname,clzname,username;
+    private String Quizname,clzname,username,TeacherName;
     private Bundle bundle = new Bundle();;
 
     private TextView question,title,paperid,counter,descr;
@@ -50,6 +50,7 @@ public class PaperExamView extends AppCompatActivity {
         Quizname = intx.getStringExtra("QuizName");
         clzname = intx.getStringExtra("Class");
         username = intx.getStringExtra("userName");
+        TeacherName = intx.getStringExtra("teacherID");
 
         //arraylist
         correctAns = new ArrayList<>();
@@ -178,6 +179,7 @@ public class PaperExamView extends AppCompatActivity {
         bundle.putString("QuizNo",Quizname);
         bundle.putString("ClassName",clzname);
         bundle.putString("UserName",username);
+        bundle.putString("TeacherName",TeacherName);
         intx.putExtras(bundle);
         startActivity(intx);
     }

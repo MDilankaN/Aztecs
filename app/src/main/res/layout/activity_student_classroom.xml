@@ -51,7 +51,7 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="510dp">
+                android:layout_height="400dp">
 
                 <LinearLayout
                     android:id="@+id/Classrooms"
@@ -67,30 +67,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="30dp">
+                android:orientation="vertical"
+                android:paddingStart="10dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textAlignment="center"
                     android:fontFamily="@font/raleway_semibold"
-                    android:text="@string/classroom_id"
+                    android:text="Enroll to ClassRoom"
                     android:textColor="@color/darkcolor"
                     android:textSize="25dp"
                     android:textStyle="bold">
 
                 </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
                 <EditText
-                    android:layout_width="109dp"
+                    android:id="@+id/TechName"
+                    android:hint="Teacher Name"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/inputid"
                     android:fontFamily="@font/raleway_semibold"
-                    android:textColor="@color/darkcolor">
+                    android:textColor="@color/darkcolor"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="20dp">
 
                 </EditText>
+                    <EditText
+                        android:id="@+id/codeField"
+                        android:hint="Classroom id"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/inputid"
+                        android:fontFamily="@font/raleway_semibold"
+                        android:textColor="@color/darkcolor">
+
+                    </EditText>
+                </LinearLayout>
 
                 <Button
+                    android:layout_gravity="center"
                     android:id="@+id/btnjoin"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -99,45 +120,45 @@
                 </Button>
             </LinearLayout>
 
-            <!--Begin bottom tab-->
+                <!--Begin bottom tab-->
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
-                android:gravity="center_horizontal"
-                android:background="@color/darkcolor"
-                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:background="@color/darkcolor"
+                    >
 
 
-                <Button
-                    android:id="@+id/btn_navi1"
-                    android:layout_width="171dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/selected">
+                    <Button
+                        android:id="@+id/btn_navi1"
+                        android:layout_width="171dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/selected">
 
-                </Button>
+                    </Button>
 
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
-                </Space>
+                    </Space>
 
-                <Button
-                    android:id="@+id/btn_navi2"
-                    android:layout_width="87dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/news">
+                    <Button
+                        android:id="@+id/btn_navi2"
+                        android:layout_width="87dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/news">
 
-                </Button>
-                <Space
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    </Button>
+                    <Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
 
                 </Space>
 
