@@ -44,23 +44,21 @@ public class Quizzes extends AppCompatActivity {
             ref.addValueEventListener(new ValueEventListener(){
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    if(snapshot.hasChildren()){
+
                         quizLists = new ArrayList<>();
                         QNAME = new ArrayList<>();
-                        for(DataSnapshot ds : snapshot.getChildren()){
-                             QuizList ql = new QuizList();
-                             quizLists.add(ql);
-                             ql.setQuizName(ds.child("quizName").getValue().toString());
-                             QNAME.add(ql.getQuizName());
+                        for(DataSnapshot ds : snapshot.getChildren()) {
+                            QuizList ql = new QuizList();
+                            quizLists.add(ql);
+                            ql.setQuizName(ds.child("quizName").getValue().toString());
+                            QNAME.add(ql.getQuizName());
                         }
 
                         recyclerAdapter = new RecyclerAdapter_QuizList(Quizzes.this,quizLists,QNAME,Class);
                         recyclerView.setAdapter(recyclerAdapter);
 
                        //Toast.makeText(Quizzes.this,"successful",Toast.LENGTH_SHORT).show();
-                    }else {
-                        Snackbar.make(view,"can't find  class", Snackbar.LENGTH_SHORT).show();
-                    }
+
 
                 }
 

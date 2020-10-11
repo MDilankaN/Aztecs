@@ -22,7 +22,7 @@ public class AddClassrooms extends AppCompatActivity {
     EditText txtcode, txtname, txtdescription;
     Button BtnCancel, btnCreate;
     TextView textViewDate;
-    DatabaseReference dbRef;
+    DatabaseReference dbRef,dbRef2;
     Classroom cls;
     private SimpleDateFormat dateformat;
     private String date;
@@ -84,6 +84,7 @@ public class AddClassrooms extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(sessionID);
+                dbRef2 = FirebaseDatabase.getInstance().getReference().child("AvailableClz");
 
 
                 try{
@@ -105,6 +106,7 @@ public class AddClassrooms extends AppCompatActivity {
 
                         //inserting created classroom details in the database
                         dbRef.child(txtcode.getText().toString().trim()).setValue(cls);
+                        dbRef2.child(txtcode.getText().toString().trim()).setValue(cls);
 //                        dbRef.push().setValue(cls);
                         // dbRef.child(String.valueOf(maxid+1)).setValue(cls);
 

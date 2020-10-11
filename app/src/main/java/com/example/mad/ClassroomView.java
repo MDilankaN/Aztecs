@@ -56,6 +56,7 @@ public class ClassroomView {
         this.teacherID = teacherID;
     }
 
+
     public ClassroomView(String name, Integer code, String description, String date, String teacherID) {
         this.name = name;
         this.code = code;
@@ -65,6 +66,7 @@ public class ClassroomView {
     }
 
     public ClassroomView() {
+
     }
 
     public String getName() {

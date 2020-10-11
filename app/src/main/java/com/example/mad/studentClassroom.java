@@ -19,11 +19,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class studentClassroom extends AppCompatActivity {
 
-    DatabaseReference ref,ref1,ref2;
+    DatabaseReference ref,ref1,ref2,ref3;
     LinearLayout clzroom;
     Button clzname,code,navNews,navPro,idbt,join;
-    String Name, TeachName,clzid,TecherName;
-    EditText codefield,namefield;
+    String Name, TeachName ,clzid;
+    EditText codefield;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,55 +34,80 @@ public class studentClassroom extends AppCompatActivity {
 
         clzroom = findViewById(R.id.Classrooms);
 
-       setScroll();
+        setScroll();
         btnEnrollClick();
 
     }
 
     private void btnEnrollClick() {
-        join = findViewById(R.id.btnjoin);
-        codefield = findViewById(R.id.codeField);
-        namefield = findViewById(R.id.TechName);
+        try{
+            join = findViewById(R.id.btnjoin);
+            codefield = findViewById(R.id.codeField);
 
-        join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clzid = codefield.getText().toString();
-                TecherName = namefield.getText().toString();
-                ref2 = FirebaseDatabase.getInstance().getReference().child("Classroom").child(TecherName);
-                ref2.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String clzName = snapshot.child("name").getValue().toString();
-                        ///continue
+
+            join.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    clzid = codefield.getText().toString().trim();
+                    System.out.println(clzid);
+                    ref2 = FirebaseDatabase.getInstance().getReference().child("AvailableClz").child(clzid);
+                    ref3 = FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(Name);
+                    ref2.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if(snapshot.hasChildren()){
+                                ClassroomView newView = new ClassroomView();
+
+                                newView.setName(snapshot.child("name").getValue().toString());
+                                newView.setTeacherID(snapshot.child("teacherID").getValue().toString());
+                                newView.setCode(Integer.parseInt(clzid));
+                                System.out.println(clzid);
+
+
+                                ref3.child(clzid).setValue(newView);
+
+                                Toast.makeText(getApplicationContext(),"Successfully Added",Toast.LENGTH_SHORT).show();
+                                codefield.setText("");
+                            }
+
+
+                            ///continue
                         /*
                         timer ----
                         Enrollment User Friendlyness  =need to copy or
                         forum reply
 
                          */
-                    }
+                        }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                    }
-                });
+                        }
+                    });
 
 
-            }
-        });
+                }
+            });
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void setScroll() {
         try {
+            /*for(int i=0;i<clzroom.getChildCount();i++){
+                View Cardview = clzroom.getChildAt(i);
 
-            ref = FirebaseDatabase.getInstance().getReference().child("Student").child(Name);
+            }*/
+
+            ref = FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(Name);
 
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                    clzroom.removeAllViews();
                     for(DataSnapshot ds: snapshot.getChildren()){
                         View Container =getLayoutInflater().inflate(R.layout.card_hoder,null,false);
 
@@ -91,15 +116,13 @@ public class studentClassroom extends AppCompatActivity {
 
                         clzroom.addView(Container);
 
-
-                        String cname =ds.child("name").getValue().toString();
+                        String cname = ds.child("name").getValue().toString();
                         clzname.setText(cname);
                         code.setText(ds.child("code").getValue().toString());
                         TeachName = ds.child("teacherID").getValue().toString();
-                        //TeachName = "chamiya";
 
                         openclzroon(Container,cname);
-                        ref1=FirebaseDatabase.getInstance().getReference().child("Classroom").child(Name);
+                        ref1=FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(Name);
 
 
 

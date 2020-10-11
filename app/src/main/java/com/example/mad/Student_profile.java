@@ -46,6 +46,7 @@ public class Student_profile extends AppCompatActivity {
         userName = intent.getStringExtra("name");
         Button navNews,navHome;
         final User user1 = new User();
+        int count;
 
         //find button id
         btnProflieupdate = findViewById(R.id.btnProflieUpdate);

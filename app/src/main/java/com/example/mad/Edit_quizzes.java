@@ -23,6 +23,7 @@ public class Edit_quizzes extends AppCompatActivity {
     Button update;
     Quiz_Details QD;
     ImageView backbt;
+    String Class;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class Edit_quizzes extends AppCompatActivity {
 
         Intent intent = getIntent();
         final String qname = intent.getStringExtra("Extar");
-        String Class = intent.getStringExtra("Class");
+         Class = intent.getStringExtra("Class");
 
         ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
         ref.child(qname).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -79,6 +80,9 @@ public class Edit_quizzes extends AppCompatActivity {
                                     if(snapshot.hasChildren()){
                                         ref.child(QD.getQuizName()).setValue(QD);
                                         Snackbar.make(view,"Update Successful", Snackbar.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(Edit_quizzes.this,Quizzes.class);
+                                        intent.putExtra("name",Class);
+                                        startActivity(intent);
 
                                     }else{
                                         Snackbar.make(view,"quiz name does not exist", Snackbar.LENGTH_SHORT).show();

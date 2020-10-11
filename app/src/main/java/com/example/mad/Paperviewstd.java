@@ -44,6 +44,7 @@ public class Paperviewstd extends AppCompatActivity {
         dref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
+                ly.removeAllViews();
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     try{
                         Quiz_Details qdd = new Quiz_Details();

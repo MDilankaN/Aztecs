@@ -33,7 +33,6 @@ public class PaperExamView extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private  int marks;
     private int Mark[];
-    private String stname = "chamidu";
     private String Quizname,clzname,username,TeacherName;
     private Bundle bundle = new Bundle();;
 
@@ -115,6 +114,7 @@ public class PaperExamView extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot datasnapshot) {
                 int i = 0;
+                listx.removeAllViews();
                 for(DataSnapshot snapshot : datasnapshot.getChildren()){
                     //MCQ qs = new MCQ();
                     try{
@@ -221,7 +221,7 @@ public class PaperExamView extends AppCompatActivity {
             System.out.println("Question "+j+" / "+Mark[j]);
         }
 
-        MarkData md = new MarkData(stname,totalmarks);
+        MarkData md = new MarkData(username,totalmarks);
         addtoStudentDatabase(md);
         return totalmarks;
     }

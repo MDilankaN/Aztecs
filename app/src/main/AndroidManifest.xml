@@ -28,14 +28,14 @@
         <activity android:name=".TeacherNews" />
         <!-- chamidu -->
         <activity android:name=".Edit_quizzes" />
-        <activity android:name=".Entering_MCQs" />
+        <activity android:name=".Entering_MCQs" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Pass_Student" />
         <activity android:name=".Student_results" />
         <activity android:name=".QuizDetails" />
         <activity android:name=".Quizzes" />
         <activity android:name=".SignUp" />
         <!-- Menaka -->
-        <activity android:name=".LoginPage" />
+        <activity android:name=".LoginPage" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ResetPwdPage" />
         <activity android:name=".Veriyfypage" />
         <activity android:name=".Forgotpwd" />

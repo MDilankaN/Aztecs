@@ -96,14 +96,14 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
                 dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(codename)){
+                        if(snapshot.hasChildren()){
                             try{
                             cls.setName(txtname.getText().toString().trim());
                             cls.setCode(Integer.parseInt(txtcode.getText().toString().trim()));
                             cls.setDescription(txtdes.getText().toString().trim());
                             cls.setDate(txtDate.getText().toString().trim());
 
-                            dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
+                            //dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
                             dbRef.setValue(cls);
 
                             clearControls();
@@ -142,7 +142,7 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
 
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if(snapshot.hasChild(codename)){
+                        if(snapshot.hasChildren()){
                             dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
                             dbRef.removeValue();
                             clearControls();

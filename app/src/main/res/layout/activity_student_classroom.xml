@@ -77,38 +77,22 @@
                     android:fontFamily="@font/raleway_semibold"
                     android:text="Enroll to ClassRoom"
                     android:textColor="@color/darkcolor"
-                    android:textSize="25dp"
+                    android:textSize="27dp"
                     android:textStyle="bold">
 
                 </TextView>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/TechName"
-                    android:hint="Teacher Name"
-                    android:layout_width="180dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/inputid"
-                    android:fontFamily="@font/raleway_semibold"
-                    android:textColor="@color/darkcolor"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="20dp">
-
-                </EditText>
                     <EditText
                         android:id="@+id/codeField"
                         android:hint="Classroom id"
-                        android:layout_width="180dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/inputid"
                         android:fontFamily="@font/raleway_semibold"
-                        android:textColor="@color/darkcolor">
+                        android:textColor="@color/darkcolor"
+                        android:paddingStart="10dp">
 
                     </EditText>
-                </LinearLayout>
 
                 <Button
                     android:layout_gravity="center"

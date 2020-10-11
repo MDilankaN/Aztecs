@@ -39,7 +39,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
-        final String uname = bundle.getString("Name");
+        final String uname = bundle.getString("name");
         name = uname;
 
         Password = findViewById(R.id.editTextTeacherName);

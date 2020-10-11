@@ -83,6 +83,7 @@ public class AdupterClass extends RecyclerView.Adapter<AdupterClass.MyViewHolder
                 @Override
                 public void onClick(View view) {
                     Intent i =new Intent(view.getContext(), updateDeleteClsTeacher.class);
+                    i.putExtra("name",name);
                     i.putExtra("code", code.getText().toString().trim());
                     view.getContext().startActivity(i);
                 }

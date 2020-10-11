@@ -35,10 +35,26 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
         //hooks
-        signbtn =(Button) findViewById(R.id.btnm1);
+
         ontextClick();
         onloginbtnclick();
+        onSignUpbtnclick();
 
+
+    }
+
+    private void onSignUpbtnclick() {
+        signbtn =(Button) findViewById(R.id.btnm1);
+        signbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GotoSignUp();
+            }
+        });
+    }
+    public void GotoSignUp(){
+        Intent intent = new Intent(this,SignUp.class);
+        startActivity(intent);
     }
 
     //login btn click

@@ -86,7 +86,10 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                 public void onClick(View view) {
                     q = QNAME.get(getAdapterPosition());
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class).child(q);
+                    DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference().child("MCQ").child(Class).child(q);
                     ref.removeValue();
+                   ref2.removeValue();
+
                     Snackbar snackbar = Snackbar.make(view,"successfully deleted", Snackbar.LENGTH_SHORT);
                     snackbar.setAction("OKAY", new View.OnClickListener() {
                         @Override

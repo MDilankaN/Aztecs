@@ -48,7 +48,7 @@ public class teacherHome extends AppCompatActivity {
             }
         });
 
-        navProfile.setOnClickListener(new View.OnClickListener() {
+        navNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(teacherHome.this,TeacherNews.class);

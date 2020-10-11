@@ -100,7 +100,6 @@ public class TeacherNews extends AppCompatActivity {
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.hasChildren()) {
                     newsLists = new ArrayList<>();
                     ArrayList<String> news = new  ArrayList<>();
                     for(DataSnapshot ds : snapshot.getChildren()){
@@ -111,9 +110,6 @@ public class TeacherNews extends AppCompatActivity {
                     }
                     recyclerAdapter = new RecyclerAdapter(newsLists,TeacherNews.this,news,name);
                     recyclerView.setAdapter(recyclerAdapter);
-                }else{
-                    Snackbar.make(viewx,"can't find news class",Snackbar.LENGTH_SHORT).show();
-                }
             }
 
             @Override
@@ -139,7 +135,7 @@ public class TeacherNews extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TeacherNews.this,ActivityTeacherProfile.class);
-                bundle.putString("Name",name);
+                bundle.putString("name",name);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
