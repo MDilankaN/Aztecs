@@ -57,21 +57,24 @@
 
                     <TextView
                         android:id="@+id/string"
-                        android:layout_width="wrap_content"
+                        android:layout_width="82dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/tm"
                         android:textAlignment="viewEnd"
-                        android:textColor="@color/dark" />
+                        android:textColor="@color/dark"
+                        android:textSize="20dp" />
 
                     <TextView
                         android:id="@+id/countdown"
-                        android:layout_width="wrap_content"
+                        android:layout_width="52dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+
                         android:text="00:00:00"
                         android:textAlignment="viewStart"
-                        android:textColor="@color/dark" />
+                        android:textColor="@color/dark"
+                        android:textSize="20dp" />
 
                     <Button
                         android:id="@+id/submitbtn"

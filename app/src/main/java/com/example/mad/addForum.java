@@ -81,9 +81,9 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
         btnsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dbRef = FirebaseDatabase.getInstance().getReference().child("Forum").child(TeacherName).child(className);
+                dbRef = FirebaseDatabase.getInstance().getReference().child("Forum").child(TeacherName);
                 dbRef2 = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(sessionID);
-                dbRef.addValueEventListener(new ValueEventListener(){
+                /*dbRef.addValueEventListener(new ValueEventListener(){
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists());
@@ -98,7 +98,7 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
 
 
 
-                });
+                });*/
 
                 try{
                     //Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
@@ -116,7 +116,7 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
                         //dbRef.push().setValue(forum);
                        // dbRef.child(String.valueOf(maxid+1)).setValue(forum);
                         dbRef.child(sessionID).setValue(forum);
-                        dbRef2.child(className).setValue(forum);
+                        dbRef2.setValue(forum);
                         //Feedback through the toast message
                         Toast.makeText(getApplicationContext(), "Forum added successfully..", Toast.LENGTH_SHORT).show();
                         clearControls();

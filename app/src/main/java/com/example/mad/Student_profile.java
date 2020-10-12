@@ -22,9 +22,9 @@ public class Student_profile extends AppCompatActivity {
 
     String userName;
     EditText Password,Email;
-    TextView Password1,Email1,NoClasses,NoPapers;
-    Button btnProflieupdate;
-    int countClass,countPaper;
+    TextView Password1,Email1,NoClasses,NoForum,NoPapers;
+    Button btnProflieupdate,BtnForum,Logout;
+    int countClass,countForum;
     String uname;
     //NotificationCounter notificationCounter;//IT19804316
 
@@ -41,7 +41,7 @@ public class Student_profile extends AppCompatActivity {
         Email = findViewById(R.id.editTextEmailAddress);
         Email1 = findViewById(R.id.EmailPrintS);
         NoClasses = findViewById(R.id.Card1SubS);
-        NoPapers = findViewById(R.id.Card2SubS);
+        NoForum = findViewById(R.id.Card2SubS);
         Intent intent = getIntent();
         userName = intent.getStringExtra("name");
         Button navNews,navHome;
@@ -54,9 +54,21 @@ public class Student_profile extends AppCompatActivity {
         //notification Counter - IT19804316
         //notificationCounter = new NotificationCounter(findViewById(R.id.notification));
 
+        //hooks
+        Logout = findViewById(R.id.btnLogout);
+        //onclick Listener
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Student_profile.this, welcomePage.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         retriveData();
 
-        DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("Student").child(userName);
+        DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(userName);
         classref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -69,6 +81,28 @@ public class Student_profile extends AppCompatActivity {
                 else
                 {
                     NoClasses.setText("0");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+       DatabaseReference forumref = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(userName);
+        classref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists())
+                {
+                    countForum = (int) dataSnapshot.getChildrenCount();
+                    NoForum.setText(Integer.toString(countClass));
+
+                }
+                else
+                {
+                    NoForum.setText("0");
                 }
             }
 
@@ -116,7 +150,20 @@ public class Student_profile extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        BtnForum = findViewById(R.id.btnForum);
+        BtnForum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Student_profile.this,replyview_student.class);
+                intent.putExtra("name",userName);
+                startActivity(intent);
+            }
+        });
     }
+
+
+
 
     private void retriveData() {
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(userName);

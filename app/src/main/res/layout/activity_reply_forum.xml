@@ -57,7 +57,7 @@
         </Space>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="192dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:fontFamily="@font/raleway_semibold"
@@ -76,9 +76,12 @@
         </Space>
 
         <EditText
+            android:id="@+id/stuid"
             android:layout_width="138dp"
             android:layout_height="match_parent"
-            android:background="@drawable/inputid">
+            android:background="@drawable/inputid"
+            android:paddingStart="10dp"
+            android:enabled="false">
 
         </EditText>
 
@@ -95,12 +98,16 @@
 
 
         <TextView
+            android:id="@+id/Stdforum"
             android:layout_width="match_parent"
-            android:layout_height="137dp"
+            android:layout_height="117dp"
             android:background="@drawable/forumview"
-            android:textSize="25dp"
             android:fontFamily="@font/raleway_medium"
-            android:textColor="@color/color2">
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:textColor="@color/color2"
+            android:textSize="25dp"
+            android:enabled="false">
 
         </TextView>
 <!--        Second horizontal layout begins-->
@@ -155,9 +162,12 @@
             </Space>
 
             <EditText
+                android:id="@+id/date"
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/inputid">
+                android:background="@drawable/inputid"
+                android:paddingStart="3dp"
+                android:enabled="false">
 
             </EditText>
 
@@ -174,15 +184,15 @@
 <!--        Teacher reply view-->
 
 
-        <TextView
+        <EditText
+            android:id="@+id/reply1"
             android:layout_width="match_parent"
             android:layout_height="137dp"
             android:background="@drawable/forumview"
             android:textSize="25dp"
             android:fontFamily="@font/raleway_medium"
-            android:textColor="@color/color2">
-
-        </TextView>
+            android:textColor="@color/color2"
+            android:paddingStart="15dp"/>
 
 
 
@@ -207,6 +217,7 @@
 
 
         <Button
+            android:id="@+id/backbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/backbtn">
@@ -214,7 +225,7 @@
         </Button>
 
         <Space
-            android:layout_width="160dp"
+            android:layout_width="110dp"
             android:layout_height="44dp"
             android:layout_weight="2">
 
@@ -222,10 +233,11 @@
 
 
         <Button
-            android:layout_width="94dp"
+            android:id="@+id/replysubmit"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/submitbtn"
-            android:layout_marginRight="10dp">
+            android:layout_marginRight="10dp"
+            android:background="@drawable/submitbtn">
 
         </Button>
     </LinearLayout>

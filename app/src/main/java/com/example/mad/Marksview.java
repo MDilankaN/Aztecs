@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class Marksview extends AppCompatActivity {
 
     TextView total,questionNo,questionMark,header;
-    Button forum;
+    Button forum,Back;
     LinearLayout tblrow;
     String name,clzname,TeacherName;
 
@@ -36,16 +36,19 @@ public class Marksview extends AppCompatActivity {
             Intent data = getIntent();
             Bundle bundle = data.getExtras();
             int TotalMark = bundle.getInt("TotalMarks");
+            int NoQuestons = bundle.getInt("noOfQuestions");
             int Marks[] = bundle.getIntArray("Marks");
             String headerx = bundle.getString("QuizNo");
             name = bundle.getString("UserName");
             clzname = bundle.getString("ClassName");
             TeacherName = bundle.getString("TeacherName");
 
+            Double Total = CalcTotalPresentage(TotalMark,NoQuestons);
+
 
             header.setText(headerx+" Results");
 
-            total.setText(""+TotalMark);//setting values
+            total.setText(""+Total+" / "+NoQuestons);//setting values
 
             for(int i = 0;i<Marks.length;i++){
 
@@ -67,9 +70,31 @@ public class Marksview extends AppCompatActivity {
         }
 
         forumbtnClick();
+        BackBtnClick();
 
 
 
+    }
+
+    public Double CalcTotalPresentage(int totalMark, int noQuestons) {
+        Double Total;
+        Total = (Double.valueOf(totalMark) / Double.valueOf(noQuestons) * 100);
+        return Total;
+    }
+
+    private void BackBtnClick() {
+        Back = findViewById(R.id.backbtnm);
+        Back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Marksview.this,Paperviewstd.class);
+                intent.putExtra("name",name);
+                intent.putExtra("ClassName",clzname);
+                intent.putExtra("teacherID",TeacherName);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void forumbtnClick() {

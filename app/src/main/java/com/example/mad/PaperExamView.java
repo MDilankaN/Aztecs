@@ -31,10 +31,11 @@ public class PaperExamView extends AppCompatActivity {
     private LinearLayout listx;
     private ArrayList<Integer> correctAns;
     private CountDownTimer countDownTimer;
-    private  int marks;
+    private  int marks,givenTime,noofquestions;
     private int Mark[];
     private String Quizname,clzname,username,TeacherName;
-    private Bundle bundle = new Bundle();;
+    private Bundle bundle = new Bundle();
+    private Long time;
 
     private TextView question,title,paperid,counter,descr;
     RadioButton r1,r2,r3,r4;
@@ -70,32 +71,35 @@ public class PaperExamView extends AppCompatActivity {
         descr = findViewById(R.id.paperDes);
         counter = findViewById(R.id.countdown);
         dref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(clzname).child(Quizname);
-        int time;
+
 
         dref.addListenerForSingleValueEvent(new ValueEventListener() {
+            Quiz_Details qd = new Quiz_Details();
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 try{
-                    Quiz_Details qd = new Quiz_Details();
+
                     qd.setQuizName((snapshot.child("quizName").getValue().toString()));
                     qd.setQuizTime(Integer.parseInt(snapshot.child("quizTime").getValue().toString()));
                     qd.setQuizDescription(snapshot.child("quizDescription").getValue().toString());
 
-                    System.out.println(qd.getQuizTime() +" , "+qd.getQuizName());
+                    //System.out.println(qd.getQuizTime() +" , "+qd.getQuizName());
 
                     paperid.setText(qd.getQuizName());
                     descr.setText(qd.getQuizDescription());
 
-                    Long hours =    TimeUnit.MILLISECONDS.toMinutes(qd.getQuizTime());
-                    Long minutes =  (TimeUnit.MILLISECONDS.toMinutes(qd.getQuizTime()) % TimeUnit.HOURS.toMinutes(1));
-                    Long seconds =  (TimeUnit.MILLISECONDS.toSeconds(qd.getQuizTime()) % TimeUnit.MINUTES.toSeconds(1));
 
-                    String timeLeftFormatted = String.format(Locale.getDefault(), "%02d:%02d:%02d", hours, minutes, seconds);
-                    System.out.println(timeLeftFormatted);
-                    counter.setText(timeLeftFormatted);
                 }catch (Exception e){
                     e.printStackTrace();
                 }
+
+                givenTime = qd.getQuizTime();
+                startTimer(givenTime);
+
+
+
+
+
 
             }
 
@@ -180,14 +184,17 @@ public class PaperExamView extends AppCompatActivity {
         bundle.putString("ClassName",clzname);
         bundle.putString("UserName",username);
         bundle.putString("TeacherName",TeacherName);
+        bundle.putInt("noOfQuestions",noofquestions);
         intx.putExtras(bundle);
         startActivity(intx);
+        finish();
     }
 
     public int chechQuiz() {
         Mark = new int[listx.getChildCount()];
         int mcqAns = 0,k ;
         int totalmarks = 0;
+        noofquestions = listx.getChildCount();
         for(k = 0;k < listx.getChildCount();k++){
             View itemView = listx.getChildAt(k);
             r1 = itemView.findViewById(R.id.Rbnm1);
@@ -231,4 +238,22 @@ public class PaperExamView extends AppCompatActivity {
         dref.push().setValue(md);
 
     }
+
+    private void startTimer(int noOfMinutes) {
+        Long TimeDue = Long.valueOf(60 * noOfMinutes * 1000) ;
+        CountDownTimer  countDownTimer = new CountDownTimer(TimeDue, 1000) {
+            public void onTick(long millisUntilFinished) {
+                long millis = millisUntilFinished;
+                //Convert milliseconds into hour,minute and seconds
+                String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis), TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis)));
+                counter.setText(hms);//set text
+            }
+            public void onFinish() {
+                counter.setText("TIME'S UP!!"); //On finish change timer text
+                marks = chechQuiz();
+                openMarksview();
+
+            }
+        }.start();
+}
 }

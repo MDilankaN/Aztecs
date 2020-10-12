@@ -28,7 +28,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
     TextView Password1,Email1,NoClasses,NoPapers;
     Button btnProflieupdate;
     int countClass,countPaper;
-    Button navClassHome,navNews,BtnAdd;
+    Button navClassHome,navNews,BtnAdd,Logout;
     String name;
 
 
@@ -56,6 +56,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
 
         retriveData();
 
+
         DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
         classref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -75,6 +76,18 @@ public class ActivityTeacherProfile extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+
+        //hooks
+        Logout = findViewById(R.id.btnLogout);
+        //onclick Listener
+        Logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityTeacherProfile.this, welcomePage.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -124,6 +137,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
         });
 
     }
+
 
     private void retriveData() {
         //Retrive data from database

@@ -11,7 +11,7 @@ public class NotificationCounter {
     private int notificationNumberCounter = 1;
 
     public NotificationCounter (View view){
-        notificationNumber = view.findViewById(R.id.txtnoticationNos);
+        //notificationNumber = view.findViewById(R.id.txtnoticationNos);
     }
 
     public void increaseNumber(){

@@ -22,7 +22,8 @@
             android:textSize="36dp"
             android:fontFamily="@font/raleway_semibold"
             android:textColor="@color/white"
-            android:textAlignment="center">
+            android:textAlignment="center"
+           >
 
         </TextView>
 
@@ -57,33 +58,16 @@
             android:includeFontPadding="false"
             android:textColor="@color/darkblue"
             android:textSize="25sp"/>
-        <FrameLayout
-            android:id="@+id/notification"
+
+        <Button
+            android:id="@+id/btnForum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="300dp">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_baseline_notifications_24"
-                app:tint="@color/white"
-                android:contentDescription="@string/StudentProfileN1" />
-
-            <TextView
-                android:id="@+id/txtnoticationNos"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center"
-                android:layout_marginStart="8dp"
-                android:layout_marginBottom="8dp"
-                android:background="@drawable/badge"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="12dp" />
-        </FrameLayout>
+            android:text="View Forum"
+            android:textColor="@color/white"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@+id/StudentProfile"
+            android:background="@drawable/custom_button1"/>
 
     </RelativeLayout>
 
