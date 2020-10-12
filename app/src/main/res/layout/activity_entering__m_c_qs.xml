@@ -21,7 +21,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="579dp">
+        android:layout_height="546dp">
 
         <LinearLayout
             android:id="@+id/mcq_Layout"
