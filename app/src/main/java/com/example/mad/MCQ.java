@@ -1,5 +1,5 @@
 package com.example.mad;
-
+//for store mcq details
 public class MCQ {
     private String Question;
     private String Ans1;
