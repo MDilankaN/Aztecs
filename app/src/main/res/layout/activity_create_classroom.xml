@@ -21,247 +21,138 @@
             android:text="Create Classroom"
             android:textAlignment="center"
             android:textColor="@color/darkcolor"
-            android:textSize="30dp"></TextView>
+            android:textSize="30dp"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"></TextView>
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/forum1">
 
-    </ImageView>
     <!--    Layout3-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="450dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/scrollview"
         android:orientation="vertical"
         android:paddingTop="10dp">
 
-        <!--    Layout for classroom name-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
+        <TextView
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:fontFamily="@font/raleway_semibold"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Name"
+            android:textColor="@color/darklightBlue"
+            android:textSize="25dp"
+            android:textStyle="bold">
 
-            </Space>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:fontFamily="@font/raleway_semibold"
-                android:text="Name"
-                android:textColor="@color/lightcolor"
-                android:textSize="25dp"
-                android:textStyle="bold">
-
-            </TextView>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="22">
-
-            </Space>
-
-            <EditText
+        </TextView>
+                 <EditText
                 android:id="@+id/EtName"
-                android:layout_width="138dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/inputid">
+                android:layout_width="match_parent"
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_semibold"
+                android:textStyle="bold"
+                android:layout_height="35dp"
+                android:alpha="0.5"
+                android:background="@color/white">
 
             </EditText>
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
-
-            </Space>
-
-
-        </LinearLayout>
-
-        <!--    Layout for classroom code-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-            </Space>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Code"
-                android:textColor="@color/lightcolor"
+                android:textColor="@color/darklightBlue"
                 android:textSize="25dp"
                 android:textStyle="bold">
 
             </TextView>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="22">
-
-            </Space>
 
             <EditText
                 android:id="@+id/EtCode"
-                android:layout_width="138dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/inputid">
+                android:layout_width="match_parent"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_semibold"
+                android:textStyle="bold"
+                android:layout_height="35dp"
+                android:alpha="0.5"
+                android:background="@color/white">
 
             </EditText>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
-
-            </Space>
-
-
-        </LinearLayout>
-
-        <!--    Layout for classroom description -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-            </Space>
-
-            <TextView
+             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Description"
-                android:textColor="@color/lightcolor"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/darklightBlue"
                 android:textSize="25dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="22">
-
-            </Space>
 
             <EditText
                 android:id="@+id/EtDes"
-                android:layout_width="138dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/inputid">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/raleway_semibold"
+                android:textStyle="bold"
+                android:alpha="0.5"
+                android:background="@color/white">
 
-            </EditText>
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
-
-            </Space>
-
-
-        </LinearLayout>
-
-
-        <!--    Layout for classroom description -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-            </Space>
+          </EditText>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="18dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:fontFamily="@font/raleway_semibold"
                 android:text="Date"
-                android:textColor="@color/lightcolor"
+                android:textColor="@color/darklightBlue"
                 android:textSize="25dp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="22">
-
-            </Space>
-
-            <TextView
+          <TextView
                 android:id="@+id/txtdate"
-                android:layout_width="138dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/inputid"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:alpha="0.5"
+                android:background="@color/white"
                 android:textColor="@color/black"
+                android:fontFamily="@font/raleway_semibold"
                 android:textSize="20sp"
                 android:textStyle="bold">
 
             </TextView>
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
-
-            </Space>
-
-
         </LinearLayout>
-
-
-
-    </LinearLayout>
 
     <!--    Layout for buttons -->
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:background="@drawable/linearlayout"
         android:paddingEnd="10dp"
         android:paddingLeft="10dp"
@@ -270,15 +161,15 @@
 
         <Button
             android:id="@+id/btnCancel"
-            android:layout_width="111dp"
+            android:layout_width="134dp"
 
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="@drawable/cancel">
 
         </Button>
 
         <Space
-            android:layout_width="wrap_content"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.2">
 
@@ -287,9 +178,9 @@
 
         <Button
             android:id="@+id/btnCreate"
-            android:layout_width="111dp"
+            android:layout_width="134dp"
 
-            android:layout_height="30dp"
+            android:layout_height="50dp"
             android:background="@drawable/create">
 
         </Button>

@@ -78,7 +78,7 @@ public class AdupterClass extends RecyclerView.Adapter<AdupterClass.MyViewHolder
             code=itemView.findViewById(R.id.clsCode);
             view = itemView;
 
-            //today testing
+            // testing
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

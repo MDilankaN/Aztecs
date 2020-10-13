@@ -40,7 +40,7 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delete_cls_teacher);
 
-        show=findViewById(R.id.btnShow);
+
         update=findViewById(R.id.btnUpdate);
         delete=findViewById(R.id.btnDelete);
         txtname=findViewById(R.id.EtName);
@@ -53,7 +53,7 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
         Intent i =getIntent();
         username = i.getStringExtra("name");
         codename = i.getStringExtra("code");
-        System.out.println(username+" , "+ codename);
+
         dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
 
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -78,16 +78,6 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
             }
         });
 
-
-        //testing view all tetAILS about classroom 111
-        show.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-
         //update button
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,8 +92,7 @@ public class updateDeleteClsTeacher extends AppCompatActivity {
                             cls.setCode(Integer.parseInt(txtcode.getText().toString().trim()));
                             cls.setDescription(txtdes.getText().toString().trim());
                             cls.setDate(txtDate.getText().toString().trim());
-
-                            //dbRef= FirebaseDatabase.getInstance().getReference().child("Classroom").child(username).child(codename);
+                            //write data to database reference
                             dbRef.setValue(cls);
 
                             clearControls();

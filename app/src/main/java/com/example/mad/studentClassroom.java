@@ -49,7 +49,7 @@ public class studentClassroom extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     clzid = codefield.getText().toString().trim();
-                    System.out.println(clzid);
+                    // testing  System.out.println(clzid);
                     ref2 = FirebaseDatabase.getInstance().getReference().child("AvailableClz").child(clzid);
                     ref3 = FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(Name);
                     ref2.addValueEventListener(new ValueEventListener() {
@@ -70,14 +70,6 @@ public class studentClassroom extends AppCompatActivity {
                                 codefield.setText("");
                             }
 
-
-                            ///continue
-                        /*
-                        timer ----
-                        Enrollment User Friendlyness  =need to copy or
-                        forum reply
-
-                         */
                         }
 
                         @Override
@@ -97,10 +89,6 @@ public class studentClassroom extends AppCompatActivity {
 
     public void setScroll() {
         try {
-            /*for(int i=0;i<clzroom.getChildCount();i++){
-                View Cardview = clzroom.getChildAt(i);
-
-            }*/
 
             ref = FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(Name);
 
@@ -123,8 +111,6 @@ public class studentClassroom extends AppCompatActivity {
 
                         openclzroon(Container,cname);
                         ref1=FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(Name);
-
-
 
                     }
 
@@ -163,7 +149,7 @@ public class studentClassroom extends AppCompatActivity {
         super.onResume();
         Intent intent = getIntent();
         Name = intent.getStringExtra("name");
-
+        //identify elements in XML
         navNews = findViewById(R.id.btn_navi2);
         navPro = findViewById(R.id.btn_navi3);
 

@@ -64,19 +64,8 @@ public class AddClassrooms extends AppCompatActivity {
         textViewDate.setText(date);
 
 
-
-
         //Classroom object
         cls=new Classroom();
-
-
-
-
-
-
-
-
-
 
         //method for create classroom
         btnCreate.setOnClickListener(new View.OnClickListener(){
@@ -86,6 +75,7 @@ public class AddClassrooms extends AppCompatActivity {
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Classroom").child(sessionID);
                 dbRef2 = FirebaseDatabase.getInstance().getReference().child("AvailableClz");
 
+                // validate if there are empty fields . user must enter all fields
 
                 try{
                     if(TextUtils.isEmpty(txtname.getText().toString())){
@@ -128,11 +118,6 @@ public class AddClassrooms extends AppCompatActivity {
             }
 
         });
-
-
-
-
-
 
 
     }

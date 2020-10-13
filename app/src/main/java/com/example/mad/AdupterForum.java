@@ -45,7 +45,7 @@ public class AdupterForum extends RecyclerView.Adapter<AdupterForum.MyViewHolder
     @Override
     public void onBindViewHolder(@NonNull AdupterForum.MyViewHolder holder, int position) {
             holder.txtForum.setText(forumList.get(position).getMessage().toString());
-        //System.out.println(forumList.get(position).toString());
+
 
     }
 

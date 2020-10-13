@@ -33,8 +33,6 @@ public class Student_profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_profile);
 
-
-
         //find text and edit view
         Password = findViewById(R.id.editTextStudentName);
         Password1 = findViewById(R.id.NamePrintS);
@@ -66,8 +64,10 @@ public class Student_profile extends AppCompatActivity {
             }
         });
 
+        //call the retrive function
         retriveData();
 
+        //calculation data base
         DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("StuEnrollClasses").child(userName);
         classref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -90,6 +90,7 @@ public class Student_profile extends AppCompatActivity {
             }
         });
 
+        //calculation data base
        DatabaseReference forumref = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(userName);
         classref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -112,6 +113,7 @@ public class Student_profile extends AppCompatActivity {
             }
         });
 
+        //update user details
         btnProflieupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,7 +166,7 @@ public class Student_profile extends AppCompatActivity {
 
 
 
-
+    //retrive the data from the data base
     private void retriveData() {
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(userName);
         dbRef.addListenerForSingleValueEvent(new ValueEventListener() {

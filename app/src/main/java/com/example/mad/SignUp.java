@@ -40,19 +40,20 @@ public class SignUp extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-
+        //get component ids
         userType = findViewById(R.id.UserType);
         email = findViewById(R.id.ETEmail);
         username = findViewById(R.id.ETUsername);
         password = findViewById(R.id.ETPassword);
-
+        //for Spinner
         userList.add("Teacher");
         userList.add("Student");
 
-        AD = new ArrayAdapter(this,android.R.layout.simple_spinner_item,userList);
+        AD = new ArrayAdapter(this,android.R.layout.simple_spinner_item,userList);//add list to the Spinner
         userType.setAdapter(AD);
 
         user = new User();
+        //set firebase path
         ref = FirebaseDatabase.getInstance().getReference().child("User");
         OnclickButtonListener();
     }

@@ -36,10 +36,12 @@ public class Quizzes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quizzes);
         final View view = findViewById(android.R.id.content);
+        //get recyclerView id;
         recyclerView = findViewById(R.id.quizzesRecyclerview);
+        //get extra msg
         Intent intent = getIntent();
         Class = intent.getStringExtra("name");
-
+        //set path to retrieve quiz names
         ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class);
             ref.addValueEventListener(new ValueEventListener(){
                 @Override

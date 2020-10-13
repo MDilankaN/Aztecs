@@ -51,15 +51,7 @@ public class AdupterReply extends RecyclerView.Adapter<AdupterReply.MyViewHolder
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            /*itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i =new Intent(view.getContext(), updateDeleteClsTeacher.class);
-                    view.getContext().startActivity(i);
-                }
-            });*/
-
-
+            //identify elements in XML
             quection=itemView.findViewById(R.id.forumreply);
             Reply=itemView.findViewById(R.id.reply);
 

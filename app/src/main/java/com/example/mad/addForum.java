@@ -53,13 +53,6 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
         btnsubmit=findViewById(R.id.btn_sub);
         btnback=findViewById(R.id.btn_back);
 
-        //retrieve classrooms to spinner
-        //Spinner spinner=findViewById(R.id.spinner);
-        //ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this, R.array.classrooms,android.R.layout.simple_spinner_item);
-        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //spinner.setAdapter(adapter);
-        //spinner.setOnItemSelectedListener(this);
-
         dbRef = FirebaseDatabase.getInstance().getReference();
         dbRef.child("Classroom").addValueEventListener(new ValueEventListener() {
             @Override
@@ -83,26 +76,10 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
             public void onClick(View view) {
                 dbRef = FirebaseDatabase.getInstance().getReference().child("Forum").child(TeacherName);
                 dbRef2 = FirebaseDatabase.getInstance().getReference().child("Forumcount").child(sessionID);
-                /*dbRef.addValueEventListener(new ValueEventListener(){
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists());
-                        //maxid=(dataSnapshot.getChildrenCount());
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-
-
-
-
-                });*/
 
                 try{
-                    //Spinner mySpinner = (Spinner) findViewById(R.id.spinner);
-                    //String text = mySpinner.getSelectedItem().toString();
+
 
                     if (TextUtils.isEmpty(addForum.getText().toString())){
                         Toast.makeText(getApplicationContext(), "Please type your question...", Toast.LENGTH_SHORT).show();
@@ -125,9 +102,6 @@ public class addForum extends AppCompatActivity implements AdapterView.OnItemSel
 
 
                 }
-
-
-
 
             }
         });

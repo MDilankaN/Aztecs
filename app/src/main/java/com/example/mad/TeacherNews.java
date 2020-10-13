@@ -60,9 +60,10 @@ public class TeacherNews extends AppCompatActivity {
         Intent intent = getIntent();
         name = intent.getStringExtra("name");
 
+
         dbRef = FirebaseDatabase.getInstance().getReference().child("News").child(name);
         dbRef2 = FirebaseDatabase.getInstance().getReference().child("StuNews");
-
+        //add  news to data base
         btnAddNewsK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
