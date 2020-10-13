@@ -48,7 +48,7 @@ public class Marksview extends AppCompatActivity {
 
             header.setText(headerx+" Results");
 
-            total.setText(""+Total+" / "+NoQuestons);//setting values
+            total.setText(""+Total+" / 100");//setting values
 
             for(int i = 0;i<Marks.length;i++){
 

@@ -65,6 +65,7 @@ public class PaperExamView extends AppCompatActivity {
 
     }
 
+    //retrive Header data form databse
     private void setquizHead() {
         //hooks
         paperid = findViewById(R.id.paperID);
@@ -111,6 +112,7 @@ public class PaperExamView extends AppCompatActivity {
 
     }
 
+    //retrive MCQ data form databse
     private void getQuizMcqs(final View v) {
 
         dref = FirebaseDatabase.getInstance().getReference().child("MCQ").child(clzname).child(Quizname);
@@ -175,6 +177,7 @@ public class PaperExamView extends AppCompatActivity {
         });
 
     }
+    //intent moving
     public void openMarksview(){
         Intent intx = new Intent(this, Marksview.class);
 
@@ -190,6 +193,7 @@ public class PaperExamView extends AppCompatActivity {
         finish();
     }
 
+    //quiz check data
     public int chechQuiz() {
         Mark = new int[listx.getChildCount()];
         int mcqAns = 0,k ;
@@ -233,12 +237,14 @@ public class PaperExamView extends AppCompatActivity {
         return totalmarks;
     }
 
+    //insert to database
     private void addtoStudentDatabase(MarkData md) {
         dref = FirebaseDatabase.getInstance().getReference().child("Quiz_Marks").child("IT").child(Quizname);
-        dref.push().setValue(md);
+        dref.child(username).setValue(md);
 
     }
 
+    //timer
     private void startTimer(int noOfMinutes) {
         Long TimeDue = Long.valueOf(60 * noOfMinutes * 1000) ;
         CountDownTimer  countDownTimer = new CountDownTimer(TimeDue, 1000) {
