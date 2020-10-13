@@ -23,7 +23,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
     ArrayList<String> QNAME;
     String q;
     String Class;
-
+    //get parameters
     public RecyclerAdapter_QuizList(Context quizzes, ArrayList<QuizList> quizLists, ArrayList<String> QNAME, String Class){
         this.quizLists = quizLists;
         this.quizzes = quizzes;
@@ -31,23 +31,23 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
         this.Class = Class;
     }
     @NonNull
-    @Override
+    @Override//for set card layout
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.quizzes_rowview,parent,false);
         return  new ViewHolder(view);
     }
 
-    @Override
+    @Override//set values in the row
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.QuizName.setText(quizLists.get(position).getQuizName());
 
     }
 
-    @Override
+    @Override//get number of rows
     public int getItemCount() {
         return quizLists.size();
     }
-
+    //handling component which in the card layout
     class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView QuizName;
@@ -55,10 +55,12 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
 
         public ViewHolder(@NonNull final View itemView) {
             super(itemView);
+            //get component's ids
             QuizName = itemView.findViewById(R.id.quizName);
             Edit = itemView.findViewById(R.id.QuizEdit);
             Delete = itemView.findViewById(R.id.QuizDelete);
 
+            //for go to see student results
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -69,7 +71,7 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                     quizzes.startActivity(intent);
                 }
             });
-
+            //for go to update Quiz details
            Edit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -80,11 +82,12 @@ public class RecyclerAdapter_QuizList extends RecyclerView.Adapter<RecyclerAdapt
                     quizzes.startActivity(intent);
                 }
             });
-
+            //for go to delete Quizes
             Delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     q = QNAME.get(getAdapterPosition());
+                    //set path to delete Quizes
                     DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child(Class).child(q);
                     DatabaseReference ref2 = FirebaseDatabase.getInstance().getReference().child("MCQ").child(Class).child(q);
                     ref.removeValue();

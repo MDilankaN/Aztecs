@@ -1,5 +1,5 @@
 package com.example.mad;
-
+//for store student results
 public class Result {
     private String SName;
     private  int SResult;

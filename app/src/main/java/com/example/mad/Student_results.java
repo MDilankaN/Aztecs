@@ -39,29 +39,29 @@ public class Student_results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_results);
         OnclickButtonListener();
-
+        //get recycler view id
         recyclerView = findViewById(R.id.resultRecyclerview);
-
+        //get extra msg
         Intent intent = getIntent();
          qname = intent.getStringExtra("Extar");
          Class = intent.getStringExtra("Class");
-        System.out.println(qname);
-
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
+        //System.out.println(qname);
+        //set path to retrieve student marks
+        ref = FirebaseDatabase.getInstance().getReference().child("Quiz_Marks").child(Class).child(qname);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChildren()) {
                     resultsList = new ArrayList<>();
-                    for (DataSnapshot DS : snapshot.getChildren()) {
+                    for (DataSnapshot DS : snapshot.getChildren()) {//get one by one student
                         Result R = new Result();
                         resultsList.add(R);
-                        R.setSName(DS.child("name").getValue().toString());
-                        R.setSResult(Integer.parseInt(DS.child("result").getValue().toString()));
+                        R.setSName(DS.child("stuName").getValue().toString());//get student name
+                        R.setSResult(Integer.parseInt(DS.child("totalmark").getValue().toString()));//get student marks
                         n++;
                     }
-                    recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);
-                    recyclerView.setAdapter(recyclerAdapter);
+                    recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);//send student marks to adapter clss
+                    recyclerView.setAdapter(recyclerAdapter);//set adapter
                 }else {
 
                     Toast.makeText(getApplicationContext(),"No one is attempt for this quiz yet",Toast.LENGTH_SHORT).show();
