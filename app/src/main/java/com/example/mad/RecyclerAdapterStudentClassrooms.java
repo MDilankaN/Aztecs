@@ -14,15 +14,6 @@ public class RecyclerAdapterStudentClassrooms extends RecyclerView.Adapter<Recyc
 
     ArrayList<ClassroomView> list;
 
-   /* private AdupterClass.ListItemClickListener mOnClickListener;
-
-    interface ListItemClickListener{
-        void onListItemClick(int position);
-    }*/
-
-   /* public RecyclerAdapterStudentClassrooms(AdupterClass.ListItemClickListener onClickListener){
-        this.mOnClickListener = onClickListener;
-    }*/
 
     public RecyclerAdapterStudentClassrooms(ArrayList<ClassroomView> list){
 
