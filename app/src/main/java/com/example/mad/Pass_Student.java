@@ -37,16 +37,18 @@ public class Pass_Student extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pass__student);
+
         percentage = findViewById(R.id.PassResult);
         recyclerView = findViewById(R.id.passRecyclerview);
+
         Intent intent = getIntent();
         AllResult = intent.getIntExtra("AllResult",0);
         int mark = intent.getIntExtra("mark",0);
         Class = intent.getStringExtra("Class");
         qname = intent.getStringExtra("qname");
 
-        ref = FirebaseDatabase.getInstance().getReference().child("Result").child(Class).child(qname);
-        ref.orderByChild("result").startAt(mark).addValueEventListener(new ValueEventListener() {
+        ref = FirebaseDatabase.getInstance().getReference().child("Quiz_Marks").child(Class).child(qname);
+        ref.orderByChild("totalmark").startAt(mark).addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -56,8 +58,8 @@ public class Pass_Student extends AppCompatActivity {
                     for(DataSnapshot DS : snapshot.getChildren()){
                         Result R= new Result();
                         resultsList.add(R);
-                        R.setSName(DS.child("name").getValue().toString());
-                        R.setSResult(Integer.parseInt((DS.child("result").getValue().toString())));
+                        R.setSName(DS.child("stuName").getValue().toString());
+                        R.setSResult(Integer.parseInt((DS.child("totalmark").getValue().toString())));
                         n++;
                     }
                              recyclerAdapter = new RecyclerAdapter_ResultList(resultsList);
@@ -84,7 +86,7 @@ public class Pass_Student extends AppCompatActivity {
             }
         });
     }
-
+    //for calculate pass mark
     public double calculation(double allResult, int n) {
 
             double result =(n/allResult*100);
