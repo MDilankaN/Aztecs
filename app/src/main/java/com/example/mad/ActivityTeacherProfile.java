@@ -56,7 +56,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
 
         retriveData();
 
-
+        //calculate part from the data base
         DatabaseReference classref = FirebaseDatabase.getInstance().getReference().child("Classroom").child(name);
         classref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,6 +91,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
             }
         });
 
+        //calculate part from the data base
         Classroom cr = new Classroom();
 
         DatabaseReference paperRef = FirebaseDatabase.getInstance().getReference().child("QuizzesDetails").child("IT");
@@ -115,7 +116,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
             }
         });
 
-
+        //update the user data
         btnProflieupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,7 +139,7 @@ public class ActivityTeacherProfile extends AppCompatActivity {
 
     }
 
-
+    //retrive data from the database
     private void retriveData() {
         //Retrive data from database
         DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference().child("User").child(name);

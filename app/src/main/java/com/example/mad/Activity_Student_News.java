@@ -35,8 +35,10 @@ public class Activity_Student_News extends AppCompatActivity {
         final String name = intent.getStringExtra("name");
         uname = name;
 
+        //get data from data base
         //find recyclerView id
         recyclerView = findViewById(R.id.Recycleview2);
+        //recyclerView
         dbRef = FirebaseDatabase.getInstance().getReference().child("StuNews");
         dbRef.addValueEventListener(new ValueEventListener() {
             @Override

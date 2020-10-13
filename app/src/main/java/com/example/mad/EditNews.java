@@ -31,10 +31,11 @@ public class EditNews extends AppCompatActivity {
         Intent intent = getIntent();
        String id =  intent.getStringExtra("id");
        String name =  intent.getStringExtra("name");
-       System.out.println(id + "" +name);
+       //System.out.println(id + "" +name);
 
         ref = FirebaseDatabase.getInstance().getReference().child("News").child(name).child(id);
 
+        //update data
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
